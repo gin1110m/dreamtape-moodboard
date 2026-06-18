@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>dreamtape — Visual Identity Mood Board</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&amp;family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#efe6d4;          /* warm cream text */
+  --ink-soft:#cabfa6;
+  --ink-faint:#8c8068;
+  --bg:#13100b;           /* deep warm near-black */
+  --bg-2:#1c1711;
+  --amber:#d9a566;        /* dusty gold */
+  --terra:#c4683d;        /* terracotta */
+  --teal:#7fa39a;         /* faded teal */
+  --line:rgba(239,230,212,0.12);
+  --line-soft:rgba(239,230,212,0.07);
+  --serif:'Fraunces',Georgia,serif;
+  --grot:'Bricolage Grotesque',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--grot);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* warm ambient gradient + film grain */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 15% 0%, rgba(196,104,61,0.16), transparent 55%),
+    radial-gradient(100% 90% at 100% 100%, rgba(127,163,154,0.10), transparent 55%),
+    linear-gradient(180deg,#15110b 0%, #110d09 100%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:0.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- layout shell ---------- */
+.deck{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:118px 0;position:relative}
+.kicker{
+  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.34em;
+  text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:14px;margin-bottom:26px;
+}
+.kicker::before{content:"";width:34px;height:1px;background:var(--amber);opacity:0.7}
+h2{
+  font-family:var(--serif);font-weight:300;font-size:clamp(34px,5vw,62px);
+  letter-spacing:-0.02em;line-height:1.04;margin-bottom:22px;
+}
+.lede{font-size:clamp(16px,1.6vw,19px);color:var(--ink-soft);max-width:62ch;font-weight:300}
+em{font-style:italic;color:var(--amber)}
+
+/* reveal */
+.r{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ---------- cover ---------- */
+.cover{height:100vh;min-height:680px;padding:0;display:flex;align-items:flex-end;overflow:hidden}
+.cover-img{position:absolute;inset:0;z-index:-1}
+.cover-img img{width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(.92) contrast(1.02)}
+.cover-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,16,11,.42) 0%,rgba(19,16,11,.30) 40%,rgba(19,16,11,.96) 100%)}
+.cover-inner{width:100%;max-width:1180px;margin:0 auto;padding:0 28px 9vh}
+.wordmark{font-family:var(--grot);font-weight:500;font-size:clamp(58px,12vw,168px);letter-spacing:-0.05em;line-height:.9;color:var(--ink)}
+.wordmark .dot{color:var(--terra)}
+.cover-tag{font-family:var(--mono);font-size:clamp(12px,1.4vw,15px);letter-spacing:0.5em;text-transform:uppercase;color:var(--amber);margin:28px 0 8px}
+.cover-sub{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.4vw,30px);color:var(--ink-soft);font-weight:300}
+.cover-meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px 34px;font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* ---------- index ---------- */
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;border-top:1px solid var(--line)}
+.toc a{
+  display:flex;gap:20px;align-items:baseline;padding:22px 6px;border-bottom:1px solid var(--line);
+  color:var(--ink);text-decoration:none;transition:color .25s,padding-left .25s,background .25s;
+}
+.toc a:hover{color:var(--amber);padding-left:18px;background:rgba(239,230,212,.02)}
+.toc .num{font-family:var(--mono);font-size:12px;color:var(--ink-faint);min-width:30px}
+.toc .ttl{font-family:var(--serif);font-size:22px;font-weight:300}
+
+/* ---------- archetype ---------- */
+.arch{display:grid;grid-template-columns:0.95fr 1.05fr;gap:60px;align-items:center}
+.arch-figure{position:relative;border:1px solid var(--line)}
+.arch-figure img{width:100%;height:560px;object-fit:cover;display:block;filter:saturate(.9)}
+.dial{display:flex;gap:0;margin:30px 0 30px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;border:1px solid var(--line)}
+.dial .seg{padding:14px 16px}
+.dial .seg.primary{background:rgba(217,165,102,.16);color:var(--amber);flex:0 0 80%;border-right:1px solid var(--line)}
+.dial .seg.secondary{color:var(--teal);flex:1}
+.arch-body p{margin-bottom:16px;color:var(--ink-soft);font-size:16px}
+.arch-body p strong{color:var(--ink);font-weight:500}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pillar{border:1px solid var(--line);background:rgba(239,230,212,.015);overflow:hidden;display:flex;flex-direction:column}
+.pillar .ph{height:210px;overflow:hidden;position:relative}
+.pillar .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);filter:saturate(.9)}
+.pillar:hover .ph img{transform:scale(1.06)}
+.pillar .pb{padding:24px 24px 28px}
+.pillar .pn{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--amber);margin-bottom:12px}
+.pillar h3{font-family:var(--serif);font-weight:400;font-size:23px;letter-spacing:-.01em;margin-bottom:10px;min-height:58px}
+.pillar p{font-size:14.5px;color:var(--ink-faint);line-height:1.55}
+
+/* ---------- mood collage ---------- */
+.collage{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px;gap:14px}
+.collage figure{overflow:hidden;position:relative}
+.collage img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.c-a{grid-column:span 3;grid-row:span 2}
+.c-b{grid-column:span 3;grid-row:span 2}
+.c-c{grid-column:span 2;grid-row:span 2}
+.c-d{grid-column:span 2;grid-row:span 2}
+.c-e{grid-column:span 2;grid-row:span 2}
+.mood-quote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(20px,2.6vw,30px);line-height:1.4;color:var(--ink);max-width:30ch;margin-top:8px}
+
+/* ---------- photo grids ---------- */
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;margin:34px 0 44px;border-top:1px solid var(--line)}
+.spec{padding:22px 0;border-bottom:1px solid var(--line-soft)}
+.spec .sl{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.spec .sv{font-size:15px;color:var(--ink-soft)}
+.grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.grid2b{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.frame{overflow:hidden;position:relative;border:1px solid var(--line-soft)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.frame.tall img{height:520px}
+.frame.std img{height:300px}
+.frame.wide img{height:340px}
+.cap{position:absolute;left:0;bottom:0;padding:8px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:linear-gradient(0deg,rgba(19,16,11,.85),transparent)}
+
+/* ---------- typography page ---------- */
+.type-stack{display:grid;grid-template-columns:1fr;gap:2px;border-top:1px solid var(--line)}
+.type-row{display:grid;grid-template-columns:0.4fr 1fr;gap:30px;padding:34px 0;border-bottom:1px solid var(--line);align-items:center}
+.type-row .meta{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-faint);line-height:1.9;text-transform:uppercase}
+.type-row .meta b{color:var(--amber);font-weight:500}
+.sp-serif{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4vw,52px);letter-spacing:-.01em;line-height:1.05}
+.sp-grot{font-family:var(--grot);font-weight:500;font-size:clamp(28px,4vw,48px);letter-spacing:-.04em}
+.sp-mono{font-family:var(--mono);font-size:clamp(15px,1.8vw,20px);letter-spacing:.06em;color:var(--ink-soft)}
+.sp-hand{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(26px,3.5vw,40px);color:var(--teal)}
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:8px;border:1px solid var(--line)}
+.sw{height:96px;display:flex;align-items:flex-end;padding:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em}
+.sw.dark{color:var(--ink-soft)}.sw.light{color:#1a140c}
+
+/* ---------- application mock ---------- */
+.app{display:grid;grid-template-columns:1fr 0.9fr;gap:56px;align-items:center}
+.sleeve{aspect-ratio:1/1;position:relative;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.sleeve img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.03)}
+.sleeve::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(19,16,11,.15),rgba(19,16,11,.78))}
+.sleeve .sl-grain{position:absolute;inset:0;z-index:3;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E")}
+.sleeve .lab{position:absolute;z-index:4;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+.sleeve .lab .top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.sleeve .lab .mk{font-family:var(--grot);font-weight:500;font-size:clamp(34px,5.5vw,58px);letter-spacing:-.05em;line-height:.92;color:var(--ink)}
+.sleeve .lab .mk small{display:block;font-family:var(--serif);font-style:italic;font-weight:300;font-size:18px;letter-spacing:0;color:var(--amber);margin-top:10px}
+.app-notes p{color:var(--ink-soft);margin-bottom:14px;font-size:16px}
+.app-notes .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 13px;border:1px solid var(--line);color:var(--ink-soft);border-radius:40px}
+
+/* ---------- footer ---------- */
+footer{padding:80px 0 110px;border-top:1px solid var(--line);text-align:center}
+footer .fm{font-family:var(--grot);font-weight:500;font-size:34px;letter-spacing:-.04em}
+footer .fs{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-faint);margin-top:14px}
+
+@media(max-width:860px){
+  .arch,.app{grid-template-columns:1fr;gap:36px}
+  .pillars,.grid3{grid-template-columns:1fr 1fr}
+  .toc{grid-template-columns:1fr}
+  .collage{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
+  .c-a,.c-b,.c-c,.c-d,.c-e{grid-column:span 1;grid-row:span 1}
+  .c-a,.c-b{grid-column:span 2}
+  .specs{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .type-row{grid-template-columns:1fr;gap:14px}
+  .swatches{grid-template-columns:repeat(3,1fr)}
+}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}.pillar:hover .ph img{transform:none}}
+</style>
+<style id="budoux-style">body{word-break:keep-all;overflow-wrap:anywhere;line-break:strict;}</style></head>
+<body>
+<!-- 00 · COVER -->
+<header class="cover">
+<div class="cover-img"><img alt="Empty Los Angeles freeway curving toward a hazy dusk sun, palm trees in silhouette" src="assets/01_hero_dusk_highway.jpg"/></div>
+<div class="cover-inner">
+<div class="wordmark">dreamtape<span class="dot">.</span></div>
+<div class="cover-tag">tape your dream</div>
+<div class="cover-sub">音を​聴いた​瞬間に、​景色が​見える</div>
+<div class="cover-meta">
+<span>Visual Identity · Mood Board</span>
+<span>Art Direction Playbook</span>
+<span>v1 · 2026</span>
+<span>satoru × ginpei</span>
+</div>
+</div>
+</header>
+<div class="deck">
+<!-- 01 · INDEX -->
+<section id="index">
+<div class="kicker r">01 · Contents</div>
+<h2 class="r d1">The deck.</h2>
+<p class="lede r d2" style="margin-bottom:48px">A mood board is the cinematography of a brand. These are the ingredients we are allowed to cook with — and nothing else. Read it as one film, shot before the music starts.</p>
+<nav class="toc r d2">
+<a href="#archetype"><span class="num">02</span><span class="ttl">Brand personality &amp; archetype</span></a>
+<a href="#pillars"><span class="num">03</span><span class="ttl">Visual brand pillars</span></a>
+<a href="#mood"><span class="num">04</span><span class="ttl">Overall brand mood board</span></a>
+<a href="#world"><span class="num">✦</span><span class="ttl">Brand world · benchmarks</span></a>
+<a href="#photo1"><span class="num">05</span><span class="ttl">Photography · cinematic LA vintage</span></a>
+<a href="#photo2"><span class="num">06</span><span class="ttl">Photography · presence</span></a>
+<a href="#dream"><span class="num">07</span><span class="ttl">Dreamscape · landscape from sound</span></a>
+<a href="#analog"><span class="num">08</span><span class="ttl">Analog · vintage / organic / dry</span></a>
+<a href="#motion"><span class="num">09</span><span class="ttl">Motion &amp; video style</span></a>
+<a href="#type"><span class="num">10</span><span class="ttl">Typography, color &amp; text</span></a>
+<a href="#app"><span class="num">11</span><span class="ttl">Single application · release sleeve</span></a>
+</nav>
+</section>
+<!-- 02 · ARCHETYPE -->
+<section id="archetype">
+<div class="kicker r">02 · Personality &amp; Archetype</div>
+<div class="arch">
+<div class="arch-figure r">
+<img alt="A lone figure dissolving into golden dusk haze" src="assets/06_lone_dissolve.jpg"/>
+</div>
+<div class="arch-body r d1">
+<h2>Magician,<br/>with an everyman's hands.</h2>
+<div class="dial">
+<div class="seg primary">80% · Magician</div>
+<div class="seg secondary">20% · Everyman</div>
+</div>
+<p><strong>dreamtape is a Magician at its core.</strong> It builds a world and lets you walk in, without ever explaining how the trick is done. The work is the film; the music is its soundtrack. It doesn't argue, sell, or shout — it shows you a landscape and lets you decide to stay.</p>
+<p>The spice is the <strong>Everyman</strong>. Two directors, Satoru and Ginpei, standing beside the listener, not above them. Spoken in a real voice, never a performed one. No luxury posturing, no hype, no self-inflation. The distance is artistic, never social.</p>
+<p>The promise is quiet and absolute: <em>deliver a dream to those who can no longer hold one</em> — without judging how big or small that dream is. If you know, you know.</p>
+</div>
+</div>
+</section>
+<!-- 03 · PILLARS -->
+<section id="pillars">
+<div class="kicker r">03 · Visual Brand Pillars</div>
+<h2 class="r d1">The five ingredients.</h2>
+<p class="lede r d2" style="margin-bottom:46px">Lay the ingredients on the table first, then cook only with these. Positive constraints — every frame, sleeve and clip is built from this shelf.</p>
+<div class="pillars">
+<div class="pillar r d1">
+<div class="ph"><img alt="California palm trees against a bleached warm sky" src="assets/02_palm_haze.jpg"/></div>
+<div class="pb"><div class="pn">I</div><h3>Cinematic LA Vintage</h3><p>Golden-hour Los Angeles as a film set. Anamorphic width, palm silhouettes, hazy sun, motel neon, the calm of dusk. The backdrop the soundtrack scores.</p></div>
+</div>
+<div class="pillar r d2">
+<div class="ph"><img alt="An abstract ribbon of warm light, like magnetic tape turned to light" src="assets/03_analog_ribbon.jpg"/></div>
+<div class="pb"><div class="pn">II</div><h3>Tape, as a feeling</h3><p>Not the cassette — the warmth left on it. Hiss, grain, the bloom of light on worn film. A dream caught, then let to fade a little. Suggested, never spelled out.</p></div>
+</div>
+<div class="pillar r d3">
+<div class="ph"><img alt="Beams of warm light full of slowly drifting dust" src="assets/11_dust_light.jpg"/></div>
+<div class="pb"><div class="pn">III</div><h3>Vintage · Organic · Dry</h3><p>Analog over digital. Film grain, dust in the light, sun-bleached color, no gloss. Warm, hand-made, slightly faded — the texture of memory.</p></div>
+</div>
+<div class="pillar r d1">
+<div class="ph"><img alt="Surreal desert horizon with a lone road dissolving into haze" src="assets/05_desert_horizon_dream.jpg"/></div>
+<div class="pb"><div class="pn">IV</div><h3>Dreamscape</h3><p>The landscape that appears the instant you hear the sound. Open roads, desert horizons, hazy oceans — wide, quiet, and just unreal enough to be a dream.</p></div>
+</div>
+<div class="pillar r d2">
+<div class="ph"><img alt="Warm sun glowing through a billowing sheer curtain" src="assets/12_curtain_light.jpg"/></div>
+<div class="pb"><div class="pn">V</div><h3>Presence, dissolved</h3><p>The makers are felt, not shown — a figure melting into light, a room just left, a curtain still moving. Atmosphere stands in for the face. The magician never steps out from behind the trick.</p></div>
+</div>
+<div class="pillar r d3" style="justify-content:center">
+<div class="pb" style="padding:34px 26px">
+<div class="pn">RULE</div>
+<h3 style="min-height:auto;margin-bottom:14px">One world, no exceptions.</h3>
+<p>If a frame can't be made from these five ingredients, it doesn't belong to dreamtape. The outline stays sharp. Always lowercase. Audio is never separated from image.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 04 · OVERALL MOOD -->
+<section id="mood">
+<div class="kicker r">04 · Overall Brand Mood</div>
+<div class="collage r d1" style="margin-bottom:40px">
+<figure class="c-a"><img alt="LA freeway at dusk" src="assets/01_hero_dusk_highway.jpg"/></figure>
+<figure class="c-b"><img alt="Empty backyard pool reflecting an amber dusk sky" src="assets/13_pool_dusk.jpg"/></figure>
+<figure class="c-c"><img alt="Vintage motel neon sign at blue-hour dusk" src="assets/07_motel_neon_dusk.jpg"/></figure>
+<figure class="c-d"><img alt="View from a moving vintage car at dusk" src="assets/09_vintage_car_window.jpg"/></figure>
+<figure class="c-e"><img alt="Pacific ocean at hazy dusk with a lone distant figure" src="assets/10_ocean_haze.jpg"/></figure>
+</div>
+<h2 class="r d2" style="max-width:18ch">The calm before a track drops.</h2>
+<p class="lede r d3">dreamtape lives in the quiet confidence of someone who has nothing to prove. It is freedom expressed as image — not loud, just undeniably sure of itself. The light is always warm and going down. The world is always a little bit dreamed. You feel like you've caught a private moment from a film you half-remember, scored by music that hasn't reached the chorus yet. <em>The work is the cinema. The sound is the soundtrack.</em></p>
+</section>
+<!-- ✦ · BENCHMARK / BRAND WORLD -->
+<section id="world">
+<div class="kicker r">Benchmark · The World We Live In</div>
+<h2 class="r d1">In good company.</h2>
+<p class="lede r d2" style="margin-bottom:40px">dreamtape lives in the cinematic, visual-first lane that <em>ODESZA</em> and <em>RÜFÜS DU SOL</em> drew the map for — where a release is a film and the music is its score, where image and sound ship as one package. We take that altitude and make it ours: smaller, warmer, more hand-made. The festival was never the point. The dream is.</p>
+<div class="grid3 r d2" style="margin-bottom:24px">
+<div class="frame std"><img src="assets/05_desert_horizon_dream.jpg" alt="Desert dreamscape — cinematic scale"><span class="cap">scale · the horizon</span></div>
+<div class="frame std"><img src="assets/13_pool_dusk.jpg" alt="Backyard pool at amber dusk"><span class="cap">warmth · last light</span></div>
+<div class="frame std"><img src="assets/10_ocean_haze.jpg" alt="Hazy Pacific dusk"><span class="cap">space · the haze</span></div>
+</div>
+<div class="pillars r d3">
+<div class="pillar" style="justify-content:flex-start">
+<div class="pb"><div class="pn">North star · 01</div><h3 style="min-height:auto">ODESZA</h3><p><b style="color:var(--ink-soft)">Take —</b> cinematic scale, landscape-as-emotion, the build that lands like a film's third act. <b style="color:var(--ink-soft)">Leave —</b> the stadium gloss. We stay intimate.</p></div>
+</div>
+<div class="pillar" style="justify-content:flex-start">
+<div class="pb"><div class="pn">North star · 02</div><h3 style="min-height:auto">RÜFÜS DU SOL</h3><p><b style="color:var(--ink-soft)">Take —</b> desert warmth, organic analog texture, the moody dusk palette, the body inside the landscape. <b style="color:var(--ink-soft)">Leave —</b> the polish. We keep the grain.</p></div>
+</div>
+<div class="pillar" style="justify-content:flex-start">
+<div class="pb"><div class="pn">Our turn · 03</div><h3 style="min-height:auto">dreamtape</h3><p>Their cinema, ours kept closer and quieter. The same visual-first promise — <em>tape your dream</em> — but rotating vocalists, LA-vintage stillness, and a human hand you can feel in every frame.</p></div>
+</div>
+</div>
+</section>
+
+<!-- 05 · PHOTOGRAPHY I -->
+<section id="photo1">
+<div class="kicker r">05 · Photography · Cinematic LA Vintage</div>
+<h2 class="r d1">Wide, warm, and going down.</h2>
+<div class="specs r d2">
+<div class="spec"><div class="sl">Stock / look</div><div class="sv">35mm film · Kodak Portra 400 · Cinestill 800T</div></div>
+<div class="spec"><div class="sl">Light</div><div class="sv">Golden hour &amp; blue hour only. Halation on highlights.</div></div>
+<div class="spec"><div class="sl">Lens</div><div class="sv">Wide / anamorphic. Subject placed inside a world.</div></div>
+<div class="spec"><div class="sl">Color</div><div class="sv">Amber, dusty gold, terracotta, faded teal. Muted.</div></div>
+<div class="spec"><div class="sl">Composition</div><div class="sv">Lots of negative sky. Environment tells the story.</div></div>
+<div class="spec"><div class="sl">Feel</div><div class="sv">Candid, unhurried, slightly faded — never glossy.</div></div>
+</div>
+<div class="grid2 r d2">
+<div class="frame tall"><img alt="Vintage motel sign glowing at dusk" src="assets/07_motel_neon_dusk.jpg"/><span class="cap">motel neon · blue hour</span></div>
+<div style="display:grid;grid-template-rows:1fr 1fr;gap:16px">
+<div class="frame std"><img alt="Empty pool at dusk in the hills" src="assets/13_pool_dusk.jpg"/><span class="cap">stillwater · amber sky</span></div>
+<div class="frame std"><img alt="Palms against a bleached sky" src="assets/02_palm_haze.jpg"/><span class="cap">palms · sun-bleached</span></div>
+</div>
+</div>
+</section>
+<!-- 06 · PHOTOGRAPHY II -->
+<section id="photo2">
+<div class="kicker r">06 · Photography · Presence</div>
+<h2 class="r d1">Felt, never shown.</h2>
+<p class="lede r d2" style="margin-bottom:36px">No one poses for the camera. When a person enters the frame they're already half-gone — a lone silhouette walking into the light, a face bleeding into the landscape behind it. <em>Presence without identity.</em> You never quite catch who it is, and that's the trick the magician keeps.</p>
+<div class="grid2b r d2">
+<div class="frame wide"><img alt="A lone figure dissolving into golden dusk haze" src="assets/06_lone_dissolve.jpg"/><span class="cap">a figure · becoming light</span></div>
+<div class="frame wide"><img alt="Double exposure of a landscape and a blurred face" src="assets/04_double_exposure.jpg"/><span class="cap">double exposure · a half-remembered face</span></div>
+</div>
+</section>
+<!-- 07 · DREAMSCAPE -->
+<section id="dream">
+<div class="kicker r">07 · Dreamscape · Landscape From Sound</div>
+<h2 class="r d1">The picture the music draws.</h2>
+<p class="lede r d2" style="margin-bottom:36px">The core promise made visual: <em>the moment you hear it, a landscape appears</em>. Wide, open, unpeopled spaces, pushed just past real into dream — the horizon where sky and earth blur. These are the establishing shots of the film each track scores.</p>
+<div class="grid3 r d2">
+<div class="frame std"><img alt="Lone road into a desert haze" src="assets/05_desert_horizon_dream.jpg"/><span class="cap">desert · the long road</span></div>
+<div class="frame std"><img alt="Hazy ocean dusk dissolving into pastel sky" src="assets/10_ocean_haze.jpg"/><span class="cap">ocean · into the haze</span></div>
+<div class="frame std"><img alt="Freeway curving into a hazy sun" src="assets/01_hero_dusk_highway.jpg"/><span class="cap">freeway · into the sun</span></div>
+</div>
+</section>
+<!-- 08 · ANALOG / TEXTURE -->
+<section id="analog">
+<div class="kicker r">08 · Analog · Vintage / Organic / Dry</div>
+<h2 class="r d1">Everything you can feel.</h2>
+<p class="lede r d2" style="margin-bottom:36px">The brand's fingerprint is analog warmth — grain, dust, halation, the leak of light at the edge of the frame. Not effects layered on top but the material itself. Every clean image gets dragged back through this until it reads as <em>recorded</em>, not rendered.</p>
+<div class="grid3 r d2" style="grid-template-columns:repeat(2,1fr)">
+<div class="frame wide"><img alt="Abstract ribbon of warm light, like tape turned to light" src="assets/03_analog_ribbon.jpg"/><span class="cap">light · the ribbon</span></div>
+<div class="frame wide"><img alt="Warm sun through a billowing sheer curtain" src="assets/12_curtain_light.jpg"/><span class="cap">curtain · late light</span></div>
+<div class="frame wide"><img alt="Beams of light full of drifting dust" src="assets/11_dust_light.jpg"/><span class="cap">the room · dust &amp; light</span></div>
+<div class="frame wide"><img alt="Abstract warm film grain and light leaks" src="assets/08_film_texture.jpg"/><span class="cap">grain · light leak overlay</span></div>
+</div>
+</section>
+<!-- 09 · MOTION -->
+<section id="motion">
+<div class="kicker r">09 · Motion &amp; Video Style</div>
+<h2 class="r d1">Footage that remembers.</h2>
+<div class="specs r d2" style="grid-template-columns:repeat(2,1fr)">
+<div class="spec"><div class="sl">Short form</div><div class="sv">Super-8 &amp; handheld. In-the-moment, slightly shaky, real. Drives, soundchecks, the road home.</div></div>
+<div class="spec"><div class="sl">Long form</div><div class="sv">Anamorphic film stills set in motion. Slow pushes, no cuts on the beat. The visualizer is a short film.</div></div>
+<div class="spec"><div class="sl">Treatment</div><div class="sv">Date-stamp, gate weave, halation, tape hiss made visible. 24fps feel.</div></div>
+<div class="spec"><div class="sl">Rule</div><div class="sv">Audio and image ship as one package — never a track without its picture.</div></div>
+</div>
+<div class="grid2b r d2">
+<div class="frame wide"><img alt="Motion view from a vintage car at dusk" src="assets/09_vintage_car_window.jpg"/><span class="cap">short form · the drive</span></div>
+<div class="frame wide"><img alt="Dreamlike double exposure of landscape and a blurred face" src="assets/04_double_exposure.jpg"/><span class="cap">long form · the visualizer</span></div>
+</div>
+</section>
+<!-- 10 · TYPOGRAPHY / COLOR -->
+<section id="type">
+<div class="kicker r">10 · Typography, Color &amp; Text</div>
+<h2 class="r d1">Minimal, with a human hand.</h2>
+<div class="type-stack r d2">
+<div class="type-row">
+<div class="meta"><b>Wordmark · grotesque</b><br/>Bricolage Grotesque<br/>always lowercase<br/>tight tracking</div>
+<div class="sp-grot">dreamtape</div>
+</div>
+<div class="type-row">
+<div class="meta"><b>Display · serif</b><br/>Fraunces<br/>for the poetry<br/>cinematic, soft</div>
+<div class="sp-serif">音を​聴いた​瞬間に、<br/>景色が​見える。</div>
+</div>
+<div class="type-row">
+<div class="meta"><b>Caption · mono</b><br/>JetBrains Mono<br/>slate &amp; credits<br/>analog spec feel</div>
+<div class="sp-mono">TAPE 001 · LA · 24FPS · TAKE 03</div>
+</div>
+<div class="type-row">
+<div class="meta"><b>Accent · hand</b><br/>handwritten note<br/>one human mark<br/>used sparingly</div>
+<div class="sp-hand">tape your dream</div>
+</div>
+</div>
+<div class="r d3" style="margin-top:40px">
+<div class="meta" style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:14px">Palette · sun-faded</div>
+<div class="swatches">
+<div class="sw dark" style="background:#13100b">#13100B · shadow</div>
+<div class="sw dark" style="background:#c4683d">#C4683D · terracotta</div>
+<div class="sw light" style="background:#d9a566">#D9A566 · dusty gold</div>
+<div class="sw light" style="background:#cabfa6">#CABFA6 · sepia</div>
+<div class="sw dark" style="background:#7fa39a">#7FA39A · faded teal</div>
+<div class="sw light" style="background:#efe6d4">#EFE6D4 · cream</div>
+</div>
+</div>
+</section>
+<!-- 11 · APPLICATION -->
+<section id="app">
+<div class="kicker r">11 · Single Application · Release Sleeve</div>
+<div class="app">
+<div class="sleeve r">
+<img alt="Release sleeve mock built on a desert dreamscape" src="assets/05_desert_horizon_dream.jpg"/>
+<div class="sl-grain"></div>
+<div class="lab">
+<div class="top"><span>dreamtape · tape 001</span><span>LA / 2026</span></div>
+<div class="mk">dreamtape<small>​「景色が​見える」 feat. —</small></div>
+</div>
+</div>
+<div class="app-notes r d1">
+<h2 style="font-size:clamp(28px,3.6vw,42px)">Every element, in one frame.</h2>
+<p>The proof the system works: a single sleeve carrying the whole brand at once. A dreamscape establishing shot, dragged through analog grain, with the lowercase grotesque wordmark, a serif line of Japanese poetry, and a mono slate credit. Quiet, sure, unmistakably one world.</p>
+<div class="chips">
+<span class="chip">dreamscape bg</span>
+<span class="chip">analog grain</span>
+<span class="chip">lowercase wordmark</span>
+<span class="chip">serif poetry</span>
+<span class="chip">mono slate</span>
+<span class="chip">rotating vocalist</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer>
+<div class="fm">dreamtape</div>
+<div class="fs">tape your dream · visual identity v1 · 2026</div>
+</footer>
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
