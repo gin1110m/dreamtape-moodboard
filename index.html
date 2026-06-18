@@ -43,7 +43,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .logo sup{font-size:.9cqw;font-style:normal;vertical-align:super;letter-spacing:.1em}
 .pageno{position:absolute;top:3.2cqw;right:3.6cqw;font-family:var(--grot);font-weight:700;font-size:2.3cqw;letter-spacing:.02em}
 .title{text-align:center;font-family:var(--grot);font-weight:800;font-size:4.1cqw;letter-spacing:-.005em;line-height:1;padding-top:.2cqw}
-.rule{height:.28cqw;background:var(--rule);margin:1.5cqw 0 1.1cqw}
+svg.rule{display:block;width:100%;height:auto;margin:1.25cqw 0 1.0cqw;overflow:visible}
 .subrow{display:flex;justify-content:space-between;align-items:flex-start;font-size:1.1cqw;color:var(--ink-soft);min-height:2.6cqw}
 .subrow .tag{font-weight:700;letter-spacing:.16em;color:var(--ink);text-transform:uppercase}
 .subrow .brk{font-weight:700;letter-spacing:.22em;color:var(--ink);text-transform:uppercase}
@@ -171,9 +171,11 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.signal-hero{display:block;width:54cqw;height:auto;margin:1.6cqw auto .4cqw}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="signal-rule" viewBox="0 0 1600 30"><path d="M940.0,15.0 L940.0,13.6 L947.3,13.2 L954.7,12.8 L962.0,12.5 L969.3,12.1 L976.7,11.8 L984.0,11.4 L991.3,11.1 L998.7,10.8 L1006.0,10.5 L1013.3,10.2 L1020.7,10.0 L1028.0,9.7 L1035.3,9.5 L1042.7,9.3 L1050.0,9.1 L1057.3,8.9 L1064.7,8.7 L1072.0,8.6 L1079.3,8.4 L1086.7,8.3 L1094.0,8.2 L1101.3,8.1 L1108.7,8.1 L1116.0,8.0 L1123.3,8.0 L1130.7,7.9 L1138.0,7.9 L1145.3,7.9 L1152.7,7.9 L1160.0,7.9 L1167.3,8.0 L1174.7,8.0 L1182.0,8.1 L1189.3,8.1 L1196.7,8.2 L1204.0,8.2 L1211.3,8.3 L1218.7,8.4 L1226.0,8.5 L1233.3,8.5 L1240.7,8.6 L1248.0,8.7 L1255.3,8.8 L1262.7,8.9 L1270.0,8.9 L1277.3,9.0 L1284.7,9.1 L1292.0,9.2 L1299.3,9.2 L1306.7,9.3 L1314.0,9.3 L1321.3,9.4 L1328.7,9.4 L1336.0,9.5 L1343.3,9.5 L1350.7,9.5 L1358.0,9.6 L1365.3,9.6 L1372.7,9.6 L1380.0,9.6 L1387.3,9.6 L1394.7,9.6 L1402.0,9.5 L1409.3,9.5 L1416.7,9.5 L1424.0,9.5 L1431.3,9.4 L1438.7,9.4 L1446.0,9.4 L1453.3,9.3 L1460.7,9.3 L1468.0,9.2 L1475.3,9.2 L1482.7,9.2 L1490.0,9.1 L1497.3,9.1 L1504.7,9.1 L1512.0,9.0 L1519.3,9.0 L1526.7,9.0 L1534.0,9.0 L1541.3,9.0 L1548.7,9.0 L1556.0,9.0 L1563.3,9.1 L1570.7,9.1 L1578.0,9.1 L1585.3,9.2 L1592.7,9.3 L1600.0,9.4 L1600.0,30.0 L940.0,30.0 Z" fill="#c4683d" opacity="0.1"/><circle cx="1138.0" cy="8.8" r="3.2" fill="#d9a566" opacity="0.9"/><path d="M760.0,15.0 L940.0,15.0" stroke="#17140f" stroke-width="1.7" fill="none" opacity="0.25"/><path d="M0.0,12.5 L5.1,10.4 L10.1,11.1 L15.2,12.7 L20.3,12.6 L25.3,11.4 L30.4,11.6 L35.5,12.9 L40.5,13.1 L45.6,11.0 L50.7,9.0 L55.7,9.5 L60.8,11.9 L65.9,13.6 L70.9,14.2 L76.0,15.6 L81.1,18.8 L86.1,21.6 L91.2,21.6 L96.3,19.5 L101.3,18.4 L106.4,18.8 L111.5,18.7 L116.5,17.0 L121.6,15.5 L126.7,16.3 L131.7,18.3 L136.8,18.5 L141.9,16.4 L146.9,14.1 L152.0,13.4 L157.1,12.8 L162.1,10.5 L167.2,7.6 L172.3,7.0 L177.3,9.2 L182.4,11.6 L187.5,12.2 L192.5,12.4 L197.6,14.1 L202.7,16.4 L207.7,16.8 L212.8,15.1 L217.9,13.9 L222.9,15.2 L228.0,17.5 L233.1,18.4 L238.1,18.3 L243.2,19.4 L248.3,21.8 L253.3,22.9 L258.4,20.9 L263.5,17.7 L268.5,15.9 L273.6,15.5 L278.7,14.2 L283.7,11.7 L288.8,10.3 L293.9,11.6 L298.9,13.6 L304.0,13.7 L309.1,11.9 L314.1,10.9 L319.2,11.5 L324.3,11.7 L329.3,10.2 L334.4,8.8 L339.5,10.0 L344.5,13.5 L349.6,16.2 L354.7,17.1 L359.7,17.8 L364.8,19.8 L369.9,21.7 L374.9,20.9 L380.0,18.3 L385.1,16.7 L390.1,17.4 L395.2,18.3 L400.3,17.7 L405.3,16.5 L410.4,17.0 L415.5,18.4 L420.5,18.2 L425.6,15.2 L430.7,11.9 L435.7,10.7 L440.8,10.5 L445.9,9.4 L450.9,7.7 L456.0,7.9 L461.1,10.7 L466.1,13.6 L471.2,14.3 L476.3,13.7 L481.3,14.1 L486.4,15.7 L491.5,16.1 L496.5,14.8 L501.6,14.0 L506.7,15.8 L511.7,18.8 L516.8,20.3 L521.9,20.0 L526.9,19.9 L532.0,20.8 L537.1,20.8 L542.1,18.5 L547.2,15.3 L552.3,13.7 L557.3,13.9 L562.4,13.9 L567.5,12.9 L572.5,12.2 L577.6,13.1 L582.7,14.4 L587.7,14.2 L592.8,12.6 L597.9,11.5 L602.9,11.8 L608.0,12.5 L613.1,12.4 L618.1,12.3 L623.2,13.4 L628.3,15.4 L633.3,16.9 L638.4,17.0 L643.5,16.7 L648.5,16.9 L653.6,17.2 L658.7,16.8 L663.7,15.8 L668.8,15.3 L673.9,15.7 L678.9,16.2 L684.0,16.1 L689.1,15.7 L694.1,15.5 L699.2,15.5 L704.3,15.3 L709.3,14.6 L714.4,14.0 L719.5,14.0 L724.5,14.2 L729.6,14.4 L734.7,14.4 L739.7,14.6 L744.8,14.8 L749.9,15.0 L754.9,15.0 L760.0,14.9" stroke="#17140f" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M940.0,15.0 L940.0,13.6 L947.3,13.2 L954.7,12.8 L962.0,12.5 L969.3,12.1 L976.7,11.8 L984.0,11.4 L991.3,11.1 L998.7,10.8 L1006.0,10.5 L1013.3,10.2 L1020.7,10.0 L1028.0,9.7 L1035.3,9.5 L1042.7,9.3 L1050.0,9.1 L1057.3,8.9 L1064.7,8.7 L1072.0,8.6 L1079.3,8.4 L1086.7,8.3 L1094.0,8.2 L1101.3,8.1 L1108.7,8.1 L1116.0,8.0 L1123.3,8.0 L1130.7,7.9 L1138.0,7.9 L1145.3,7.9 L1152.7,7.9 L1160.0,7.9 L1167.3,8.0 L1174.7,8.0 L1182.0,8.1 L1189.3,8.1 L1196.7,8.2 L1204.0,8.2 L1211.3,8.3 L1218.7,8.4 L1226.0,8.5 L1233.3,8.5 L1240.7,8.6 L1248.0,8.7 L1255.3,8.8 L1262.7,8.9 L1270.0,8.9 L1277.3,9.0 L1284.7,9.1 L1292.0,9.2 L1299.3,9.2 L1306.7,9.3 L1314.0,9.3 L1321.3,9.4 L1328.7,9.4 L1336.0,9.5 L1343.3,9.5 L1350.7,9.5 L1358.0,9.6 L1365.3,9.6 L1372.7,9.6 L1380.0,9.6 L1387.3,9.6 L1394.7,9.6 L1402.0,9.5 L1409.3,9.5 L1416.7,9.5 L1424.0,9.5 L1431.3,9.4 L1438.7,9.4 L1446.0,9.4 L1453.3,9.3 L1460.7,9.3 L1468.0,9.2 L1475.3,9.2 L1482.7,9.2 L1490.0,9.1 L1497.3,9.1 L1504.7,9.1 L1512.0,9.0 L1519.3,9.0 L1526.7,9.0 L1534.0,9.0 L1541.3,9.0 L1548.7,9.0 L1556.0,9.0 L1563.3,9.1 L1570.7,9.1 L1578.0,9.1 L1585.3,9.2 L1592.7,9.3 L1600.0,9.4" stroke="#c4683d" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="signal-hero" viewBox="0 0 1600 230"><path d="M860.0,138.0 L860.0,127.0 L868.2,124.0 L876.4,121.1 L884.7,118.2 L892.9,115.4 L901.1,112.7 L909.3,110.1 L917.6,107.6 L925.8,105.2 L934.0,103.0 L942.2,100.8 L950.4,98.8 L958.7,96.8 L966.9,95.0 L975.1,93.3 L983.3,91.8 L991.6,90.4 L999.8,89.1 L1008.0,87.9 L1016.2,86.9 L1024.4,85.9 L1032.7,85.2 L1040.9,84.5 L1049.1,83.9 L1057.3,83.5 L1065.6,83.1 L1073.8,82.9 L1082.0,82.8 L1090.2,82.8 L1098.4,82.8 L1106.7,83.0 L1114.9,83.2 L1123.1,83.5 L1131.3,83.8 L1139.6,84.2 L1147.8,84.7 L1156.0,85.2 L1164.2,85.8 L1172.4,86.3 L1180.7,86.9 L1188.9,87.6 L1197.1,88.2 L1205.3,88.8 L1213.6,89.5 L1221.8,90.1 L1230.0,90.7 L1238.2,91.3 L1246.4,91.9 L1254.7,92.4 L1262.9,92.9 L1271.1,93.4 L1279.3,93.9 L1287.6,94.2 L1295.8,94.6 L1304.0,94.9 L1312.2,95.2 L1320.4,95.4 L1328.7,95.5 L1336.9,95.6 L1345.1,95.7 L1353.3,95.7 L1361.6,95.6 L1369.8,95.5 L1378.0,95.4 L1386.2,95.3 L1394.4,95.0 L1402.7,94.8 L1410.9,94.6 L1419.1,94.3 L1427.3,94.0 L1435.6,93.6 L1443.8,93.3 L1452.0,93.0 L1460.2,92.7 L1468.4,92.4 L1476.7,92.1 L1484.9,91.8 L1493.1,91.6 L1501.3,91.4 L1509.6,91.2 L1517.8,91.1 L1526.0,91.1 L1534.2,91.1 L1542.4,91.2 L1550.7,91.4 L1558.9,91.6 L1567.1,91.9 L1575.3,92.4 L1583.6,92.9 L1591.8,93.5 L1600.0,94.2 L1600.0,230.0 L860.0,230.0 Z" fill="#c4683d" opacity="0.1"/><circle cx="1082.0" cy="89.6" r="23" fill="#d9a566" opacity="0.9"/><path d="M650.0,138.0 L860.0,138.0" stroke="#17140f" stroke-width="3.2" fill="none" opacity="0.25"/><path d="M0.0,114.4 L4.3,96.0 L8.7,97.8 L13.0,110.9 L17.3,118.0 L21.7,112.4 L26.0,104.0 L30.3,105.7 L34.7,116.6 L39.0,121.9 L43.3,111.1 L47.7,91.2 L52.0,80.4 L56.3,88.9 L60.7,108.6 L65.0,123.5 L69.3,128.8 L73.7,135.2 L78.0,154.2 L82.3,181.9 L86.7,201.2 L91.0,199.7 L95.3,183.9 L99.7,171.0 L104.0,170.5 L108.3,174.7 L112.7,169.9 L117.0,154.7 L121.3,142.8 L125.7,146.9 L130.0,162.9 L134.3,173.3 L138.7,165.5 L143.0,145.3 L147.3,128.8 L151.7,123.2 L156.0,119.6 L160.3,105.3 L164.7,81.2 L169.0,63.4 L173.3,66.0 L177.7,85.5 L182.0,104.7 L186.3,111.8 L190.7,112.1 L195.0,119.4 L199.3,137.4 L203.7,153.9 L208.0,154.6 L212.3,140.7 L216.7,128.7 L221.0,133.0 L225.3,150.6 L229.7,166.1 L234.0,169.8 L238.3,168.9 L242.7,176.8 L247.0,195.5 L251.3,210.6 L255.7,206.5 L260.0,183.9 L264.3,159.2 L268.7,146.5 L273.0,142.9 L277.3,135.1 L281.7,116.8 L286.0,98.4 L290.3,95.3 L294.7,109.3 L299.0,125.2 L303.3,126.8 L307.7,114.2 L312.0,101.9 L316.3,101.2 L320.7,107.3 L325.0,106.2 L329.3,93.2 L333.7,80.7 L338.0,85.2 L342.3,108.9 L346.7,136.8 L351.0,153.1 L355.3,157.8 L359.7,163.9 L364.0,179.7 L368.3,196.9 L372.7,199.9 L377.0,184.1 L381.3,162.9 L385.7,153.9 L390.0,160.2 L394.3,168.6 L398.7,166.3 L403.0,155.9 L407.3,151.3 L411.7,159.7 L416.0,171.1 L420.3,168.2 L424.7,146.1 L429.0,118.0 L433.3,101.4 L437.7,98.7 L442.0,97.5 L446.3,88.4 L450.7,77.0 L455.0,77.2 L459.3,94.4 L463.7,117.8 L468.0,131.7 L472.3,131.8 L476.7,127.9 L481.0,131.1 L485.3,140.6 L489.7,146.4 L494.0,141.9 L498.3,133.4 L502.7,132.7 L507.0,144.2 L511.3,160.0 L515.7,169.0 L520.0,168.6 L524.3,165.7 L528.7,167.3 L533.0,171.3 L537.3,169.6 L541.7,158.5 L546.0,143.3 L550.3,133.1 L554.7,131.3 L559.0,133.0 L563.3,132.1 L567.7,128.0 L572.0,125.5 L576.3,128.2 L580.7,133.5 L585.0,136.0 L589.3,133.2 L593.7,128.2 L598.0,125.8 L602.3,127.3 L606.7,129.9 L611.0,130.9 L615.3,130.9 L619.7,132.0 L624.0,135.2 L628.3,138.8 L632.7,140.6 L637.0,140.4 L641.3,139.8 L645.7,139.8 L650.0,140.2" stroke="#17140f" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M860.0,138.0 L860.0,127.0 L868.2,124.0 L876.4,121.1 L884.7,118.2 L892.9,115.4 L901.1,112.7 L909.3,110.1 L917.6,107.6 L925.8,105.2 L934.0,103.0 L942.2,100.8 L950.4,98.8 L958.7,96.8 L966.9,95.0 L975.1,93.3 L983.3,91.8 L991.6,90.4 L999.8,89.1 L1008.0,87.9 L1016.2,86.9 L1024.4,85.9 L1032.7,85.2 L1040.9,84.5 L1049.1,83.9 L1057.3,83.5 L1065.6,83.1 L1073.8,82.9 L1082.0,82.8 L1090.2,82.8 L1098.4,82.8 L1106.7,83.0 L1114.9,83.2 L1123.1,83.5 L1131.3,83.8 L1139.6,84.2 L1147.8,84.7 L1156.0,85.2 L1164.2,85.8 L1172.4,86.3 L1180.7,86.9 L1188.9,87.6 L1197.1,88.2 L1205.3,88.8 L1213.6,89.5 L1221.8,90.1 L1230.0,90.7 L1238.2,91.3 L1246.4,91.9 L1254.7,92.4 L1262.9,92.9 L1271.1,93.4 L1279.3,93.9 L1287.6,94.2 L1295.8,94.6 L1304.0,94.9 L1312.2,95.2 L1320.4,95.4 L1328.7,95.5 L1336.9,95.6 L1345.1,95.7 L1353.3,95.7 L1361.6,95.6 L1369.8,95.5 L1378.0,95.4 L1386.2,95.3 L1394.4,95.0 L1402.7,94.8 L1410.9,94.6 L1419.1,94.3 L1427.3,94.0 L1435.6,93.6 L1443.8,93.3 L1452.0,93.0 L1460.2,92.7 L1468.4,92.4 L1476.7,92.1 L1484.9,91.8 L1493.1,91.6 L1501.3,91.4 L1509.6,91.2 L1517.8,91.1 L1526.0,91.1 L1534.2,91.1 L1542.4,91.2 L1550.7,91.4 L1558.9,91.6 L1567.1,91.9 L1575.3,92.4 L1583.6,92.9 L1591.8,93.5 L1600.0,94.2" stroke="#c4683d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
 <div class="deck">
 
 <!-- 01 · TITLE -->
@@ -183,6 +185,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pad">
     <div class="cover-c">
       <div class="wm">dreamtape<span class="dot">.</span></div>
+      <svg class="signal-hero" viewBox="0 0 1600 230"><use href="#signal-hero"/></svg>
       <div class="tg">tape your dream</div>
       <div class="jp">音を聴いた瞬間に、景色が見える</div>
     </div>
@@ -202,7 +205,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">02</div>
   <div class="pad">
     <div class="title">CONTENTS</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ INDEX ]</span><span class="cap">Read it as one film — shot before the music starts.</span></div>
     <div class="body">
       <div class="toc">
@@ -231,7 +234,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">03</div>
   <div class="pad">
     <div class="title">BRAND PERSONALITY &amp; ARCHETYPE</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ WHO THE BRAND IS ]</span><span class="cap">The archetype drives every other decision in this guide.</span></div>
     <div class="body">
       <div class="arch">
@@ -259,7 +262,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">04</div>
   <div class="pad">
     <div class="title">VISUAL BRAND PILLARS</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ VISUAL THEMES ]</span><span class="cap">These themes should run through the brand and every asset.</span></div>
     <div class="body">
       <div class="quad">
@@ -281,7 +284,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">05</div>
   <div class="pad">
     <div class="title">OVERALL BRAND MOODBOARD</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ THE BRAND AT A GLANCE ]</span><span class="cap">The high-level feeling every asset should ladder up to.</span></div>
     <div class="body">
       <div class="mb">
@@ -308,7 +311,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">06</div>
   <div class="pad">
     <div class="title">BRAND WORLD &amp; BENCHMARKS</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ THE WORLD WE LIVE IN ]</span><span class="cap">Where dreamtape sits, and who it aligns with.</span></div>
     <div class="body">
       <div class="bm">
@@ -337,7 +340,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">07</div>
   <div class="pad">
     <div class="title">PHOTOGRAPHY STYLE</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ PHOTO ART DIRECTION ]</span><span class="cap">35mm · Portra 400 / Cinestill 800T · golden hour only · wide.</span></div>
     <div class="body">
       <div class="row r4">
@@ -359,7 +362,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">08</div>
   <div class="pad">
     <div class="title">PHOTOGRAPHY STYLE</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ PRESENCE, NOT PORTRAIT ]</span><span class="cap">The makers felt, never shown. Presence without identity.</span></div>
     <div class="body">
       <div class="row r4">
@@ -381,7 +384,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">09</div>
   <div class="pad">
     <div class="title">DREAMSCAPE</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ LANDSCAPE FROM SOUND ]</span><span class="cap">The moment you hear it, a landscape appears. Wide, open, unpeopled.</span></div>
     <div class="body">
       <div class="row r4">
@@ -403,7 +406,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">10</div>
   <div class="pad">
     <div class="title">PHOTOGRAPHY STYLE EXAMPLES</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ EXECUTION ]</span><span class="cap">How the ingredients combine in a finished frame.</span></div>
     <div class="body">
       <div class="row r6">
@@ -427,7 +430,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">11</div>
   <div class="pad">
     <div class="title">IRL VIDEO STYLE INSPIRATION</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Short Form</span><span class="brk">[ HANDHELD · SUPER-8 ]</span><span class="cap">In-the-moment, slightly shaky, real. Drives, soundchecks, the road home.</span></div>
     <div class="body">
       <div class="row r4" style="height:72%">
@@ -447,7 +450,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">12</div>
   <div class="pad">
     <div class="title">VIDEO STYLE INSPIRATION</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Long Form</span><span class="brk">[ THE VISUALIZER IS A SHORT FILM ]</span><span class="cap">Anamorphic stills set in motion. Slow pushes, no cuts on the beat. 24fps.</span></div>
     <div class="body">
       <div class="row" style="grid-template-columns:1.5fr 1fr;height:72%">
@@ -465,7 +468,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">13</div>
   <div class="pad">
     <div class="title">TEXTURES</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ MAKE IT RECORDED, NOT RENDERED ]</span><span class="cap">Drag every clean image back through analog texture.</span></div>
     <div class="body">
       <div class="tex">
@@ -491,7 +494,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">14</div>
   <div class="pad">
     <div class="title">TYPOGRAPHY &amp; COLOR</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ FONT STYLES ]</span><span class="cap">Minimal, with one human hand. Always lowercase wordmark.</span></div>
     <div class="body">
       <div class="typ">
@@ -518,7 +521,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   <div class="pageno">15</div>
   <div class="pad">
     <div class="title">FONT USAGE EXAMPLES</div>
-    <div class="rule"></div>
+    <svg class="rule" viewBox="0 0 1600 30"><use href="#signal-rule"/></svg>
     <div class="subrow"><span class="tag">Art Direction Guide</span><span class="brk">[ EVERYTHING IN ONE FRAME ]</span><span class="cap">A single release sleeve carrying the whole brand at once.</span></div>
     <div class="body">
       <div class="app">
