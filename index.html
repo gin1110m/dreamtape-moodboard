@@ -9,88 +9,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=IBM+Plex+Mono:wght@400;500;600&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f7f4ee;        /* warm editorial white */
-  --gallery:#d7d3ca;
-  --ink:#191712;          /* near-black */
-  --ink-soft:#6f685b;
-  --ink-faint:#a39a88;
-  --accent:#c4683d;       /* warm terracotta — content */
-  --steel:#5b6b78;        /* COLD machine accent — the multiplier */
-  --steel-soft:rgba(91,107,120,.5);
-  --hair:rgba(25,23,18,0.14);
-  --grot:'Bricolage Grotesque',system-ui,sans-serif;     /* Helvetica-like primary */
-  --didone:'Bodoni Moda',Georgia,serif;                  /* couture display */
-  --mincho:'Shippori Mincho',serif;                      /* elegant JP */
-  --mono:'IBM Plex Mono',ui-monospace,monospace;         /* cold machine voice */
+  --paper:#f7f4ee;--gallery:#d7d3ca;--ink:#191712;--ink-soft:#6f685b;--ink-faint:#a39a88;
+  --accent:#c4683d;--steel:#5b6b78;--steel-soft:rgba(91,107,120,.5);--hair:rgba(25,23,18,0.14);
+  --grot:'Bricolage Grotesque',system-ui,sans-serif;
+  --didone:'Bodoni Moda',Georgia,serif;
+  --mincho:'Shippori Mincho',serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-font-smoothing:antialiased;padding:34px 0 70px}
-
 .deck{display:flex;flex-direction:column;align-items:center;gap:30px}
-.slide{
-  width:min(1180px,95vw);aspect-ratio:16/9;background:var(--paper);position:relative;
-  container-type:inline-size;box-shadow:0 20px 50px rgba(0,0,0,.16);overflow:hidden;
-}
-/* precision measurement ruler — the instrument header (cold/machine cue) */
-.slide::before{
-  content:"";position:absolute;top:0;left:0;right:0;height:1.5cqw;z-index:4;
-  background:
-    repeating-linear-gradient(90deg, var(--steel) 0 .08cqw, transparent .08cqw 1.5cqw),
-    repeating-linear-gradient(90deg, var(--steel) 0 .1cqw, transparent .1cqw 7.5cqw);
-  -webkit-mask:linear-gradient(180deg,#000 0,#000 38%,transparent 78%);
-          mask:linear-gradient(180deg,#000 0,#000 38%,transparent 78%);
-  opacity:.5;
-}
+.slide{width:min(1180px,95vw);aspect-ratio:16/9;background:var(--paper);position:relative;container-type:inline-size;box-shadow:0 20px 50px rgba(0,0,0,.16);overflow:hidden}
+.slide::before{content:"";position:absolute;top:0;left:0;right:0;height:1.5cqw;z-index:4;
+  background:repeating-linear-gradient(90deg,var(--steel) 0 .08cqw,transparent .08cqw 1.5cqw),repeating-linear-gradient(90deg,var(--steel) 0 .1cqw,transparent .1cqw 7.5cqw);
+  -webkit-mask:linear-gradient(180deg,#000 0,#000 38%,transparent 78%);mask:linear-gradient(180deg,#000 0,#000 38%,transparent 78%);opacity:.5}
 .pad{position:absolute;inset:0;padding:4.4cqw 3.6cqw 3.2cqw;display:flex;flex-direction:column}
-
-/* ---- header chrome ---- */
 .logo{position:absolute;top:4.4cqw;left:3.6cqw;font-family:var(--grot);font-weight:700;font-size:1.9cqw;letter-spacing:-.03em}
-.logo sup{font-size:.7cqw;font-weight:500;vertical-align:super;letter-spacing:0}
+.logo sup{font-size:.7cqw;font-weight:500;vertical-align:super}
 .pageno{position:absolute;top:4.5cqw;right:3.6cqw;font-family:var(--mono);font-weight:500;font-size:1.35cqw;letter-spacing:.05em;color:var(--steel)}
-.title{text-align:center;font-family:var(--grot);font-weight:800;font-size:4cqw;letter-spacing:-.01em;line-height:1;padding-top:.1cqw}
-.rule{height:.16cqw;background:var(--ink);margin:1.5cqw 0 1.0cqw}
-/* machine system metadata row */
-.sys{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:.92cqw;letter-spacing:.12em;color:var(--steel);text-transform:uppercase;min-height:2.2cqw}
+.title{text-align:center;font-family:var(--grot);font-weight:800;font-size:3.9cqw;letter-spacing:-.01em;line-height:1;padding-top:.1cqw}
+.rule{height:.16cqw;background:var(--ink);margin:1.4cqw 0 1.0cqw}
+.sys{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:.92cqw;letter-spacing:.12em;color:var(--steel);text-transform:uppercase;min-height:2cqw}
 .sys .brk{color:var(--ink);letter-spacing:.2em;font-weight:500}
-.sys .r{color:var(--steel)}
-
-/* ---- footer chrome ---- */
-.badge{position:absolute;left:3.6cqw;bottom:3cqw;width:8.4cqw;height:8.4cqw;border-radius:50%;overflow:hidden;border:.12cqw solid var(--steel);z-index:5}
-.badge img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) saturate(.9)}
-.disclaim{position:absolute;left:13cqw;bottom:3.3cqw;max-width:22cqw;font-family:var(--mono);font-size:.78cqw;line-height:1.5;letter-spacing:.02em;color:var(--ink-faint)}
+.disclaim{position:absolute;left:3.6cqw;bottom:3.1cqw;font-family:var(--mono);font-size:.85cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.disclaim b{color:var(--accent);font-weight:500}
 .adg{position:absolute;right:3.6cqw;bottom:3.1cqw;font-family:var(--mono);font-weight:500;font-size:1cqw;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
-
-.body{flex:1;min-height:0;position:relative;margin-top:1.3cqw}
-.bigword{position:absolute;left:0;right:0;bottom:.2cqw;text-align:center;font-family:var(--grot);font-weight:800;font-size:7cqw;letter-spacing:.4em;line-height:1;padding-left:.4em;color:var(--ink)}
-.bigword small{display:block;font-family:var(--mono);font-weight:400;font-size:.16em;letter-spacing:.3em;color:var(--steel);margin-top:.4cqw;padding-left:0}
-
-/* image rows */
-.row{display:grid;gap:1cqw;height:62%;margin-top:.6cqw}
-.row.r4{grid-template-columns:repeat(4,1fr)}
-.row.r6{grid-template-columns:repeat(6,1fr)}
+.body{flex:1;min-height:0;position:relative;margin-top:1.1cqw;margin-bottom:2.8cqw}
 .ph{overflow:hidden;background:#ece7dc;position:relative}
 .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.94)}
 .ph .code{position:absolute;left:.5cqw;bottom:.4cqw;font-family:var(--mono);font-size:.72cqw;letter-spacing:.06em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 
 /* ---- title ---- */
 .cover-c{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.cover-c .wm{font-family:var(--grot);font-weight:700;font-size:11.5cqw;letter-spacing:-.055em;line-height:.9}
+.cover-c .wm{font-family:var(--grot);font-weight:700;font-size:13cqw;letter-spacing:-.055em;line-height:.9}
 .cover-c .wm .dot{color:var(--accent)}
-.spec{font-family:var(--mono);font-size:1.05cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);margin:2.4cqw 0 1.6cqw;display:flex;gap:1.4cqw;align-items:center}
-.spec .d{width:.4cqw;height:.4cqw;background:var(--steel);border-radius:50%;display:inline-block}
-.cover-c .tg{font-family:var(--didone);font-style:italic;font-weight:400;font-size:2.6cqw;color:var(--ink)}
-.cover-c .jp{font-family:var(--mincho);font-weight:400;font-size:2.1cqw;color:var(--ink-soft);margin-top:.6cqw;letter-spacing:.06em}
-.cover-strip{position:absolute;left:3.6cqw;right:3.6cqw;bottom:3cqw;display:grid;grid-template-columns:repeat(5,1fr);gap:.8cqw;height:8.6cqw}
-.cover-strip .ph{overflow:hidden}.cover-strip img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.spec{font-family:var(--mono);font-size:1.05cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);margin:2.6cqw 0 1.8cqw;display:flex;gap:1.4cqw;align-items:center}
+.spec .d{width:.4cqw;height:.4cqw;background:var(--steel);border-radius:50%}
+.cover-c .tg{font-family:var(--didone);font-style:italic;font-weight:400;font-size:2.8cqw;color:var(--ink)}
+.cover-c .jp{font-family:var(--mincho);font-weight:400;font-size:2.2cqw;color:var(--ink-soft);margin-top:.7cqw;letter-spacing:.06em}
 .cover-tl{position:absolute;left:3.6cqw;top:4.4cqw;font-family:var(--mono);font-size:1cqw;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
 .cover-tr{position:absolute;right:3.6cqw;top:4.5cqw;font-family:var(--mono);font-size:1.35cqw;letter-spacing:.05em;color:var(--steel)}
+.cover-bl{position:absolute;left:3.6cqw;bottom:3.2cqw;font-family:var(--mono);font-size:.9cqw;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
 
 /* ---- contents ---- */
-.toc{columns:2;column-gap:6cqw;margin-top:1.6cqw}
-.toc .it{display:flex;gap:1.4cqw;align-items:baseline;padding:1cqw 0;border-bottom:.1cqw solid var(--hair);break-inside:avoid}
+.toc{columns:2;column-gap:6cqw;margin-top:1.4cqw}
+.toc .it{display:flex;gap:1.4cqw;align-items:baseline;padding:1.05cqw 0;border-bottom:.1cqw solid var(--hair);break-inside:avoid}
 .toc .n{font-family:var(--mono);font-size:1.1cqw;color:var(--steel);min-width:3cqw}
-.toc .t{font-family:var(--grot);font-weight:500;font-size:1.62cqw}
+.toc .t{font-family:var(--grot);font-weight:500;font-size:1.66cqw}
+.toc .it .th{font-family:var(--mono);font-size:.82cqw;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;margin-left:auto}
 
 /* ---- archetype ---- */
 .arch{display:grid;grid-template-columns:32cqw 1fr;gap:4cqw;height:100%;align-items:center}
@@ -102,13 +69,13 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .radar .hub{position:absolute;left:50%;top:50%;width:1cqw;height:1cqw;background:var(--steel);border-radius:50%;transform:translate(-50%,-50%)}
 .radar-key{display:flex;gap:2cqw;font-family:var(--mono);font-size:1.05cqw;letter-spacing:.05em;text-transform:uppercase}
 .k-mag{color:var(--accent)}.k-eve{color:var(--steel)}
-.arch-txt h3{font-family:var(--didone);font-weight:500;font-size:2.9cqw;letter-spacing:-.005em;margin-bottom:1.2cqw;line-height:1.05}
+.arch-txt h3{font-family:var(--didone);font-weight:500;font-size:2.9cqw;margin-bottom:1.2cqw;line-height:1.05}
 .arch-txt p{font-size:1.42cqw;line-height:1.55;color:var(--ink-soft);margin-bottom:.85cqw;max-width:46cqw}
 .arch-txt p b{color:var(--ink);font-weight:700}
 .arch-txt em{font-family:var(--didone);font-style:italic;color:var(--accent)}
 
 /* ---- pillars quadrant ---- */
-.quad{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;height:100%;margin-top:.4cqw}
+.quad{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;height:100%}
 .qc{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.6cqw;gap:.7cqw}
 .quad .qc:nth-child(-n+3){border-bottom:.1cqw solid var(--hair)}
 .quad .qc:not(:nth-child(3n+1)){border-left:.1cqw solid var(--hair)}
@@ -116,47 +83,68 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .qc .qt{font-family:var(--grot);font-weight:800;font-size:1.9cqw;letter-spacing:-.01em;text-transform:uppercase}
 .qc .qd{font-size:1.1cqw;line-height:1.45;color:var(--ink-soft);max-width:24cqw}
 
-/* ---- overall moodboard ---- */
-.mb{display:grid;grid-template-columns:1.55fr 1fr;gap:2.2cqw;height:100%}
-.mb-collage{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:.8cqw}
-.mb-collage .wide{grid-column:span 2}
-.mb-txt{display:flex;flex-direction:column;justify-content:center}
-.mb-txt .lead{font-family:var(--didone);font-style:italic;font-weight:400;font-size:2.3cqw;line-height:1.22;margin-bottom:1.2cqw}
-.mb-txt p{font-size:1.26cqw;line-height:1.5;color:var(--ink-soft)}
-.mb-txt em{font-family:var(--didone);font-style:italic;color:var(--accent)}
+/* ===== DISTINCT MOODBOARD LAYOUTS ===== */
+/* I · Cinematic LA — asymmetric magazine, two wide + four standard */
+.board-la{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:1cqw;height:100%}
+.board-la .ph:nth-child(1){grid-column:1/3}
+.board-la .ph:nth-child(6){grid-column:3/5}
 
-/* ---- textures ---- */
-.tex{display:grid;grid-template-columns:1fr 22cqw 1fr;gap:2cqw;height:100%;align-items:center}
-.tex .swatch{height:74%;align-self:center;position:relative;border:.1cqw solid var(--steel-soft)}
-.tex .swatch img{width:100%;height:100%;object-fit:cover}
-.tex .swatch .lab{position:absolute;top:-2.2cqw;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.95cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
-.tex .note{font-size:1.18cqw;line-height:1.45;color:var(--ink-soft);margin-bottom:1.3cqw;position:relative;padding-left:2cqw}
-.tex .note .nx{position:absolute;left:0;top:.1cqw;font-family:var(--mono);font-size:.85cqw;color:var(--steel)}
-.tex .note b{color:var(--ink);font-weight:700}
+/* II · Presence — sparse scatter, lots of negative space (absolute) */
+.board-pres{position:relative;height:100%}
+.board-pres .ph{position:absolute}
+.board-pres .p1{left:0;top:5%;width:25%;height:82%}
+.board-pres .p2{right:5%;top:3%;width:21%;height:44%}
+.board-pres .p3{left:34%;top:30%;width:29%;height:55%}
+.board-pres .p4{right:7%;bottom:4%;width:23%;height:42%}
+.board-pres .p5{left:30%;top:1%;width:17%;height:25%}
+.board-pres .p6{left:5%;bottom:3%;width:15%;height:24%}
+.board-pres .note{position:absolute;right:30%;top:8%;max-width:18cqw;font-family:var(--didone);font-style:italic;font-size:1.7cqw;color:var(--ink-soft);text-align:right}
+
+/* III · Dreamscape — one giant full-bleed horizon + inset strip */
+.board-dream{display:grid;grid-template-rows:1.9fr .8fr;gap:1cqw;height:100%}
+.board-dream .hero{overflow:hidden;position:relative}
+.board-dream .hero img{width:100%;height:100%;object-fit:cover}
+.board-dream .strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1cqw}
+
+/* IV · Analog & Texture — dense square grid */
+.board-tex{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:.5cqw;height:100%}
+
+/* V · Motion — 35mm filmstrip */
+.board-mo{height:100%;display:flex;align-items:center;justify-content:center}
+.filmstrip{position:relative;background:#17140f;padding:2.4cqw 1.2cqw;display:flex;gap:.8cqw;height:84%;align-items:center}
+.filmstrip::before,.filmstrip::after{content:"";position:absolute;left:1cqw;right:1cqw;height:1.1cqw;background:repeating-linear-gradient(90deg,transparent 0 .7cqw,var(--paper) .7cqw 1.5cqw)}
+.filmstrip::before{top:.7cqw}.filmstrip::after{bottom:.7cqw}
+.filmstrip .frame{height:100%;aspect-ratio:3/2;overflow:hidden;position:relative}
+.filmstrip .frame img{width:100%;height:100%;object-fit:cover}
+.filmstrip .frame .code{position:absolute;left:.4cqw;bottom:.4cqw;font-family:var(--mono);font-size:.7cqw;color:#fff;opacity:.8}
+
+/* board caption (bottom-left, replaces disclaimer on boards) */
+.bcap{position:absolute;left:3.6cqw;bottom:3.1cqw;font-family:var(--mono);font-size:.9cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.bcap b{color:var(--accent);font-weight:500}
 
 /* ---- typography & color ---- */
 .typ{display:flex;flex-direction:column;gap:.2cqw;height:100%;margin-top:.2cqw}
-.typ .trow{display:grid;grid-template-columns:13cqw 1fr;gap:2cqw;align-items:center;padding:.75cqw 0;border-bottom:.1cqw solid var(--hair)}
+.typ .trow{display:grid;grid-template-columns:13cqw 1fr;gap:2cqw;align-items:center;padding:.7cqw 0;border-bottom:.1cqw solid var(--hair)}
 .typ .meta{font-family:var(--mono);font-size:.92cqw;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);line-height:1.7}
 .typ .meta b{color:var(--ink);font-weight:600}
-.sp-grot{font-family:var(--grot);font-weight:700;font-size:3.2cqw;letter-spacing:-.045em}
-.sp-didone{font-family:var(--didone);font-style:italic;font-weight:400;font-size:2.6cqw;line-height:1.05}
-.sp-mincho{font-family:var(--mincho);font-weight:400;font-size:2.1cqw;letter-spacing:.05em}
-.sp-mono{font-family:var(--mono);font-size:1.4cqw;letter-spacing:.04em;color:var(--ink)}
-.swatches{display:grid;grid-template-columns:repeat(7,1fr);height:5.8cqw;margin-top:.6cqw;border:.1cqw solid var(--hair)}
-.sw{display:flex;align-items:flex-end;padding:.5cqw;font-family:var(--mono);font-size:.74cqw;letter-spacing:.02em}
+.sp-grot{font-family:var(--grot);font-weight:700;font-size:3cqw;letter-spacing:-.045em}
+.sp-didone{font-family:var(--didone);font-style:italic;font-weight:400;font-size:2.5cqw}
+.sp-mincho{font-family:var(--mincho);font-weight:400;font-size:2cqw;letter-spacing:.05em}
+.sp-mono{font-family:var(--mono);font-size:1.35cqw;letter-spacing:.04em;color:var(--ink)}
+.swatches{display:grid;grid-template-columns:repeat(7,1fr);height:5.6cqw;margin-top:.6cqw;border:.1cqw solid var(--hair)}
+.sw{display:flex;align-items:flex-end;padding:.5cqw;font-family:var(--mono);font-size:.74cqw}
 .sw.d{color:var(--paper)}.sw.l{color:var(--ink)}
 
 /* ---- application ---- */
 .app{display:grid;grid-template-columns:1fr 1.1fr;gap:3cqw;height:100%;align-items:center}
-.sleeve{aspect-ratio:1/1;height:86%;justify-self:center;position:relative;overflow:hidden;border:.1cqw solid var(--steel-soft);box-shadow:0 7cqw 11cqw rgba(0,0,0,.18)}
-.sleeve img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.03)}
-.sleeve::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(20,18,14,.12),rgba(20,18,14,.72))}
+.sleeve{aspect-ratio:1/1;height:88%;justify-self:center;position:relative;overflow:hidden;border:.1cqw solid var(--steel-soft);box-shadow:0 7cqw 11cqw rgba(0,0,0,.18)}
+.sleeve img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.03)}
+.sleeve::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(20,18,14,.1),rgba(20,18,14,.66))}
 .sleeve .lab{position:absolute;inset:0;z-index:3;padding:2.2cqw;display:flex;flex-direction:column;justify-content:space-between;color:var(--paper)}
 .sleeve .lab .tp{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.9cqw;letter-spacing:.18em;text-transform:uppercase;opacity:.92}
 .sleeve .lab .mk{font-family:var(--grot);font-weight:700;font-size:3.8cqw;letter-spacing:-.05em;line-height:.92}
-.sleeve .lab .mk small{display:block;font-family:var(--didone);font-style:italic;font-weight:400;font-size:1.5cqw;letter-spacing:0;color:#f0c9a0;margin-top:.7cqw}
-.app-tx h3{font-family:var(--didone);font-weight:500;font-size:2.5cqw;margin-bottom:1cqw;letter-spacing:-.005em}
+.sleeve .lab .mk small{display:block;font-family:var(--didone);font-style:italic;font-weight:400;font-size:1.5cqw;color:#f0c9a0;margin-top:.7cqw}
+.app-tx h3{font-family:var(--didone);font-weight:500;font-size:2.5cqw;margin-bottom:1cqw}
 .app-tx p{font-size:1.3cqw;line-height:1.5;color:var(--ink-soft);margin-bottom:1.1cqw}
 .app-tx .chips{display:flex;flex-wrap:wrap;gap:.6cqw}
 .chip{font-family:var(--mono);font-size:.92cqw;letter-spacing:.04em;padding:.5cqw 1cqw;border:.1cqw solid var(--steel-soft);color:var(--steel);text-transform:uppercase}
@@ -172,7 +160,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 01 · TITLE -->
 <section class="slide reveal">
   <div class="cover-tl">DREAMTAPE™ · VISUAL SYSTEM 1.0</div>
-  <div class="cover-tr">01/14</div>
+  <div class="cover-tr">01/11</div>
   <div class="pad">
     <div class="cover-c">
       <div class="wm">dreamtape<span class="dot">.</span></div>
@@ -181,39 +169,31 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
       <div class="jp">音を聴いた瞬間に、景色が見える</div>
     </div>
   </div>
-  <div class="cover-strip">
-    <div class="ph"><img src="assets/01_hero_dusk_highway.jpg" alt=""></div>
-    <div class="ph"><img src="assets/06_lone_dissolve.jpg" alt=""></div>
-    <div class="ph"><img src="assets/05_desert_horizon_dream.jpg" alt=""></div>
-    <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt=""></div>
-    <div class="ph"><img src="assets/13_pool_dusk.jpg" alt=""></div>
-  </div>
+  <div class="cover-bl">ART DIRECTION GUIDE · MOODBOARD</div>
 </section>
 
 <!-- 02 · CONTENTS -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">02/14</div>
+  <div class="pageno">02/11</div>
   <div class="pad">
     <div class="title">CONTENTS</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ INDEX ]</span><span class="r">SIDE A · 14 PAGES</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ INDEX ]</span><span>SIDE A · 11 PAGES</span></div>
     <div class="body">
       <div class="toc">
-        <div class="it"><span class="n">03</span><span class="t">Brand personality &amp; archetype</span></div>
-        <div class="it"><span class="n">04</span><span class="t">Visual brand pillars</span></div>
-        <div class="it"><span class="n">05</span><span class="t">Overall brand moodboard</span></div>
-        <div class="it"><span class="n">06</span><span class="t">Photography style — cinematic LA</span></div>
-        <div class="it"><span class="n">07</span><span class="t">Photography style — presence</span></div>
-        <div class="it"><span class="n">08</span><span class="t">Dreamscape — landscape from sound</span></div>
-        <div class="it"><span class="n">09</span><span class="t">Photography style examples</span></div>
-        <div class="it"><span class="n">10</span><span class="t">Video style — short form</span></div>
-        <div class="it"><span class="n">11</span><span class="t">Video style — long form</span></div>
-        <div class="it"><span class="n">12</span><span class="t">Textures</span></div>
-        <div class="it"><span class="n">13</span><span class="t">Typography &amp; color</span></div>
-        <div class="it"><span class="n">14</span><span class="t">Font usage — release sleeve</span></div>
+        <div class="it"><span class="n">03</span><span class="t">Brand personality &amp; archetype</span><span class="th">chart</span></div>
+        <div class="it"><span class="n">04</span><span class="t">Visual brand pillars</span><span class="th">index</span></div>
+        <div class="it"><span class="n">05</span><span class="t">Moodboard I — Cinematic LA</span><span class="th">warm</span></div>
+        <div class="it"><span class="n">06</span><span class="t">Moodboard II — Presence</span><span class="th">shadow</span></div>
+        <div class="it"><span class="n">07</span><span class="t">Moodboard III — Dreamscape</span><span class="th">vast</span></div>
+        <div class="it"><span class="n">08</span><span class="t">Moodboard IV — Analog &amp; texture</span><span class="th">tactile</span></div>
+        <div class="it"><span class="n">09</span><span class="t">Motion — video style</span><span class="th">filmstrip</span></div>
+        <div class="it"><span class="n">10</span><span class="t">Typography &amp; color</span><span class="th">system</span></div>
+        <div class="it"><span class="n">11</span><span class="t">Release sleeve</span><span class="th">applied</span></div>
       </div>
     </div>
+    <div class="disclaim">This guide sets the visual direction for every dreamtape asset.</div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
@@ -221,11 +201,11 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 03 · ARCHETYPE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">03/14</div>
+  <div class="pageno">03/11</div>
   <div class="pad">
     <div class="title">BRAND PERSONALITY &amp; ARCHETYPE</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ WHO THE BRAND IS ]</span><span class="r">FIG.A · RATIO 80/20</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ WHO THE BRAND IS ]</span><span>FIG.A · RATIO 80/20</span></div>
     <div class="body">
       <div class="arch">
         <div class="radar-wrap">
@@ -234,14 +214,13 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
         </div>
         <div class="arch-txt">
           <h3>Magician, with an everyman's hands.</h3>
-          <p><b>Magician (80%).</b> dreamtape builds a world and lets you walk in, never explaining how the trick is done. The work is the film; the music is its soundtrack. It doesn't sell or shout — it shows you a landscape and lets you decide to stay.</p>
-          <p><b>Everyman (20%).</b> Two makers standing beside the listener, not above. Spoken in a real voice, never performed. No luxury posturing, no hype. The distance is artistic, never social.</p>
+          <p><b>Magician (80%).</b> dreamtape builds a world and lets you walk in, never explaining how the trick is done. The work is the film; the music is its soundtrack. It shows you a landscape and lets you decide to stay.</p>
+          <p><b>Everyman (20%).</b> Two makers standing beside the listener, not above. A real voice, never performed. No luxury posturing, no hype.</p>
           <p>The promise stays quiet and absolute: <em>deliver a dream to those who can no longer hold one.</em></p>
         </div>
       </div>
     </div>
-    <div class="badge"><img src="assets/06_lone_dissolve.jpg" alt=""></div>
-    <div class="disclaim">This guide sets the visual direction for every dreamtape asset. Creative should not deviate.</div>
+    <div class="disclaim">Creative should <b>not deviate</b> from these guidelines.</div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
@@ -249,11 +228,11 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 04 · PILLARS -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">04/14</div>
+  <div class="pageno">04/11</div>
   <div class="pad">
     <div class="title">VISUAL BRAND PILLARS</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ VISUAL THEMES ]</span><span class="r">06 INGREDIENTS</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ VISUAL THEMES ]</span><span>06 INGREDIENTS</span></div>
     <div class="body">
       <div class="quad">
         <div class="qc"><span class="qn">I</span><span class="qt">Cinematic LA Vintage</span><span class="qd">Golden-hour Los Angeles as a film set — anamorphic, hazy, going down.</span></div>
@@ -268,195 +247,134 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   </div>
 </section>
 
-<!-- 05 · OVERALL MOODBOARD -->
+<!-- 05 · MOODBOARD I — CINEMATIC LA -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">05/14</div>
+  <div class="pageno">05/11</div>
   <div class="pad">
-    <div class="title">OVERALL BRAND MOODBOARD</div>
+    <div class="title">MOODBOARD I — CINEMATIC LA</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ THE BRAND AT A GLANCE ]</span><span class="r">PLATE 05</span></div>
+    <div class="sys"><span>WARM · URBAN · GOLDEN HOUR</span><span class="brk">[ THE CITY AT DUSK ]</span><span>35MM · 5600K · NEON</span></div>
     <div class="body">
-      <div class="mb">
-        <div class="mb-collage">
-          <div class="ph wide"><img src="assets/01_hero_dusk_highway.jpg" alt="LA freeway at dusk"><span class="code">FIG.01 · 35MM</span></div>
-          <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt="Motel neon at dusk"><span class="code">FIG.07</span></div>
-          <div class="ph"><img src="assets/13_pool_dusk.jpg" alt="Pool at amber dusk"><span class="code">FIG.13</span></div>
-          <div class="ph"><img src="assets/10_ocean_haze.jpg" alt="Hazy ocean dusk"><span class="code">FIG.10</span></div>
-          <div class="ph"><img src="assets/02_palm_haze.jpg" alt="Palms against bleached sky"><span class="code">FIG.02</span></div>
-        </div>
-        <div class="mb-txt">
-          <div class="lead">The calm before a track drops.</div>
-          <p>dreamtape lives in the quiet confidence of someone with nothing to prove. The light is always warm and going down; the world is always a little bit dreamed. A private moment from a film you half-remember, scored by music that hasn't reached the chorus yet. <em>The work is the cinema. The sound is the soundtrack.</em></p>
-        </div>
+      <div class="board-la">
+        <div class="ph"><img src="assets/la_diner_dusk.jpg" alt="Diner at dusk"><span class="code">LA.01 · DINER</span></div>
+        <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt="Motel neon"><span class="code">LA.02 · MOTEL</span></div>
+        <div class="ph"><img src="assets/09_vintage_car_window.jpg" alt="Car window"><span class="code">LA.03 · DRIVE</span></div>
+        <div class="ph"><img src="assets/02_palm_haze.jpg" alt="Palms"><span class="code">LA.04 · PALMS</span></div>
+        <div class="ph"><img src="assets/13_pool_dusk.jpg" alt="Pool at dusk"><span class="code">LA.05 · POOL</span></div>
+        <div class="ph"><img src="assets/la_gas_golden.jpg" alt="Gas station"><span class="code">LA.06 · STATION</span></div>
       </div>
     </div>
+    <div class="bcap">warm · neon · <b>the calm before a track drops</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
 
-<!-- 06 · PHOTOGRAPHY · CINEMATIC LA -->
+<!-- 06 · MOODBOARD II — PRESENCE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">06/14</div>
+  <div class="pageno">06/11</div>
   <div class="pad">
-    <div class="title">PHOTOGRAPHY STYLE</div>
+    <div class="title">MOODBOARD II — PRESENCE</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ PHOTO ART DIRECTION ]</span><span class="r">35MM · PORTRA 400 · 5600K</span></div>
+    <div class="sys"><span>SHADOW · BACKLIT · FACELESS</span><span class="brk">[ FELT, NOT SHOWN ]</span><span>SUBJECT · UNIDENTIFIED</span></div>
     <div class="body">
-      <div class="row r4">
-        <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt="Motel neon"><span class="code">FIG.07 · ƒ1.4</span></div>
-        <div class="ph"><img src="assets/13_pool_dusk.jpg" alt="Pool at dusk"><span class="code">FIG.13 · ƒ2.0</span></div>
-        <div class="ph"><img src="assets/02_palm_haze.jpg" alt="Palms"><span class="code">FIG.02 · ƒ2.8</span></div>
-        <div class="ph"><img src="assets/09_vintage_car_window.jpg" alt="Vintage car window"><span class="code">FIG.09 · ƒ1.8</span></div>
+      <div class="board-pres">
+        <div class="ph p1"><img src="assets/06_lone_dissolve.jpg" alt="Figure dissolving"><span class="code">PR.01</span></div>
+        <div class="ph p2"><img src="assets/pres_hand_light.jpg" alt="Hand in light"><span class="code">PR.02</span></div>
+        <div class="ph p3"><img src="assets/04_double_exposure.jpg" alt="Double exposure"><span class="code">PR.03</span></div>
+        <div class="ph p4"><img src="assets/12_curtain_light.jpg" alt="Curtain light"><span class="code">PR.04</span></div>
+        <div class="ph p5"><img src="assets/pres_shadow_wall.jpg" alt="Shadow on wall"><span class="code">PR.05</span></div>
+        <div class="ph p6"><img src="assets/11_dust_light.jpg" alt="Dust in light"><span class="code">PR.06</span></div>
+        <div class="note">the magician never steps out from behind the trick</div>
       </div>
-      <div class="bigword">CINEMA<small>GOLDEN HOUR ONLY · WIDE · ANAMORPHIC</small></div>
     </div>
-    <div class="badge"><img src="assets/07_motel_neon_dusk.jpg" alt=""></div>
+    <div class="bcap">low-key · intimate · <b>presence without identity</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
 
-<!-- 07 · PHOTOGRAPHY · PRESENCE -->
+<!-- 07 · MOODBOARD III — DREAMSCAPE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">07/14</div>
+  <div class="pageno">07/11</div>
   <div class="pad">
-    <div class="title">PHOTOGRAPHY STYLE</div>
+    <div class="title">MOODBOARD III — DREAMSCAPE</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ PRESENCE, NOT PORTRAIT ]</span><span class="r">SUBJECT · UNIDENTIFIED</span></div>
+    <div class="sys"><span>VAST · PASTEL · UNPEOPLED</span><span class="brk">[ LANDSCAPE FROM SOUND ]</span><span>THE HORIZON</span></div>
     <div class="body">
-      <div class="row r4">
-        <div class="ph"><img src="assets/06_lone_dissolve.jpg" alt="Figure dissolving into light"><span class="code">FIG.06</span></div>
-        <div class="ph"><img src="assets/04_double_exposure.jpg" alt="Double exposure"><span class="code">FIG.04 · 2X EXP</span></div>
-        <div class="ph"><img src="assets/12_curtain_light.jpg" alt="Light through curtain"><span class="code">FIG.12</span></div>
-        <div class="ph"><img src="assets/11_dust_light.jpg" alt="Dust in light"><span class="code">FIG.11</span></div>
-      </div>
-      <div class="bigword">PRESENCE<small>FELT, NEVER SHOWN · NO IDENTITY</small></div>
-    </div>
-    <div class="badge"><img src="assets/04_double_exposure.jpg" alt=""></div>
-    <div class="adg">Art Direction Guide</div>
-  </div>
-</section>
-
-<!-- 08 · DREAMSCAPE -->
-<section class="slide reveal">
-  <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">08/14</div>
-  <div class="pad">
-    <div class="title">DREAMSCAPE</div>
-    <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ LANDSCAPE FROM SOUND ]</span><span class="r">WIDE · UNPEOPLED</span></div>
-    <div class="body">
-      <div class="row r4">
-        <div class="ph"><img src="assets/05_desert_horizon_dream.jpg" alt="Desert horizon"><span class="code">FIG.05</span></div>
-        <div class="ph"><img src="assets/10_ocean_haze.jpg" alt="Hazy ocean"><span class="code">FIG.10</span></div>
-        <div class="ph"><img src="assets/01_hero_dusk_highway.jpg" alt="Freeway into the sun"><span class="code">FIG.01</span></div>
-        <div class="ph"><img src="assets/13_pool_dusk.jpg" alt="Pool at dusk"><span class="code">FIG.13</span></div>
-      </div>
-      <div class="bigword">DREAM<small>THE MOMENT YOU HEAR IT · A LANDSCAPE APPEARS</small></div>
-    </div>
-    <div class="badge"><img src="assets/05_desert_horizon_dream.jpg" alt=""></div>
-    <div class="adg">Art Direction Guide</div>
-  </div>
-</section>
-
-<!-- 09 · EXAMPLES -->
-<section class="slide reveal">
-  <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">09/14</div>
-  <div class="pad">
-    <div class="title">PHOTOGRAPHY STYLE EXAMPLES</div>
-    <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ EXECUTION ]</span><span class="r">06 PLATES</span></div>
-    <div class="body">
-      <div class="row r6">
-        <div class="ph"><img src="assets/01_hero_dusk_highway.jpg" alt=""><span class="code">01</span></div>
-        <div class="ph"><img src="assets/06_lone_dissolve.jpg" alt=""><span class="code">06</span></div>
-        <div class="ph"><img src="assets/03_analog_ribbon.jpg" alt=""><span class="code">03</span></div>
-        <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt=""><span class="code">07</span></div>
-        <div class="ph"><img src="assets/05_desert_horizon_dream.jpg" alt=""><span class="code">05</span></div>
-        <div class="ph"><img src="assets/09_vintage_car_window.jpg" alt=""><span class="code">09</span></div>
-      </div>
-      <div class="bigword">EXAMPLES<small>HOW THE INGREDIENTS COMBINE</small></div>
-    </div>
-    <div class="badge"><img src="assets/01_hero_dusk_highway.jpg" alt=""></div>
-    <div class="adg">Art Direction Guide</div>
-  </div>
-</section>
-
-<!-- 10 · VIDEO · SHORT -->
-<section class="slide reveal">
-  <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">10/14</div>
-  <div class="pad">
-    <div class="title">IRL VIDEO STYLE INSPIRATION</div>
-    <div class="rule"></div>
-    <div class="sys"><span>SHORT FORM</span><span class="brk">[ HANDHELD · SUPER-8 ]</span><span class="r">24FPS · IN THE MOMENT</span></div>
-    <div class="body">
-      <div class="row r4" style="height:70%">
-        <div class="ph"><img src="assets/09_vintage_car_window.jpg" alt="Drive"><span class="code">CLIP.01 · DRIVE</span></div>
-        <div class="ph"><img src="assets/06_lone_dissolve.jpg" alt="Figure in light"><span class="code">CLIP.02</span></div>
-        <div class="ph"><img src="assets/12_curtain_light.jpg" alt="Curtain light"><span class="code">CLIP.03</span></div>
-        <div class="ph"><img src="assets/11_dust_light.jpg" alt="Dust light"><span class="code">CLIP.04</span></div>
-      </div>
-    </div>
-    <div class="adg">Art Direction Guide</div>
-  </div>
-</section>
-
-<!-- 11 · VIDEO · LONG -->
-<section class="slide reveal">
-  <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">11/14</div>
-  <div class="pad">
-    <div class="title">VIDEO STYLE INSPIRATION</div>
-    <div class="rule"></div>
-    <div class="sys"><span>LONG FORM</span><span class="brk">[ THE VISUALIZER IS A SHORT FILM ]</span><span class="r">ANAMORPHIC · SLOW PUSH</span></div>
-    <div class="body">
-      <div class="row" style="grid-template-columns:1.5fr 1fr;height:70%">
-        <div class="ph"><img src="assets/04_double_exposure.jpg" alt="Double exposure visualizer"><span class="code">SEQ.01 · 2X EXP</span></div>
-        <div class="ph"><img src="assets/05_desert_horizon_dream.jpg" alt="Dreamscape"><span class="code">SEQ.02</span></div>
-      </div>
-    </div>
-    <div class="adg">Art Direction Guide</div>
-  </div>
-</section>
-
-<!-- 12 · TEXTURES -->
-<section class="slide reveal">
-  <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">12/14</div>
-  <div class="pad">
-    <div class="title">TEXTURES</div>
-    <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ RECORDED, NOT RENDERED ]</span><span class="r">GRAIN · HALATION · LEAK</span></div>
-    <div class="body">
-      <div class="tex">
-        <div>
-          <div class="note"><span class="nx">01</span><b>Grain first.</b> Add 35mm film grain over the photo layer, then desaturate before blending.</div>
-          <div class="note"><span class="nx">02</span><b>Halation.</b> Let highlights bloom — a soft warm glow around the brightest edges.</div>
-        </div>
-        <div class="swatch"><div class="lab">analog grain · halation · leak</div><img src="assets/08_film_texture.jpg" alt="Film grain and light-leak texture"></div>
-        <div>
-          <div class="note"><span class="nx">03</span><b>Light leak.</b> Warm leak at one edge, layer set to "Screen", low opacity.</div>
-          <div class="note"><span class="nx">04</span><b>Pull it down.</b> Mute saturation, lift the blacks slightly — sun-faded, never crushed.</div>
+      <div class="board-dream">
+        <div class="hero ph"><img src="assets/dream_salt_flats.jpg" alt="Salt flats at dawn"><span class="code">DR.01 · SALT FLATS — the moment you hear it, a landscape appears</span></div>
+        <div class="strip">
+          <div class="ph"><img src="assets/05_desert_horizon_dream.jpg" alt="Desert"><span class="code">DR.02</span></div>
+          <div class="ph"><img src="assets/dream_mountains_haze.jpg" alt="Mountains"><span class="code">DR.03</span></div>
+          <div class="ph"><img src="assets/10_ocean_haze.jpg" alt="Ocean"><span class="code">DR.04</span></div>
+          <div class="ph"><img src="assets/dream_fog_hills.jpg" alt="Fog hills"><span class="code">DR.05</span></div>
+          <div class="ph"><img src="assets/01_hero_dusk_highway.jpg" alt="Freeway"><span class="code">DR.06</span></div>
         </div>
       </div>
     </div>
-    <div class="badge"><img src="assets/08_film_texture.jpg" alt=""></div>
+    <div class="bcap">vast · dreamed · <b>the picture the music draws</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
 
-<!-- 13 · TYPOGRAPHY & COLOR -->
+<!-- 08 · MOODBOARD IV — ANALOG & TEXTURE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">13/14</div>
+  <div class="pageno">08/11</div>
+  <div class="pad">
+    <div class="title">MOODBOARD IV — ANALOG &amp; TEXTURE</div>
+    <div class="rule"></div>
+    <div class="sys"><span>TACTILE · GRITTY · DRY</span><span class="brk">[ RECORDED, NOT RENDERED ]</span><span>MATERIAL SAMPLES</span></div>
+    <div class="body">
+      <div class="board-tex">
+        <div class="ph"><img src="assets/tex_grain_macro.jpg" alt="Film grain"><span class="code">TX.01 GRAIN</span></div>
+        <div class="ph"><img src="assets/tex_paint_crack.jpg" alt="Cracked paint"><span class="code">TX.02 PAINT</span></div>
+        <div class="ph"><img src="assets/03_analog_ribbon.jpg" alt="Tape as light"><span class="code">TX.03 TAPE</span></div>
+        <div class="ph"><img src="assets/tex_lightleak.jpg" alt="Light leak"><span class="code">TX.04 LEAK</span></div>
+        <div class="ph"><img src="assets/tex_paper_stain.jpg" alt="Stained paper"><span class="code">TX.05 PAPER</span></div>
+        <div class="ph"><img src="assets/08_film_texture.jpg" alt="Film texture"><span class="code">TX.06 FILM</span></div>
+        <div class="ph"><img src="assets/tex_dust_beam.jpg" alt="Dust beam"><span class="code">TX.07 DUST</span></div>
+        <div class="ph"><img src="assets/tex_emulsion.jpg" alt="Film emulsion"><span class="code">TX.08 EMULSION</span></div>
+      </div>
+    </div>
+    <div class="bcap">grain · halation · leak · <b>the texture of memory</b></div>
+    <div class="adg">Art Direction Guide</div>
+  </div>
+</section>
+
+<!-- 09 · MOTION -->
+<section class="slide reveal">
+  <div class="logo">dreamtape<sup>™</sup></div>
+  <div class="pageno">09/11</div>
+  <div class="pad">
+    <div class="title">MOTION — VIDEO STYLE</div>
+    <div class="rule"></div>
+    <div class="sys"><span>HANDHELD · SUPER-8 · 24FPS</span><span class="brk">[ THE VISUALIZER IS A SHORT FILM ]</span><span>IN THE MOMENT</span></div>
+    <div class="body">
+      <div class="board-mo">
+        <div class="filmstrip">
+          <div class="frame"><img src="assets/mo_drive_blur.jpg" alt="Drive blur"><span class="code">01</span></div>
+          <div class="frame"><img src="assets/mo_window_reflect.jpg" alt="Window reflection"><span class="code">02</span></div>
+          <div class="frame"><img src="assets/mo_handheld_room.jpg" alt="Handheld room"><span class="code">03</span></div>
+          <div class="frame"><img src="assets/mo_road_night.jpg" alt="Road at night"><span class="code">04</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bcap">motion · grain · <b>footage that remembers</b></div>
+    <div class="adg">Art Direction Guide</div>
+  </div>
+</section>
+
+<!-- 10 · TYPOGRAPHY & COLOR -->
+<section class="slide reveal">
+  <div class="logo">dreamtape<sup>™</sup></div>
+  <div class="pageno">10/11</div>
   <div class="pad">
     <div class="title">TYPOGRAPHY &amp; COLOR</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ TYPE SYSTEM ]</span><span class="r">04 VOICES · 07 COLORS</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ TYPE SYSTEM ]</span><span>04 VOICES · 07 COLORS</span></div>
     <div class="body">
       <div class="typ">
         <div class="trow"><div class="meta"><b>Grotesque</b><br>Bricolage · primary<br>wordmark · lowercase</div><div class="sp-grot">dreamtape</div></div>
@@ -478,18 +396,18 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
   </div>
 </section>
 
-<!-- 14 · FONT USAGE / APPLICATION -->
+<!-- 11 · RELEASE SLEEVE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">14/14</div>
+  <div class="pageno">11/11</div>
   <div class="pad">
-    <div class="title">FONT USAGE EXAMPLES</div>
+    <div class="title">RELEASE SLEEVE</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ EVERYTHING IN ONE FRAME ]</span><span class="r">RELEASE SLEEVE · TAPE 001</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ EVERYTHING IN ONE FRAME ]</span><span>TAPE 001</span></div>
     <div class="body">
       <div class="app">
         <div class="sleeve">
-          <img src="assets/05_desert_horizon_dream.jpg" alt="Release sleeve mock on a dreamscape">
+          <img src="assets/sleeve_hero.jpg" alt="Release sleeve">
           <div class="lab">
             <div class="tp"><span>dreamtape · tape 001</span><span>LA · N34.05°</span></div>
             <div class="mk">dreamtape<small>「景色が見える」 feat. —</small></div>
