@@ -6,58 +6,56 @@
 <title>dreamtape — Art Direction Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=IBM+Plex+Mono:wght@400;500;600&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Arimo:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#f7f4ee;--gallery:#d7d3ca;--ink:#191712;--ink-soft:#6f685b;--ink-faint:#a39a88;
   --accent:#c4683d;--steel:#5b6b78;--steel-soft:rgba(91,107,120,.5);--hair:rgba(25,23,18,0.14);
-  --grot:'Bricolage Grotesque',system-ui,sans-serif;
-  --didone:'Bodoni Moda',Georgia,serif;
-  --mincho:'Shippori Mincho',serif;
-  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --bebas:'Bebas Neue',Impact,sans-serif;
+  --display:'Helvetica Neue',Helvetica,'Arimo',Arial,sans-serif;
+  --text:'Helvetica Neue',Helvetica,'Arimo',Arial,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-font-smoothing:antialiased;padding:34px 0 70px}
+body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-font-smoothing:antialiased;padding:34px 0 70px}
 .deck{display:flex;flex-direction:column;align-items:center;gap:30px}
 .slide{width:min(1180px,95vw);aspect-ratio:16/9;background:var(--paper);position:relative;container-type:inline-size;box-shadow:0 20px 50px rgba(0,0,0,.16);overflow:hidden}
 .slide::before{content:"";position:absolute;top:0;left:0;right:0;height:1.5cqw;z-index:4;
   background:repeating-linear-gradient(90deg,var(--steel) 0 .08cqw,transparent .08cqw 1.5cqw),repeating-linear-gradient(90deg,var(--steel) 0 .1cqw,transparent .1cqw 7.5cqw);
   -webkit-mask:linear-gradient(180deg,#000 0,#000 38%,transparent 78%);mask:linear-gradient(180deg,#000 0,#000 38%,transparent 78%);opacity:.5}
 .pad{position:absolute;inset:0;padding:4.4cqw 3.6cqw 3.2cqw;display:flex;flex-direction:column}
-.logo{position:absolute;top:4.4cqw;left:3.6cqw;font-family:var(--grot);font-weight:700;font-size:1.9cqw;letter-spacing:-.03em}
+.logo{position:absolute;top:4.3cqw;left:3.6cqw;font-family:var(--display);font-weight:700;font-size:1.7cqw;letter-spacing:-.02em}
 .logo sup{font-size:.7cqw;font-weight:500;vertical-align:super}
-.pageno{position:absolute;top:4.5cqw;right:3.6cqw;font-family:var(--mono);font-weight:500;font-size:1.35cqw;letter-spacing:.05em;color:var(--steel)}
-.title{text-align:center;font-family:var(--grot);font-weight:800;font-size:3.9cqw;letter-spacing:-.01em;line-height:1;padding-top:.1cqw}
+.pageno{position:absolute;top:4.5cqw;right:3.6cqw;font-family:var(--text);font-weight:500;font-size:1.3cqw;letter-spacing:.05em;color:var(--steel)}
+.title{text-align:center;font-family:var(--bebas);font-size:4.3cqw;letter-spacing:.05em;line-height:1;padding-top:.7cqw}
 .rule{height:.16cqw;background:var(--ink);margin:1.4cqw 0 1.0cqw}
-.sys{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:.92cqw;letter-spacing:.12em;color:var(--steel);text-transform:uppercase;min-height:2cqw}
-.sys .brk{color:var(--ink);letter-spacing:.2em;font-weight:500}
-.disclaim{position:absolute;left:3.6cqw;bottom:3.1cqw;font-family:var(--mono);font-size:.85cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
-.disclaim b{color:var(--accent);font-weight:500}
-.adg{position:absolute;right:3.6cqw;bottom:3.1cqw;font-family:var(--mono);font-weight:500;font-size:1cqw;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+.sys{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--text);font-weight:500;font-size:.92cqw;letter-spacing:.12em;color:var(--steel);text-transform:uppercase;min-height:2cqw}
+.sys .brk{color:var(--ink);letter-spacing:.2em;font-weight:700}
+.disclaim{position:absolute;left:3.6cqw;bottom:3.1cqw;font-family:var(--text);font-weight:500;font-size:.85cqw;letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
+.disclaim b{color:var(--accent);font-weight:700}
+.adg{position:absolute;right:3.6cqw;bottom:3.1cqw;font-family:var(--text);font-weight:500;font-size:1cqw;letter-spacing:.14em;color:var(--steel);text-transform:uppercase}
 .body{flex:1;min-height:0;position:relative;margin-top:1.1cqw;margin-bottom:2.8cqw}
 .ph{overflow:hidden;background:#ece7dc;position:relative}
 .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.94)}
-.ph .code{position:absolute;left:.5cqw;bottom:.4cqw;font-family:var(--mono);font-size:.72cqw;letter-spacing:.06em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.ph .code{position:absolute;left:.5cqw;bottom:.4cqw;font-family:var(--text);font-weight:500;font-size:.72cqw;letter-spacing:.04em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 
 /* ---- title ---- */
 .cover-c{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.cover-c .wm{font-family:var(--grot);font-weight:700;font-size:13cqw;letter-spacing:-.055em;line-height:.9}
+.cover-c .wm{font-family:var(--display);font-weight:700;font-size:10.5cqw;letter-spacing:-.04em;line-height:.9}
 .cover-c .wm .dot{color:var(--accent)}
-.spec{font-family:var(--mono);font-size:1.05cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);margin:2.6cqw 0 1.8cqw;display:flex;gap:1.4cqw;align-items:center}
+.spec{font-family:var(--text);font-weight:500;font-size:1.02cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);margin:2.6cqw 0 1.8cqw;display:flex;gap:1.4cqw;align-items:center}
 .spec .d{width:.4cqw;height:.4cqw;background:var(--steel);border-radius:50%}
-.cover-c .tg{font-family:var(--didone);font-style:italic;font-weight:400;font-size:2.8cqw;color:var(--ink)}
-.cover-c .jp{font-family:var(--mincho);font-weight:400;font-size:2.2cqw;color:var(--ink-soft);margin-top:.7cqw;letter-spacing:.06em}
-.cover-tl{position:absolute;left:3.6cqw;top:4.4cqw;font-family:var(--mono);font-size:1cqw;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
-.cover-tr{position:absolute;right:3.6cqw;top:4.5cqw;font-family:var(--mono);font-size:1.35cqw;letter-spacing:.05em;color:var(--steel)}
-.cover-bl{position:absolute;left:3.6cqw;bottom:3.2cqw;font-family:var(--mono);font-size:.9cqw;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+.cover-c .tg{font-family:var(--text);font-style:italic;font-weight:400;font-size:2.4cqw;color:var(--ink)}
+.cover-tl{position:absolute;left:3.6cqw;top:4.4cqw;font-family:var(--text);font-weight:500;font-size:1cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.cover-tr{position:absolute;right:3.6cqw;top:4.5cqw;font-family:var(--text);font-weight:500;font-size:1.3cqw;letter-spacing:.05em;color:var(--steel)}
+.cover-bl{position:absolute;left:3.6cqw;bottom:3.2cqw;font-family:var(--text);font-weight:500;font-size:.9cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
 
 /* ---- contents ---- */
 .toc{columns:2;column-gap:6cqw;margin-top:1.4cqw}
-.toc .it{display:flex;gap:1.4cqw;align-items:baseline;padding:1.05cqw 0;border-bottom:.1cqw solid var(--hair);break-inside:avoid}
-.toc .n{font-family:var(--mono);font-size:1.1cqw;color:var(--steel);min-width:3cqw}
-.toc .t{font-family:var(--grot);font-weight:500;font-size:1.66cqw}
-.toc .it .th{font-family:var(--mono);font-size:.82cqw;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;margin-left:auto}
+.toc .it{display:flex;gap:1.4cqw;align-items:baseline;padding:.92cqw 0;border-bottom:.1cqw solid var(--hair);break-inside:avoid}
+.toc .n{font-family:var(--text);font-weight:500;font-size:1.1cqw;color:var(--steel);min-width:3cqw}
+.toc .t{font-family:var(--text);font-weight:500;font-size:1.55cqw}
+.toc .it .th{font-family:var(--text);font-weight:500;font-size:.82cqw;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;margin-left:auto}
 
 /* ---- archetype ---- */
 .arch{display:grid;grid-template-columns:32cqw 1fr;gap:4cqw;height:100%;align-items:center}
@@ -67,23 +65,28 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .radar .spokes{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from -90deg,rgba(91,107,120,.5) 0 .6deg,transparent .6deg 9deg)}
 .radar .ring{position:absolute;inset:0;border-radius:50%;border:.16cqw solid var(--steel)}
 .radar .hub{position:absolute;left:50%;top:50%;width:1cqw;height:1cqw;background:var(--steel);border-radius:50%;transform:translate(-50%,-50%)}
-.radar-key{display:flex;gap:2cqw;font-family:var(--mono);font-size:1.05cqw;letter-spacing:.05em;text-transform:uppercase}
+.radar-key{display:flex;gap:2cqw;font-family:var(--text);font-weight:500;font-size:1.05cqw;letter-spacing:.05em;text-transform:uppercase}
 .k-mag{color:var(--accent)}.k-eve{color:var(--steel)}
-.arch-txt h3{font-family:var(--didone);font-weight:500;font-size:2.9cqw;margin-bottom:1.2cqw;line-height:1.05}
+.arch-txt h3{font-family:var(--text);font-weight:700;font-size:2.5cqw;margin-bottom:1.2cqw;line-height:1.1;letter-spacing:-.01em}
 .arch-txt p{font-size:1.42cqw;line-height:1.55;color:var(--ink-soft);margin-bottom:.85cqw;max-width:46cqw}
 .arch-txt p b{color:var(--ink);font-weight:700}
-.arch-txt em{font-family:var(--didone);font-style:italic;color:var(--accent)}
+.arch-txt em{font-style:italic;color:var(--accent);font-weight:500}
 
 /* ---- pillars quadrant ---- */
 .quad{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;height:100%}
 .qc{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.6cqw;gap:.7cqw}
 .quad .qc:nth-child(-n+3){border-bottom:.1cqw solid var(--hair)}
 .quad .qc:not(:nth-child(3n+1)){border-left:.1cqw solid var(--hair)}
-.qc .qn{font-family:var(--mono);font-size:.95cqw;color:var(--steel);letter-spacing:.16em}
-.qc .qt{font-family:var(--grot);font-weight:800;font-size:1.9cqw;letter-spacing:-.01em;text-transform:uppercase}
+.qc .qn{font-family:var(--text);font-weight:500;font-size:.95cqw;color:var(--steel);letter-spacing:.16em}
+.qc .qt{font-family:var(--bebas);font-size:2cqw;letter-spacing:.04em;text-transform:uppercase;line-height:1.05}
 .qc .qd{font-size:1.1cqw;line-height:1.45;color:var(--ink-soft);max-width:24cqw}
 
 /* ===== DISTINCT MOODBOARD LAYOUTS ===== */
+/* giant Bebas keyword band shared by visual pages */
+.body.mb{display:flex;flex-direction:column;gap:1.2cqw}
+.body.mb>.board-la,.body.mb>.board-pres,.body.mb>.board-dream,.body.mb>.board-tex,.body.mb>.board-mo{flex:1 1 0;min-height:0;height:auto}
+.kw{flex:none;font-family:var(--bebas);font-weight:400;font-size:6.6cqw;line-height:.84;letter-spacing:.42cqw;color:var(--ink);text-align:center;text-indent:.42cqw}
+
 /* I · Cinematic LA — asymmetric magazine, two wide + four standard */
 .board-la{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:1cqw;height:100%}
 .board-la .ph:nth-child(1){grid-column:1/3}
@@ -98,7 +101,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .board-pres .p4{right:7%;bottom:4%;width:23%;height:42%}
 .board-pres .p5{left:30%;top:1%;width:17%;height:25%}
 .board-pres .p6{left:5%;bottom:3%;width:15%;height:24%}
-.board-pres .note{position:absolute;right:30%;top:8%;max-width:18cqw;font-family:var(--didone);font-style:italic;font-size:1.7cqw;color:var(--ink-soft);text-align:right}
+.board-pres .note{position:absolute;right:30%;top:8%;max-width:18cqw;font-style:italic;font-size:1.6cqw;color:var(--ink-soft);text-align:right}
 
 /* III · Dreamscape — one giant full-bleed horizon + inset strip */
 .board-dream{display:grid;grid-template-rows:1.9fr .8fr;gap:1cqw;height:100%}
@@ -116,24 +119,65 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .filmstrip::before{top:.7cqw}.filmstrip::after{bottom:.7cqw}
 .filmstrip .frame{height:100%;aspect-ratio:3/2;overflow:hidden;position:relative}
 .filmstrip .frame img{width:100%;height:100%;object-fit:cover}
-.filmstrip .frame .code{position:absolute;left:.4cqw;bottom:.4cqw;font-family:var(--mono);font-size:.7cqw;color:#fff;opacity:.8}
+.filmstrip .frame .code{position:absolute;left:.4cqw;bottom:.4cqw;font-family:var(--text);font-weight:500;font-size:.7cqw;color:#fff;opacity:.8}
 
-/* board caption (bottom-left, replaces disclaimer on boards) */
-.bcap{position:absolute;left:3.6cqw;bottom:3.1cqw;font-family:var(--mono);font-size:.9cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
-.bcap b{color:var(--accent);font-weight:500}
+/* ---- typography · two voices ---- */
+.tvoices{display:flex;flex-direction:column;height:100%}
+.tv{display:grid;grid-template-columns:16cqw 1fr;gap:2.6cqw;align-items:center;flex:1;padding:.55cqw 0;border-bottom:.1cqw solid var(--hair)}
+.tv:last-child{border-bottom:none}
+.tv .lab{font-family:var(--text);font-weight:500;font-size:.84cqw;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);line-height:1.6}
+.tv .lab .idx{color:var(--ink-faint)}
+.tv .lab .role{display:block;font-family:var(--display);color:var(--ink);font-weight:700;font-size:1.5cqw;letter-spacing:-.02em;margin:.25cqw 0 .4cqw}
+.tv .lab .role .accent{color:var(--accent)}
+.tv .tvspec{display:flex;flex-direction:column;gap:.5cqw;min-width:0}
+.tv .big{line-height:.95;color:var(--ink);white-space:nowrap;overflow:hidden}
+.tv .glyph{font-size:.95cqw;letter-spacing:.1em;color:var(--ink-faint)}
+.big.g-bebas{font-family:var(--bebas);font-size:3.9cqw;letter-spacing:.22cqw}
+.big.g-disp{font-family:var(--display);font-weight:700;font-size:4.4cqw;letter-spacing:-.03em}
+.big.g-disp .dot{color:var(--accent)}
+.glyph.gl-bebas{font-family:var(--bebas);letter-spacing:.16em}
+.glyph.gl-text{font-family:var(--text);font-weight:400}
+.wts{font-family:var(--text);font-size:1.15cqw;color:var(--ink-soft);letter-spacing:.01em}
+.wts span{margin-right:.3cqw}
 
-/* ---- typography & color ---- */
-.typ{display:flex;flex-direction:column;gap:.2cqw;height:100%;margin-top:.2cqw}
-.typ .trow{display:grid;grid-template-columns:13cqw 1fr;gap:2cqw;align-items:center;padding:.7cqw 0;border-bottom:.1cqw solid var(--hair)}
-.typ .meta{font-family:var(--mono);font-size:.92cqw;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);line-height:1.7}
-.typ .meta b{color:var(--ink);font-weight:600}
-.sp-grot{font-family:var(--grot);font-weight:700;font-size:3cqw;letter-spacing:-.045em}
-.sp-didone{font-family:var(--didone);font-style:italic;font-weight:400;font-size:2.5cqw}
-.sp-mincho{font-family:var(--mincho);font-weight:400;font-size:2cqw;letter-spacing:.05em}
-.sp-mono{font-family:var(--mono);font-size:1.35cqw;letter-spacing:.04em;color:var(--ink)}
-.swatches{display:grid;grid-template-columns:repeat(7,1fr);height:5.6cqw;margin-top:.6cqw;border:.1cqw solid var(--hair)}
-.sw{display:flex;align-items:flex-end;padding:.5cqw;font-family:var(--mono);font-size:.74cqw}
-.sw.d{color:var(--paper)}.sw.l{color:var(--ink)}
+/* ---- type in use ---- */
+.tuse{display:grid;grid-template-columns:1fr 1.05fr;gap:3cqw;height:100%;align-items:stretch}
+.endcard{position:relative;background:var(--ink);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:2.4cqw;color:var(--paper)}
+.endcard::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 78% at 50% 16%,rgba(196,104,61,.24),transparent 62%);pointer-events:none}
+.endcard .ec-top,.endcard .ec-bot{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:var(--text);font-weight:500;font-size:.8cqw;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,238,.66)}
+.endcard .ec-mid{position:relative;z-index:2;text-align:center}
+.endcard .ec-kw{font-family:var(--bebas);font-size:2.2cqw;letter-spacing:.5cqw;color:rgba(247,244,238,.5);text-indent:.5cqw;margin-bottom:.5cqw}
+.endcard .ec-wm{font-family:var(--display);font-weight:700;font-size:4.6cqw;letter-spacing:-.035em;line-height:.9}
+.endcard .ec-wm .dot{color:var(--accent)}
+.endcard .ec-tg{font-family:var(--text);font-style:italic;font-weight:400;font-size:1.7cqw;color:#f0c9a0;margin-top:1cqw}
+.tuse-r{display:flex;flex-direction:column;justify-content:center;gap:1.3cqw}
+.ladder{display:flex;flex-direction:column}
+.lr{display:grid;grid-template-columns:9.5cqw 1fr;gap:1.4cqw;align-items:baseline;padding:.5cqw 0;border-bottom:.1cqw solid var(--hair)}
+.lr .lk{font-family:var(--text);font-weight:500;font-size:.78cqw;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);line-height:1.4}
+.lr .lv{color:var(--ink);line-height:1}
+.lv.v-bebas{font-family:var(--bebas);font-size:2.3cqw;letter-spacing:.14cqw}
+.lv.v-bebas-h{font-family:var(--bebas);font-size:1.7cqw;letter-spacing:.06cqw}
+.lv.v-disp{font-family:var(--display);font-weight:700;font-size:1.9cqw;letter-spacing:-.02em}
+.lv.v-disp .dot{color:var(--accent)}
+.lv.v-h{font-family:var(--text);font-weight:700;font-size:1.4cqw;letter-spacing:-.01em}
+.lv.v-sh{font-family:var(--text);font-weight:500;font-style:italic;font-size:1.32cqw}
+.lv.v-body{font-family:var(--text);font-weight:400;font-size:1.04cqw;color:var(--ink-soft)}
+.lv.v-cap{font-family:var(--text);font-weight:500;font-size:.9cqw;letter-spacing:.06em;text-transform:uppercase;color:var(--steel)}
+.rule-note{font-family:var(--text);font-size:1.14cqw;line-height:1.5;color:var(--ink-soft)}
+.rule-note b{color:var(--ink);font-weight:700}
+.rule-note .accent{color:var(--accent);font-weight:700}
+
+/* ---- color ---- */
+.colors{display:flex;flex-direction:column;height:100%}
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:1cqw;flex:1;min-height:0}
+.col{display:flex;flex-direction:column;min-height:0}
+.col .chip2{flex:1;border:.1cqw solid var(--hair);position:relative;min-height:0}
+.col .chip2 .acc{position:absolute;top:.5cqw;left:.5cqw;font-family:var(--text);font-weight:700;font-size:.66cqw;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:var(--accent);padding:.2cqw .5cqw}
+.col .hex{font-family:var(--text);font-weight:500;font-size:.8cqw;letter-spacing:.04em;color:var(--steel);margin-top:.6cqw}
+.col .crole{font-family:var(--text);font-weight:700;font-size:1.02cqw;color:var(--ink);margin-top:.18cqw;letter-spacing:-.01em}
+.col .cuse{font-family:var(--text);font-weight:500;font-size:.68cqw;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-top:.2cqw;line-height:1.45}
+.cnote{font-style:italic;font-size:1.5cqw;color:var(--ink-soft);margin-top:1.6cqw;max-width:62cqw}
+.cnote b{font-style:normal;font-weight:700;color:var(--accent)}
 
 /* ---- application ---- */
 .app{display:grid;grid-template-columns:1fr 1.1fr;gap:3cqw;height:100%;align-items:center}
@@ -141,13 +185,13 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 .sleeve img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.03)}
 .sleeve::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(20,18,14,.1),rgba(20,18,14,.66))}
 .sleeve .lab{position:absolute;inset:0;z-index:3;padding:2.2cqw;display:flex;flex-direction:column;justify-content:space-between;color:var(--paper)}
-.sleeve .lab .tp{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.9cqw;letter-spacing:.18em;text-transform:uppercase;opacity:.92}
-.sleeve .lab .mk{font-family:var(--grot);font-weight:700;font-size:3.8cqw;letter-spacing:-.05em;line-height:.92}
-.sleeve .lab .mk small{display:block;font-family:var(--didone);font-style:italic;font-weight:400;font-size:1.5cqw;color:#f0c9a0;margin-top:.7cqw}
-.app-tx h3{font-family:var(--didone);font-weight:500;font-size:2.5cqw;margin-bottom:1cqw}
+.sleeve .lab .tp{display:flex;justify-content:space-between;font-family:var(--text);font-weight:500;font-size:.9cqw;letter-spacing:.16em;text-transform:uppercase;opacity:.92}
+.sleeve .lab .mk{font-family:var(--display);font-weight:700;font-size:3.4cqw;letter-spacing:-.03em;line-height:.92}
+.sleeve .lab .mk small{display:block;font-family:var(--text);font-style:italic;font-weight:400;font-size:1.4cqw;color:#f0c9a0;margin-top:.7cqw}
+.app-tx h3{font-family:var(--text);font-weight:700;font-size:2.3cqw;margin-bottom:1cqw;letter-spacing:-.01em}
 .app-tx p{font-size:1.3cqw;line-height:1.5;color:var(--ink-soft);margin-bottom:1.1cqw}
 .app-tx .chips{display:flex;flex-wrap:wrap;gap:.6cqw}
-.chip{font-family:var(--mono);font-size:.92cqw;letter-spacing:.04em;padding:.5cqw 1cqw;border:.1cqw solid var(--steel-soft);color:var(--steel);text-transform:uppercase}
+.chip{font-family:var(--text);font-weight:500;font-size:.92cqw;letter-spacing:.04em;padding:.5cqw 1cqw;border:.1cqw solid var(--steel-soft);color:var(--steel);text-transform:uppercase}
 
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
@@ -160,13 +204,12 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 01 · TITLE -->
 <section class="slide reveal">
   <div class="cover-tl">DREAMTAPE™ · VISUAL SYSTEM 1.0</div>
-  <div class="cover-tr">01/11</div>
+  <div class="cover-tr">01/13</div>
   <div class="pad">
     <div class="cover-c">
       <div class="wm">dreamtape<span class="dot">.</span></div>
       <div class="spec"><span>LOS ANGELES</span><span class="d"></span><span>N34.05° W118.24°</span><span class="d"></span><span>35MM · 5600K</span><span class="d"></span><span>ANALOG / DRY</span></div>
       <div class="tg">tape your dream</div>
-      <div class="jp">音を聴いた瞬間に、景色が見える</div>
     </div>
   </div>
   <div class="cover-bl">ART DIRECTION GUIDE · MOODBOARD</div>
@@ -175,11 +218,11 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 02 · CONTENTS -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">02/11</div>
+  <div class="pageno">02/13</div>
   <div class="pad">
     <div class="title">CONTENTS</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ INDEX ]</span><span>SIDE A · 11 PAGES</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ INDEX ]</span><span>SIDE A · 13 PAGES</span></div>
     <div class="body">
       <div class="toc">
         <div class="it"><span class="n">03</span><span class="t">Brand personality &amp; archetype</span><span class="th">chart</span></div>
@@ -189,8 +232,10 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
         <div class="it"><span class="n">07</span><span class="t">Moodboard III — Dreamscape</span><span class="th">vast</span></div>
         <div class="it"><span class="n">08</span><span class="t">Moodboard IV — Analog &amp; texture</span><span class="th">tactile</span></div>
         <div class="it"><span class="n">09</span><span class="t">Motion — video style</span><span class="th">filmstrip</span></div>
-        <div class="it"><span class="n">10</span><span class="t">Typography &amp; color</span><span class="th">system</span></div>
-        <div class="it"><span class="n">11</span><span class="t">Release sleeve</span><span class="th">applied</span></div>
+        <div class="it"><span class="n">10</span><span class="t">Typography — two voices</span><span class="th">type</span></div>
+        <div class="it"><span class="n">11</span><span class="t">Type in use</span><span class="th">applied</span></div>
+        <div class="it"><span class="n">12</span><span class="t">Color</span><span class="th">palette</span></div>
+        <div class="it"><span class="n">13</span><span class="t">Release sleeve</span><span class="th">sleeve</span></div>
       </div>
     </div>
     <div class="disclaim">This guide sets the visual direction for every dreamtape asset.</div>
@@ -201,7 +246,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 03 · ARCHETYPE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">03/11</div>
+  <div class="pageno">03/13</div>
   <div class="pad">
     <div class="title">BRAND PERSONALITY &amp; ARCHETYPE</div>
     <div class="rule"></div>
@@ -228,7 +273,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 04 · PILLARS -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">04/11</div>
+  <div class="pageno">04/13</div>
   <div class="pad">
     <div class="title">VISUAL BRAND PILLARS</div>
     <div class="rule"></div>
@@ -250,12 +295,12 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 05 · MOODBOARD I — CINEMATIC LA -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">05/11</div>
+  <div class="pageno">05/13</div>
   <div class="pad">
     <div class="title">MOODBOARD I — CINEMATIC LA</div>
     <div class="rule"></div>
     <div class="sys"><span>WARM · URBAN · GOLDEN HOUR</span><span class="brk">[ THE CITY AT DUSK ]</span><span>35MM · 5600K · NEON</span></div>
-    <div class="body">
+    <div class="body mb">
       <div class="board-la">
         <div class="ph"><img src="assets/la_diner_dusk.jpg" alt="Diner at dusk"><span class="code">LA.01 · DINER</span></div>
         <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt="Motel neon"><span class="code">LA.02 · MOTEL</span></div>
@@ -264,8 +309,8 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
         <div class="ph"><img src="assets/13_pool_dusk.jpg" alt="Pool at dusk"><span class="code">LA.05 · POOL</span></div>
         <div class="ph"><img src="assets/la_gas_golden.jpg" alt="Gas station"><span class="code">LA.06 · STATION</span></div>
       </div>
+      <div class="kw">DUSK</div>
     </div>
-    <div class="bcap">warm · neon · <b>the calm before a track drops</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
@@ -273,12 +318,12 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 06 · MOODBOARD II — PRESENCE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">06/11</div>
+  <div class="pageno">06/13</div>
   <div class="pad">
     <div class="title">MOODBOARD II — PRESENCE</div>
     <div class="rule"></div>
     <div class="sys"><span>SHADOW · BACKLIT · FACELESS</span><span class="brk">[ FELT, NOT SHOWN ]</span><span>SUBJECT · UNIDENTIFIED</span></div>
-    <div class="body">
+    <div class="body mb">
       <div class="board-pres">
         <div class="ph p1"><img src="assets/06_lone_dissolve.jpg" alt="Figure dissolving"><span class="code">PR.01</span></div>
         <div class="ph p2"><img src="assets/pres_hand_light.jpg" alt="Hand in light"><span class="code">PR.02</span></div>
@@ -288,8 +333,8 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
         <div class="ph p6"><img src="assets/11_dust_light.jpg" alt="Dust in light"><span class="code">PR.06</span></div>
         <div class="note">the magician never steps out from behind the trick</div>
       </div>
+      <div class="kw">SHADOW</div>
     </div>
-    <div class="bcap">low-key · intimate · <b>presence without identity</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
@@ -297,12 +342,12 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 07 · MOODBOARD III — DREAMSCAPE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">07/11</div>
+  <div class="pageno">07/13</div>
   <div class="pad">
     <div class="title">MOODBOARD III — DREAMSCAPE</div>
     <div class="rule"></div>
     <div class="sys"><span>VAST · PASTEL · UNPEOPLED</span><span class="brk">[ LANDSCAPE FROM SOUND ]</span><span>THE HORIZON</span></div>
-    <div class="body">
+    <div class="body mb">
       <div class="board-dream">
         <div class="hero ph"><img src="assets/dream_salt_flats.jpg" alt="Salt flats at dawn"><span class="code">DR.01 · SALT FLATS — the moment you hear it, a landscape appears</span></div>
         <div class="strip">
@@ -313,8 +358,8 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
           <div class="ph"><img src="assets/01_hero_dusk_highway.jpg" alt="Freeway"><span class="code">DR.06</span></div>
         </div>
       </div>
+      <div class="kw">DREAM</div>
     </div>
-    <div class="bcap">vast · dreamed · <b>the picture the music draws</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
@@ -322,12 +367,12 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 08 · MOODBOARD IV — ANALOG & TEXTURE -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">08/11</div>
+  <div class="pageno">08/13</div>
   <div class="pad">
     <div class="title">MOODBOARD IV — ANALOG &amp; TEXTURE</div>
     <div class="rule"></div>
     <div class="sys"><span>TACTILE · GRITTY · DRY</span><span class="brk">[ RECORDED, NOT RENDERED ]</span><span>MATERIAL SAMPLES</span></div>
-    <div class="body">
+    <div class="body mb">
       <div class="board-tex">
         <div class="ph"><img src="assets/tex_grain_macro.jpg" alt="Film grain"><span class="code">TX.01 GRAIN</span></div>
         <div class="ph"><img src="assets/tex_paint_crack.jpg" alt="Cracked paint"><span class="code">TX.02 PAINT</span></div>
@@ -338,8 +383,8 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
         <div class="ph"><img src="assets/tex_dust_beam.jpg" alt="Dust beam"><span class="code">TX.07 DUST</span></div>
         <div class="ph"><img src="assets/tex_emulsion.jpg" alt="Film emulsion"><span class="code">TX.08 EMULSION</span></div>
       </div>
+      <div class="kw">ANALOG</div>
     </div>
-    <div class="bcap">grain · halation · leak · <b>the texture of memory</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
@@ -347,12 +392,12 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
 <!-- 09 · MOTION -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">09/11</div>
+  <div class="pageno">09/13</div>
   <div class="pad">
     <div class="title">MOTION — VIDEO STYLE</div>
     <div class="rule"></div>
     <div class="sys"><span>HANDHELD · SUPER-8 · 24FPS</span><span class="brk">[ THE VISUALIZER IS A SHORT FILM ]</span><span>IN THE MOMENT</span></div>
-    <div class="body">
+    <div class="body mb">
       <div class="board-mo">
         <div class="filmstrip">
           <div class="frame"><img src="assets/mo_drive_blur.jpg" alt="Drive blur"><span class="code">01</span></div>
@@ -361,45 +406,103 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
           <div class="frame"><img src="assets/mo_road_night.jpg" alt="Road at night"><span class="code">04</span></div>
         </div>
       </div>
+      <div class="kw">MOTION</div>
     </div>
-    <div class="bcap">motion · grain · <b>footage that remembers</b></div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
 
-<!-- 10 · TYPOGRAPHY & COLOR -->
+<!-- 10 · TYPOGRAPHY — TWO VOICES -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">10/11</div>
+  <div class="pageno">10/13</div>
   <div class="pad">
-    <div class="title">TYPOGRAPHY &amp; COLOR</div>
+    <div class="title">TYPOGRAPHY — TWO VOICES</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ TYPE SYSTEM ]</span><span>04 VOICES · 07 COLORS</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ BEBAS + HELVETICA ]</span><span>TYPE · 02 FAMILIES</span></div>
     <div class="body">
-      <div class="typ">
-        <div class="trow"><div class="meta"><b>Grotesque</b><br>Bricolage · primary<br>wordmark · lowercase</div><div class="sp-grot">dreamtape</div></div>
-        <div class="trow"><div class="meta"><b>Didone</b><br>Bodoni Moda<br>couture · the poetry</div><div class="sp-didone">tape your dream</div></div>
-        <div class="trow"><div class="meta"><b>Mincho</b><br>Shippori · 日本語<br>elegant serif</div><div class="sp-mincho">音を聴いた瞬間に、景色が見える。</div></div>
-        <div class="trow"><div class="meta"><b>Mono</b><br>IBM Plex Mono<br>the machine voice</div><div class="sp-mono">TAPE 001 · LA · N34.05° · 5600K · TAKE 03</div></div>
+      <div class="tvoices">
+        <div class="tv">
+          <div class="lab"><span class="idx">01</span><span class="role">The <span class="accent">display</span></span>Bebas Neue · single weight<br>Headings · giant keywords</div>
+          <div class="tvspec"><div class="big g-bebas">DUSK · DREAM · ANALOG</div><div class="glyph gl-bebas">A B C D E F G H · 0 1 2 3 4 5 6 7 8 9</div></div>
+        </div>
+        <div class="tv">
+          <div class="lab"><span class="idx">02</span><span class="role">The workhorse</span>Helvetica Neue<br>Bold · Medium · Regular<br>Wordmark · body · labels</div>
+          <div class="tvspec"><div class="big g-disp">dreamtape<span class="dot">.</span></div><div class="wts"><span style="font-weight:700">Bold</span> · <span style="font-weight:500">Medium</span> · <span style="font-weight:400">Regular</span></div><div class="glyph gl-text">Aa Bb Cc Dd · 0 1 2 3 4 5 6 7 8 9 · ( ) &amp; ? — “ ”</div></div>
+        </div>
       </div>
-      <div class="swatches">
-        <div class="sw d" style="background:#191712">#191712</div>
-        <div class="sw d" style="background:#5b6b78">#5B6B78 STEEL</div>
-        <div class="sw d" style="background:#c4683d">#C4683D</div>
-        <div class="sw l" style="background:#d9a566">#D9A566</div>
-        <div class="sw l" style="background:#cabfa6">#CABFA6</div>
-        <div class="sw d" style="background:#7fa39a">#7FA39A</div>
-        <div class="sw l" style="background:#f7f4ee">#F7F4EE</div>
+    </div>
+    <div class="disclaim">Bebas shouts, Helvetica speaks — <b>two voices, nothing more</b>.</div>
+    <div class="adg">Art Direction Guide</div>
+  </div>
+</section>
+
+<!-- 11 · TYPE IN USE -->
+<section class="slide reveal">
+  <div class="logo">dreamtape<sup>™</sup></div>
+  <div class="pageno">11/13</div>
+  <div class="pad">
+    <div class="title">TYPE IN USE</div>
+    <div class="rule"></div>
+    <div class="sys"><span>HIERARCHY · PAIRING · APPLIED</span><span class="brk">[ TWO VOICES, STACKED ]</span><span>FIG.B · END CARD</span></div>
+    <div class="body">
+      <div class="tuse">
+        <div class="endcard">
+          <div class="ec-top"><span>DREAMTAPE™</span><span>TAPE 001 · LA</span></div>
+          <div class="ec-mid">
+            <div class="ec-kw">DREAM</div>
+            <div class="ec-wm">dreamtape<span class="dot">.</span></div>
+            <div class="ec-tg">tape your dream</div>
+          </div>
+          <div class="ec-bot"><span>N34.05° W118.24°</span><span>35MM · 5600K · TAKE 03</span></div>
+        </div>
+        <div class="tuse-r">
+          <div class="ladder">
+            <div class="lr"><span class="lk">Keyword<br>Bebas</span><span class="lv v-bebas">DREAM</span></div>
+            <div class="lr"><span class="lk">Heading<br>Bebas</span><span class="lv v-bebas-h">Moodboard I — Cinematic LA</span></div>
+            <div class="lr"><span class="lk">Wordmark<br>Helv 700</span><span class="lv v-disp">dreamtape<span class="dot">.</span></span></div>
+            <div class="lr"><span class="lk">Subhead<br>Helv 500 it.</span><span class="lv v-sh">a landscape appears the instant you hear it</span></div>
+            <div class="lr"><span class="lk">Body<br>Helv 400</span><span class="lv v-body">Frame the subject naturally, giving the image a sense of scale and place.</span></div>
+            <div class="lr"><span class="lk">Caption<br>Helv 500</span><span class="lv v-cap">LA.01 · DINER · 5600K · TAKE 03</span></div>
+          </div>
+          <div class="rule-note"><b>Bebas is the display</b> — every heading and keyword. <b>Helvetica carries the words</b> — wordmark, body, labels, every spec. One accent — <span class="accent">terracotta</span> — and never more.</div>
+        </div>
       </div>
     </div>
     <div class="adg">Art Direction Guide</div>
   </div>
 </section>
 
-<!-- 11 · RELEASE SLEEVE -->
+<!-- 12 · COLOR -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno">11/11</div>
+  <div class="pageno">12/13</div>
+  <div class="pad">
+    <div class="title">COLOR</div>
+    <div class="rule"></div>
+    <div class="sys"><span>WARM DREAM × COLD MACHINE</span><span class="brk">[ ONE ACCENT, NEVER MORE ]</span><span>07 COLORS</span></div>
+    <div class="body">
+      <div class="colors">
+        <div class="cgrid">
+          <div class="col"><div class="chip2" style="background:#191712"></div><div class="hex">#191712</div><div class="crole">Ink</div><div class="cuse">text · base</div></div>
+          <div class="col"><div class="chip2" style="background:#5b6b78"></div><div class="hex">#5B6B78</div><div class="crole">Steel</div><div class="cuse">the machine · metadata</div></div>
+          <div class="col"><div class="chip2" style="background:#c4683d"><span class="acc">Accent</span></div><div class="hex">#C4683D</div><div class="crole">Terracotta</div><div class="cuse">the one accent</div></div>
+          <div class="col"><div class="chip2" style="background:#d9a566"></div><div class="hex">#D9A566</div><div class="crole">Amber</div><div class="cuse">golden hour</div></div>
+          <div class="col"><div class="chip2" style="background:#cabfa6"></div><div class="hex">#CABFA6</div><div class="crole">Sand</div><div class="cuse">analog tone</div></div>
+          <div class="col"><div class="chip2" style="background:#7fa39a"></div><div class="hex">#7FA39A</div><div class="crole">Sage</div><div class="cuse">faded horizon</div></div>
+          <div class="col"><div class="chip2" style="background:#f7f4ee"></div><div class="hex">#F7F4EE</div><div class="crole">Paper</div><div class="cuse">ground</div></div>
+        </div>
+        <div class="cnote">One warm accent against a cold machine. <b>Terracotta</b> is the only saturated voice — everything else is dust, steel, and faded sun.</div>
+      </div>
+    </div>
+    <div class="adg">Art Direction Guide</div>
+  </div>
+</section>
+
+<!-- 13 · RELEASE SLEEVE -->
+<section class="slide reveal">
+  <div class="logo">dreamtape<sup>™</sup></div>
+  <div class="pageno">13/13</div>
   <div class="pad">
     <div class="title">RELEASE SLEEVE</div>
     <div class="rule"></div>
@@ -410,13 +513,13 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--grot);-webkit-
           <img src="assets/sleeve_hero.jpg" alt="Release sleeve">
           <div class="lab">
             <div class="tp"><span>dreamtape · tape 001</span><span>LA · N34.05°</span></div>
-            <div class="mk">dreamtape<small>「景色が見える」 feat. —</small></div>
+            <div class="mk">dreamtape<small>tape 001 · side a · feat. —</small></div>
           </div>
         </div>
         <div class="app-tx">
           <h3>The proof it all holds.</h3>
-          <p>A dreamscape dragged through analog grain, with the lowercase grotesque wordmark, a Didone line, an elegant Mincho title, and a cold mono catalog credit. Warm dream, cold machine, one world.</p>
-          <div class="chips"><span class="chip">dreamscape</span><span class="chip">analog grain</span><span class="chip">lowercase wordmark</span><span class="chip">didone</span><span class="chip">mono catalog</span><span class="chip">steel × terracotta</span></div>
+          <p>A dreamscape dragged through analog grain — one Bebas keyword, the Helvetica Bold wordmark, Helvetica credits, and a single terracotta accent. Warm dream, cold machine, one world.</p>
+          <div class="chips"><span class="chip">dreamscape</span><span class="chip">analog grain</span><span class="chip">bebas keyword</span><span class="chip">helvetica bold</span><span class="chip">steel × terracotta</span></div>
         </div>
       </div>
     </div>
