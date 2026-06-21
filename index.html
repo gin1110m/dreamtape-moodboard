@@ -88,7 +88,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
 .body.mb>.board-la,.body.mb>.board-pres,.body.mb>.board-dream,.body.mb>.board-tex,.body.mb>.board-mo{flex:1 1 0;min-height:0;height:auto}
 .kw{flex:none;font-family:var(--bebas);font-weight:400;font-size:6.6cqw;line-height:.84;letter-spacing:.42cqw;color:var(--ink);text-align:center;text-indent:.42cqw}
 
-/* I · Cinematic LA — asymmetric magazine, two wide + four standard */
+/* I · Cinematic City — asymmetric magazine, two wide + four standard */
 .board-la{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:1cqw;height:100%}
 .board-la .ph:nth-child(1){grid-column:1/3}
 .board-la .ph:nth-child(6){grid-column:3/5}
@@ -113,14 +113,25 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
 /* IV · Analog & Texture — dense square grid */
 .board-tex{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:.5cqw;height:100%}
 
-/* V · Motion — 35mm filmstrip */
+/* V · Motion — 35mm filmstrip, slow horizontal loop */
 .board-mo{height:100%;display:flex;align-items:center;justify-content:center}
-.filmstrip{position:relative;background:#17140f;padding:2.4cqw 1.2cqw;display:flex;gap:.8cqw;height:84%;align-items:center}
-.filmstrip::before,.filmstrip::after{content:"";position:absolute;left:1cqw;right:1cqw;height:1.1cqw;background:repeating-linear-gradient(90deg,transparent 0 .7cqw,var(--paper) .7cqw 1.5cqw)}
+.filmstrip{position:relative;background:#17140f;padding:2.4cqw 0;height:84%;width:100%;overflow:hidden}
+.filmstrip::before,.filmstrip::after{content:"";position:absolute;left:0;right:0;height:1.1cqw;z-index:2;background:repeating-linear-gradient(90deg,transparent 0 .7cqw,var(--paper) .7cqw 1.5cqw)}
 .filmstrip::before{top:.7cqw}.filmstrip::after{bottom:.7cqw}
-.filmstrip .frame{height:100%;aspect-ratio:3/2;overflow:hidden;position:relative}
+.filmstrip .track{display:flex;height:100%;align-items:center;width:max-content;animation:marq 72s linear infinite}
+.filmstrip .frame{height:100%;aspect-ratio:3/2;margin-right:.8cqw;overflow:hidden;position:relative;flex:none}
 .filmstrip .frame img{width:100%;height:100%;object-fit:cover}
-.filmstrip .frame .code{position:absolute;left:.4cqw;bottom:.4cqw;font-family:var(--text);font-weight:500;font-size:.7cqw;color:#fff;opacity:.8}
+.filmstrip .frame .code{position:absolute;left:.4cqw;bottom:.4cqw;z-index:1;font-family:var(--text);font-weight:500;font-size:.7cqw;color:#fff;opacity:.8}
+
+/* slow horizontal marquee (motion + appendix ideas) */
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.filmstrip .track,.anom-loop .track{animation:none}}
+.body.mb>.anom-loop{flex:1 1 0;min-height:0;height:auto}
+.anom-loop{overflow:hidden;width:100%}
+.anom-loop .track{display:flex;height:100%;align-items:center;width:max-content;animation:marq 96s linear infinite}
+.acard{height:100%;aspect-ratio:16/9;margin-right:1cqw;overflow:hidden;position:relative;background:#ece7dc;flex:none}
+.acard img{width:100%;height:100%;object-fit:cover;filter:saturate(.94)}
+.acard .code{position:absolute;left:.5cqw;bottom:.4cqw;font-family:var(--text);font-weight:500;font-size:.72cqw;letter-spacing:.04em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 
 /* ---- typography · two voices ---- */
 .tvoices{display:flex;flex-direction:column;height:100%}
@@ -252,7 +263,7 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
   <div class="pad">
     <div class="cover-c">
       <div class="wm">dreamtape<span class="dot">.</span></div>
-      <div class="spec"><span>LOS ANGELES</span><span class="d"></span><span>N34.05° W118.24°</span><span class="d"></span><span>35MM · 5600K</span><span class="d"></span><span>ANALOG / DRY</span></div>
+      <div class="spec"><span>35MM · 5600K</span><span class="d"></span><span>ANALOG / DRY</span><span class="d"></span><span>GRAIN · HISS</span></div>
       <div class="tg" data-i18n="tg">tape your dream</div>
     </div>
   </div>
@@ -271,7 +282,7 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
       <div class="toc">
         <div class="it"><span class="n">03</span><span class="t" data-i18n="toc.03">Brand personality &amp; archetype</span><span class="th" data-i18n="toc.03h">chart</span></div>
         <div class="it"><span class="n">04</span><span class="t" data-i18n="toc.04">Visual brand pillars</span><span class="th" data-i18n="toc.04h">index</span></div>
-        <div class="it"><span class="n">05</span><span class="t" data-i18n="toc.05">Moodboard I — Cinematic LA</span><span class="th" data-i18n="toc.05h">warm</span></div>
+        <div class="it"><span class="n">05</span><span class="t" data-i18n="toc.05">Moodboard I — Cinematic City</span><span class="th" data-i18n="toc.05h">warm</span></div>
         <div class="it"><span class="n">06</span><span class="t" data-i18n="toc.06">Moodboard II — Presence</span><span class="th" data-i18n="toc.06h">shadow</span></div>
         <div class="it"><span class="n">07</span><span class="t" data-i18n="toc.07">Moodboard III — Dreamscape</span><span class="th" data-i18n="toc.07h">vast</span></div>
         <div class="it"><span class="n">08</span><span class="t" data-i18n="toc.08">Moodboard IV — Analog &amp; texture</span><span class="th" data-i18n="toc.08h">tactile</span></div>
@@ -325,7 +336,7 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
     <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk" data-i18n="p4.brk">[ VISUAL THEMES ]</span><span data-i18n="p4.r">06 INGREDIENTS</span></div>
     <div class="body">
       <div class="quad">
-        <div class="qc"><span class="qn">I</span><span class="qt" data-i18n="p4.t1">Cinematic LA Vintage</span><span class="qd" data-i18n="p4.d1">Golden-hour Los Angeles as a film set — anamorphic, hazy, going down.</span></div>
+        <div class="qc"><span class="qn">I</span><span class="qt" data-i18n="p4.t1">Cinematic Vintage</span><span class="qd" data-i18n="p4.d1">A golden-hour city as a film set — anamorphic, hazy, going down.</span></div>
         <div class="qc"><span class="qn">II</span><span class="qt" data-i18n="p4.t2">Tape, as a feeling</span><span class="qd" data-i18n="p4.d2">Not the cassette — the warmth left on it. Hiss, grain, the bloom on worn film.</span></div>
         <div class="qc"><span class="qn">III</span><span class="qt" data-i18n="p4.t3">Vintage · Organic · Dry</span><span class="qd" data-i18n="p4.d3">Analog over digital. Dust, grain, sun-bleached color. No gloss.</span></div>
         <div class="qc"><span class="qn">IV</span><span class="qt" data-i18n="p4.t4">Dreamscape</span><span class="qd" data-i18n="p4.d4">The landscape that appears the instant you hear the sound.</span></div>
@@ -337,22 +348,22 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
   </div>
 </section>
 
-<!-- 05 · MOODBOARD I — CINEMATIC LA -->
+<!-- 05 · MOODBOARD I — CINEMATIC CITY -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">05/13</div>
   <div class="pad">
-    <div class="title" data-i18n="p5.title">MOODBOARD I — CINEMATIC LA</div>
+    <div class="title" data-i18n="p5.title">MOODBOARD I — CINEMATIC CITY</div>
     <div class="rule"></div>
     <div class="sys"><span data-i18n="p5.l">WARM · URBAN · GOLDEN HOUR</span><span class="brk" data-i18n="p5.brk">[ THE CITY AT DUSK ]</span><span>35MM · 5600K · NEON</span></div>
     <div class="body mb">
       <div class="board-la">
-        <div class="ph"><img src="assets/la_diner_dusk.jpg" alt="Diner at dusk"><span class="code">LA.01 · DINER</span></div>
-        <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt="Motel neon"><span class="code">LA.02 · MOTEL</span></div>
-        <div class="ph"><img src="assets/09_vintage_car_window.jpg" alt="Car window"><span class="code">LA.03 · DRIVE</span></div>
-        <div class="ph"><img src="assets/02_palm_haze.jpg" alt="Palms"><span class="code">LA.04 · PALMS</span></div>
-        <div class="ph"><img src="assets/13_pool_dusk.jpg" alt="Pool at dusk"><span class="code">LA.05 · POOL</span></div>
-        <div class="ph"><img src="assets/la_gas_golden.jpg" alt="Gas station"><span class="code">LA.06 · STATION</span></div>
+        <div class="ph"><img src="assets/la_diner_dusk.jpg" alt="Diner at dusk"><span class="code">CT.01 · DINER</span></div>
+        <div class="ph"><img src="assets/07_motel_neon_dusk.jpg" alt="Motel neon"><span class="code">CT.02 · MOTEL</span></div>
+        <div class="ph"><img src="assets/09_vintage_car_window.jpg" alt="Car window"><span class="code">CT.03 · DRIVE</span></div>
+        <div class="ph"><img src="assets/02_palm_haze.jpg" alt="Palms"><span class="code">CT.04 · PALMS</span></div>
+        <div class="ph"><img src="assets/13_pool_dusk.jpg" alt="Pool at dusk"><span class="code">CT.05 · POOL</span></div>
+        <div class="ph"><img src="assets/la_gas_golden.jpg" alt="Gas station"><span class="code">CT.06 · STATION</span></div>
       </div>
       <div class="kw">DUSK</div>
     </div>
@@ -376,7 +387,7 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
         <div class="ph p4"><img src="assets/12_curtain_light.jpg" alt="Curtain light"><span class="code">PR.04</span></div>
         <div class="ph p5"><img src="assets/pres_shadow_wall.jpg" alt="Shadow on wall"><span class="code">PR.05</span></div>
         <div class="ph p6"><img src="assets/11_dust_light.jpg" alt="Dust in light"><span class="code">PR.06</span></div>
-        <div class="note" data-i18n="p6.note">the magician never steps out from behind the trick</div>
+        <div class="note" data-i18n="p6.note">no faces — backlit, in shadow</div>
       </div>
       <div class="kw">SHADOW</div>
     </div>
@@ -445,10 +456,26 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
     <div class="body mb">
       <div class="board-mo">
         <div class="filmstrip">
-          <div class="frame"><img src="assets/mo_drive_blur.jpg" alt="Drive blur"><span class="code">01</span></div>
-          <div class="frame"><img src="assets/mo_window_reflect.jpg" alt="Window reflection"><span class="code">02</span></div>
-          <div class="frame"><img src="assets/mo_handheld_room.jpg" alt="Handheld room"><span class="code">03</span></div>
-          <div class="frame"><img src="assets/mo_road_night.jpg" alt="Road at night"><span class="code">04</span></div>
+          <div class="track">
+            <div class="frame"><img src="assets/mo_drive_blur.jpg" alt="Drive blur"><span class="code">01</span></div>
+            <div class="frame"><img src="assets/mo_window_reflect.jpg" alt="Window reflection"><span class="code">02</span></div>
+            <div class="frame"><img src="assets/mo_handheld_room.jpg" alt="Handheld room"><span class="code">03</span></div>
+            <div class="frame"><img src="assets/mo_road_night.jpg" alt="Road at night"><span class="code">04</span></div>
+            <div class="frame"><img src="assets/mo_palms_pan.jpg" alt="Palms blurred from a moving car"><span class="code">05</span></div>
+            <div class="frame"><img src="assets/mo_figure_walk.jpg" alt="Backlit figure walking"><span class="code">06</span></div>
+            <div class="frame"><img src="assets/mo_taillights.jpg" alt="Taillight trails on a wet road"><span class="code">07</span></div>
+            <div class="frame"><img src="assets/mo_curtain_flare.jpg" alt="Curtains in sunset light"><span class="code">08</span></div>
+            <div class="frame"><img src="assets/mo_neon_smear.jpg" alt="Neon smeared by a camera pan"><span class="code">09</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_drive_blur.jpg" alt=""><span class="code">01</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_window_reflect.jpg" alt=""><span class="code">02</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_handheld_room.jpg" alt=""><span class="code">03</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_road_night.jpg" alt=""><span class="code">04</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_palms_pan.jpg" alt=""><span class="code">05</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_figure_walk.jpg" alt=""><span class="code">06</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_taillights.jpg" alt=""><span class="code">07</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_curtain_flare.jpg" alt=""><span class="code">08</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_neon_smear.jpg" alt=""><span class="code">09</span></div>
+          </div>
         </div>
       </div>
       <div class="kw">MOTION</div>
@@ -477,7 +504,7 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
         </div>
       </div>
     </div>
-    <div class="disclaim" data-i18n="p10.disclaim">Bebas shouts, Helvetica speaks — <b>two voices, nothing more</b>.</div>
+    <div class="disclaim" data-i18n="p10.disclaim">Bebas for display, Helvetica for words — <b>two voices, nothing more</b>.</div>
     <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
@@ -493,22 +520,22 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
     <div class="body">
       <div class="tuse">
         <div class="endcard">
-          <div class="ec-top"><span>DREAMTAPE™</span><span>TAPE 001 · LA</span></div>
+          <div class="ec-top"><span>DREAMTAPE™</span><span>TAPE 001 · SIDE A</span></div>
           <div class="ec-mid">
             <div class="ec-kw">DREAM</div>
             <div class="ec-wm">dreamtape<span class="dot">.</span></div>
             <div class="ec-tg">tape your dream</div>
           </div>
-          <div class="ec-bot"><span>N34.05° W118.24°</span><span>35MM · 5600K · TAKE 03</span></div>
+          <div class="ec-bot"><span>ANALOG · DRY</span><span>35MM · 5600K · TAKE 03</span></div>
         </div>
         <div class="tuse-r">
           <div class="ladder">
             <div class="lr"><span class="lk" data-i18n="p11.k1">Keyword<br>Bebas</span><span class="lv v-bebas">DREAM</span></div>
-            <div class="lr"><span class="lk" data-i18n="p11.k2">Heading<br>Bebas</span><span class="lv v-bebas-h">Moodboard I — Cinematic LA</span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k2">Heading<br>Bebas</span><span class="lv v-bebas-h">Moodboard I — Cinematic City</span></div>
             <div class="lr"><span class="lk" data-i18n="p11.k3">Wordmark<br>Helv 700</span><span class="lv v-disp">dreamtape<span class="dot">.</span></span></div>
             <div class="lr"><span class="lk" data-i18n="p11.k4">Subhead<br>Helv 500 it.</span><span class="lv v-sh">a landscape appears the instant you hear it</span></div>
             <div class="lr"><span class="lk" data-i18n="p11.k5">Body<br>Helv 400</span><span class="lv v-body">Frame the subject naturally, giving the image a sense of scale and place.</span></div>
-            <div class="lr"><span class="lk" data-i18n="p11.k6">Caption<br>Helv 500</span><span class="lv v-cap">LA.01 · DINER · 5600K · TAKE 03</span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k6">Caption<br>Helv 500</span><span class="lv v-cap">CT.01 · DINER · 5600K · TAKE 03</span></div>
           </div>
           <div class="rule-note" data-i18n="p11.note"><b>Bebas is the display</b> — every heading and keyword. <b>Helvetica carries the words</b> — wordmark, body, labels, every spec. One accent — <span class="accent">terracotta</span> — and never more.</div>
         </div>
@@ -537,7 +564,7 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
           <div class="col"><div class="chip2" style="background:#7fa39a"></div><div class="hex">#7FA39A</div><div class="crole" data-i18n="c.sage">Sage</div><div class="cuse" data-i18n="c.sageu">faded horizon</div></div>
           <div class="col"><div class="chip2" style="background:#f7f4ee"></div><div class="hex">#F7F4EE</div><div class="crole" data-i18n="c.paper">Paper</div><div class="cuse" data-i18n="c.paperu">ground</div></div>
         </div>
-        <div class="cnote" data-i18n="p12.note">One warm accent against a cold machine. <b>Terracotta</b> is the only saturated voice — everything else is dust, steel, and faded sun.</div>
+        <div class="cnote" data-i18n="p12.note">One warm accent over cold tones. <b>Terracotta</b> is the only bright color; the rest stays calm.</div>
       </div>
     </div>
     <div class="adg" data-i18n="adg">Art Direction Guide</div>
@@ -557,7 +584,7 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
         <div class="sleeve">
           <img src="assets/sleeve_hero.jpg" alt="Release sleeve">
           <div class="lab">
-            <div class="tp"><span>dreamtape · tape 001</span><span>LA · N34.05°</span></div>
+            <div class="tp"><span>dreamtape · tape 001</span><span>SIDE A · 35MM</span></div>
             <div class="mk">dreamtape<small>tape 001 · side a · feat. —</small></div>
           </div>
         </div>
@@ -582,12 +609,18 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
     <div class="sys"><span data-i18n="apx.l">GAP STUDIES · IN EXPLORATION</span><span class="brk" data-i18n="apx.brk">[ NOT PART OF THE SYSTEM ]</span><span data-i18n="apx.r">FOR THE DIRECTORS</span></div>
     <div class="body mb">
       <div class="anom-note" data-i18n="apx.note">A single beautiful intruder inside the dream — an object from another reality. Sketches to react to, not decisions.</div>
-      <div class="board-anom">
-        <div class="hero ph"><img src="assets/anomaly_monolith.jpg" alt="Monolith in the dreamscape"><span class="code" data-i18n="apx.hero">AX.01 · MONOLITH — a precise, sourceless object at rest in the warm dream</span></div>
-        <div class="strip">
-          <div class="ph"><img src="assets/anomaly_craft.jpg" alt="Craft half-sunk in the dunes"><span class="code">AX.02 · CRAFT</span></div>
-          <div class="ph"><img src="assets/anomaly_monument.jpg" alt="Colossal hand by the water"><span class="code">AX.03 · MONUMENT</span></div>
-          <div class="ph"><img src="assets/anomaly_transit.jpg" alt="Escalator stranded in the dunes"><span class="code">AX.04 · TRANSIT</span></div>
+      <div class="anom-loop">
+        <div class="track">
+          <div class="acard"><img src="assets/anomaly_monolith.jpg" alt="Monolith in the dreamscape"><span class="code">AX.01 · MONOLITH</span></div>
+          <div class="acard"><img src="assets/anomaly_craft.jpg" alt="Craft half-sunk in the dunes"><span class="code">AX.02 · CRAFT</span></div>
+          <div class="acard"><img src="assets/anomaly_monument.jpg" alt="Colossal hand by the water"><span class="code">AX.03 · MONUMENT</span></div>
+          <div class="acard"><img src="assets/anomaly_transit.jpg" alt="Escalator stranded in the dunes"><span class="code">AX.04 · TRANSIT</span></div>
+          <div class="acard"><img src="assets/anomaly_shrine.jpg" alt="Weathered gate through the haze"><span class="code">AX.05 · GATE</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_monolith.jpg" alt=""><span class="code">AX.01 · MONOLITH</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_craft.jpg" alt=""><span class="code">AX.02 · CRAFT</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_monument.jpg" alt=""><span class="code">AX.03 · MONUMENT</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_transit.jpg" alt=""><span class="code">AX.04 · TRANSIT</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_shrine.jpg" alt=""><span class="code">AX.05 · GATE</span></div>
         </div>
       </div>
       <div class="kw kw-faint">ELSEWHERE</div>
@@ -614,7 +647,7 @@ const I18N = {
   'toc.03h':'チャート',
   'toc.04':'ビジュアルの​柱',
   'toc.04h':'一覧',
-  'toc.05':'ムードボード I ― シネマティックLA',
+  'toc.05':'ムードボード I ― シネマティックな​街',
   'toc.05h':'暖かい',
   'toc.06':'ムードボード II ― 気配',
   'toc.06h':'影',
@@ -646,8 +679,8 @@ const I18N = {
   'p4.title':'ビジュアルの​柱',
   'p4.brk':'［ ビジュアルの​テーマ ］',
   'p4.r':'6つの​要素',
-  'p4.t1':'シネマティックLA・ヴィンテージ',
-  'p4.d1':'映画の​セットのような​ゴールデンアワーの​LA。​横長の​画で、​霞んで、​沈んでいく。',
+  'p4.t1':'シネマティック・ヴィンテージ',
+  'p4.d1':'映画の​セットのような​夕暮れの​街。​横長の​画で、​霞んで、​沈んでいく。',
   'p4.t2':'感覚と​しての​テープ',
   'p4.d2':'カセット​その​ものではなく、​そこに​残る​温度。​ヒスノイズ、​粒子、​色あせた​フィルムのにじみ。',
   'p4.t3':'ヴィンテージ・オーガニック・ドライ',
@@ -658,13 +691,13 @@ const I18N = {
   'p4.d5':'作り手は​見せず、​感じさせる。​光に​溶けていく​人の​影。',
   'p4.t6':'ウォーム × マシン',
   'p4.d6':'冷たく​精密な​マシンが、​温かい夢を​包む。​dreamtape らしさを​つくる​組み合わせ。',
-  'p5.title':'ムードボード I ― シネマティックLA',
+  'p5.title':'ムードボード I ― シネマティックな​街',
   'p5.l':'暖かい ・ 街 ・ ゴールデンアワー',
   'p5.brk':'［ 夕暮れの​街 ］',
   'p6.title':'ムードボード II ― 気配',
   'p6.l':'影 ・ 逆光 ・ 顔を​見せない',
   'p6.brk':'［ 見せず、​感じさせる​ ］',
-  'p6.note':'マジシャンは、​種明かしの​前に​姿を​見せない',
+  'p6.note':'顔は​出さない。​逆光と​影だけ。',
   'p7.title':'ムードボード III ― 夢の​風景',
   'p7.l':'広い ・ パステル ・ 人が​いない',
   'p7.brk':'［ 音から​生まれる​風景 ］',
@@ -683,7 +716,7 @@ const I18N = {
   'p10.lab1':'Bebas Neue ・ 1ウェイト<br>見出し ・ ​大きな​キーワード',
   'p10.role2':'実用の​声',
   'p10.lab2':'Helvetica Neue<br>Bold ・ Medium ・ Regular<br>ワードマーク ・ 本文 ・ ラベル',
-  'p10.disclaim':'Bebas は​叫び、​Helvetica は​語る​ ― <b>声は​二つ、​それだけ</b>。',
+  'p10.disclaim':'Bebas は​見出し、​Helvetica は​文章。<b>声は​二つ、​それだけ。</b>',
   'p11.title':'書体の​使い方',
   'p11.l':'階層 ・ 組み合わせ ・ 使い方',
   'p11.brk':'［ ​二つの​声を​重ねる​ ］',
@@ -713,7 +746,7 @@ const I18N = {
   'c.sageu':'色あせた​地平',
   'c.paper':'ペーパー',
   'c.paperu':'下地',
-  'p12.note':'冷たい​マシンに、​温かい​アクセントを​一つだけ。​色が​はっきりしているのは<b>テラコッタ</b>だけ ― あとは​ほこり、​スチール、​色あせた陽の​色。',
+  'p12.note':'冷たい色を​ベースに、​温かい​アクセントを​一つ。​はっきりした色は<b>テラコッタ</b>だけで、​あとは​落ち着いた色。',
   'p13.title':'リリース・スリーブ',
   'p13.brk':'［ ひとつの​画面に、​すべて​ ］',
   'p13.h3':'すべてが​成り​立つ証明。',
