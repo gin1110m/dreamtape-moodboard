@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Arimo:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#f7f4ee;--gallery:#d7d3ca;--ink:#191712;--ink-soft:#6f685b;--ink-faint:#a39a88;
@@ -193,12 +194,55 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
 .app-tx .chips{display:flex;flex-wrap:wrap;gap:.6cqw}
 .chip{font-family:var(--text);font-weight:500;font-size:.92cqw;letter-spacing:.04em;padding:.5cqw 1cqw;border:.1cqw solid var(--steel-soft);color:var(--steel);text-transform:uppercase}
 
+/* ---- appendix · the anomaly (ideas, not the system) ---- */
+.pageno.apx{color:var(--accent);font-weight:700;letter-spacing:.14em}
+.toc .it.apx-it .n{color:var(--accent);font-weight:700}
+.toc .it.apx-it .th{color:var(--accent)}
+.anom-note{flex:none;font-family:var(--text);font-style:italic;font-weight:400;font-size:1.32cqw;color:var(--ink-soft);margin:.1cqw 0 .3cqw}
+.body.mb>.board-anom{flex:1 1 0;min-height:0;height:auto}
+.board-anom{display:grid;grid-template-rows:1.7fr .9fr;gap:1cqw;height:100%}
+.board-anom .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1cqw}
+.kw.kw-faint{font-size:4.4cqw;color:var(--steel);opacity:.55}
+
+/* ===== i18n · language toggle (EN ⇄ 日本語) ===== */
+:root{--mincho:'Shippori Mincho',serif;--gothic:'Noto Sans JP',sans-serif}
+.langtoggle{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:2px;padding:3px;background:rgba(247,244,238,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--steel-soft);box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.lt-btn{font-family:'Helvetica Neue',Helvetica,'Arimo',Arial,sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);background:transparent;border:0;padding:6px 11px;cursor:pointer;line-height:1;transition:color .15s ease,background .15s ease}
+.lt-btn[data-lang="ja"]{letter-spacing:.04em;font-family:var(--gothic);font-weight:700}
+.lt-btn[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lt-btn:not([aria-pressed="true"]):hover{color:var(--ink)}
+
+/* JP typography — only translated nodes switch font; brand assets stay latin */
+html[lang="ja"] [data-i18n]{font-family:var(--gothic);word-break:keep-all;overflow-wrap:anywhere}
+html[lang="ja"] .title[data-i18n],
+html[lang="ja"] .arch-txt h3[data-i18n],
+html[lang="ja"] .arch-txt p[data-i18n],
+html[lang="ja"] .qc .qt[data-i18n],
+html[lang="ja"] .qc .qd[data-i18n],
+html[lang="ja"] .anom-note[data-i18n],
+html[lang="ja"] .board-pres .note[data-i18n],
+html[lang="ja"] .cnote[data-i18n],
+html[lang="ja"] .rule-note[data-i18n],
+html[lang="ja"] .app-tx h3[data-i18n],
+html[lang="ja"] .app-tx p[data-i18n],
+html[lang="ja"] .cover-bl[data-i18n],
+html[lang="ja"] .cover-c .tg[data-i18n]{font-family:var(--mincho)}
+/* size tuning for JP (mincho is denser than bebas) */
+html[lang="ja"] .title{font-size:3.4cqw;letter-spacing:.05em;font-weight:700;padding-top:1.15cqw}
+html[lang="ja"] .qc .qt{font-size:1.62cqw;letter-spacing:.02em;font-weight:700;line-height:1.3}
+html[lang="ja"] .arch-txt p{font-size:1.34cqw;line-height:1.75}
+html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.1em}
+
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
+<div class="langtoggle" role="group" aria-label="Language / 言語">
+  <button class="lt-btn" data-lang="en" aria-pressed="true">EN</button>
+  <button class="lt-btn" data-lang="ja" aria-pressed="false">日本語</button>
+</div>
 <div class="deck">
 
 <!-- 01 · TITLE -->
@@ -209,10 +253,10 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
     <div class="cover-c">
       <div class="wm">dreamtape<span class="dot">.</span></div>
       <div class="spec"><span>LOS ANGELES</span><span class="d"></span><span>N34.05° W118.24°</span><span class="d"></span><span>35MM · 5600K</span><span class="d"></span><span>ANALOG / DRY</span></div>
-      <div class="tg">tape your dream</div>
+      <div class="tg" data-i18n="tg">tape your dream</div>
     </div>
   </div>
-  <div class="cover-bl">ART DIRECTION GUIDE · MOODBOARD</div>
+  <div class="cover-bl" data-i18n="cover.bl">ART DIRECTION GUIDE · MOODBOARD</div>
 </section>
 
 <!-- 02 · CONTENTS -->
@@ -220,26 +264,27 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">02/13</div>
   <div class="pad">
-    <div class="title">CONTENTS</div>
+    <div class="title" data-i18n="p2.title">CONTENTS</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ INDEX ]</span><span>SIDE A · 13 PAGES</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk" data-i18n="p2.brk">[ INDEX ]</span><span>SIDE A · 13 + APX</span></div>
     <div class="body">
       <div class="toc">
-        <div class="it"><span class="n">03</span><span class="t">Brand personality &amp; archetype</span><span class="th">chart</span></div>
-        <div class="it"><span class="n">04</span><span class="t">Visual brand pillars</span><span class="th">index</span></div>
-        <div class="it"><span class="n">05</span><span class="t">Moodboard I — Cinematic LA</span><span class="th">warm</span></div>
-        <div class="it"><span class="n">06</span><span class="t">Moodboard II — Presence</span><span class="th">shadow</span></div>
-        <div class="it"><span class="n">07</span><span class="t">Moodboard III — Dreamscape</span><span class="th">vast</span></div>
-        <div class="it"><span class="n">08</span><span class="t">Moodboard IV — Analog &amp; texture</span><span class="th">tactile</span></div>
-        <div class="it"><span class="n">09</span><span class="t">Motion — video style</span><span class="th">filmstrip</span></div>
-        <div class="it"><span class="n">10</span><span class="t">Typography — two voices</span><span class="th">type</span></div>
-        <div class="it"><span class="n">11</span><span class="t">Type in use</span><span class="th">applied</span></div>
-        <div class="it"><span class="n">12</span><span class="t">Color</span><span class="th">palette</span></div>
-        <div class="it"><span class="n">13</span><span class="t">Release sleeve</span><span class="th">sleeve</span></div>
+        <div class="it"><span class="n">03</span><span class="t" data-i18n="toc.03">Brand personality &amp; archetype</span><span class="th" data-i18n="toc.03h">chart</span></div>
+        <div class="it"><span class="n">04</span><span class="t" data-i18n="toc.04">Visual brand pillars</span><span class="th" data-i18n="toc.04h">index</span></div>
+        <div class="it"><span class="n">05</span><span class="t" data-i18n="toc.05">Moodboard I — Cinematic LA</span><span class="th" data-i18n="toc.05h">warm</span></div>
+        <div class="it"><span class="n">06</span><span class="t" data-i18n="toc.06">Moodboard II — Presence</span><span class="th" data-i18n="toc.06h">shadow</span></div>
+        <div class="it"><span class="n">07</span><span class="t" data-i18n="toc.07">Moodboard III — Dreamscape</span><span class="th" data-i18n="toc.07h">vast</span></div>
+        <div class="it"><span class="n">08</span><span class="t" data-i18n="toc.08">Moodboard IV — Analog &amp; texture</span><span class="th" data-i18n="toc.08h">tactile</span></div>
+        <div class="it"><span class="n">09</span><span class="t" data-i18n="toc.09">Motion — video style</span><span class="th" data-i18n="toc.09h">filmstrip</span></div>
+        <div class="it"><span class="n">10</span><span class="t" data-i18n="toc.10">Typography — two voices</span><span class="th" data-i18n="toc.10h">type</span></div>
+        <div class="it"><span class="n">11</span><span class="t" data-i18n="toc.11">Type in use</span><span class="th" data-i18n="toc.11h">applied</span></div>
+        <div class="it"><span class="n">12</span><span class="t" data-i18n="toc.12">Color</span><span class="th" data-i18n="toc.12h">palette</span></div>
+        <div class="it"><span class="n">13</span><span class="t" data-i18n="toc.13">Release sleeve</span><span class="th" data-i18n="toc.13h">sleeve</span></div>
+        <div class="it apx-it"><span class="n">APX</span><span class="t" data-i18n="toc.apx">The anomaly — ideas in exploration</span><span class="th" data-i18n="toc.apxh">not locked</span></div>
       </div>
     </div>
-    <div class="disclaim">This guide sets the visual direction for every dreamtape asset.</div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="disclaim" data-i18n="p2.disclaim">This guide sets the visual direction for every dreamtape asset.</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -248,25 +293,25 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">03/13</div>
   <div class="pad">
-    <div class="title">BRAND PERSONALITY &amp; ARCHETYPE</div>
+    <div class="title" data-i18n="p3.title">BRAND PERSONALITY &amp; ARCHETYPE</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ WHO THE BRAND IS ]</span><span>FIG.A · RATIO 80/20</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk" data-i18n="p3.brk">[ WHO THE BRAND IS ]</span><span>FIG.A · RATIO 80/20</span></div>
     <div class="body">
       <div class="arch">
         <div class="radar-wrap">
           <div class="radar"><div class="pie"></div><div class="spokes"></div><div class="ring"></div><div class="hub"></div></div>
-          <div class="radar-key"><span class="k-mag">■ 80% Magician</span><span class="k-eve">■ 20% Everyman</span></div>
+          <div class="radar-key"><span class="k-mag" data-i18n="p3.kmag">■ 80% Magician</span><span class="k-eve" data-i18n="p3.keve">■ 20% Everyman</span></div>
         </div>
         <div class="arch-txt">
-          <h3>Magician, with an everyman's hands.</h3>
-          <p><b>Magician (80%).</b> dreamtape builds a world and lets you walk in, never explaining how the trick is done. The work is the film; the music is its soundtrack. It shows you a landscape and lets you decide to stay.</p>
-          <p><b>Everyman (20%).</b> Two makers standing beside the listener, not above. A real voice, never performed. No luxury posturing, no hype.</p>
-          <p>The promise stays quiet and absolute: <em>deliver a dream to those who can no longer hold one.</em></p>
+          <h3 data-i18n="p3.h3">Magician, with an everyman's hands.</h3>
+          <p data-i18n="p3.p1"><b>Magician (80%).</b> dreamtape builds a world and lets you walk in, never explaining how the trick is done. The work is the film; the music is its soundtrack. It shows you a landscape and lets you decide to stay.</p>
+          <p data-i18n="p3.p2"><b>Everyman (20%).</b> Two makers standing beside the listener, not above. A real voice, never performed. No luxury posturing, no hype.</p>
+          <p data-i18n="p3.p3">The promise stays quiet and absolute: <em>deliver a dream to those who can no longer hold one.</em></p>
         </div>
       </div>
     </div>
-    <div class="disclaim">Creative should <b>not deviate</b> from these guidelines.</div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="disclaim" data-i18n="p3.disclaim">Creative should <b>not deviate</b> from these guidelines.</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -275,20 +320,20 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">04/13</div>
   <div class="pad">
-    <div class="title">VISUAL BRAND PILLARS</div>
+    <div class="title" data-i18n="p4.title">VISUAL BRAND PILLARS</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ VISUAL THEMES ]</span><span>06 INGREDIENTS</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk" data-i18n="p4.brk">[ VISUAL THEMES ]</span><span data-i18n="p4.r">06 INGREDIENTS</span></div>
     <div class="body">
       <div class="quad">
-        <div class="qc"><span class="qn">I</span><span class="qt">Cinematic LA Vintage</span><span class="qd">Golden-hour Los Angeles as a film set — anamorphic, hazy, going down.</span></div>
-        <div class="qc"><span class="qn">II</span><span class="qt">Tape, as a feeling</span><span class="qd">Not the cassette — the warmth left on it. Hiss, grain, the bloom on worn film.</span></div>
-        <div class="qc"><span class="qn">III</span><span class="qt">Vintage · Organic · Dry</span><span class="qd">Analog over digital. Dust, grain, sun-bleached color. No gloss.</span></div>
-        <div class="qc"><span class="qn">IV</span><span class="qt">Dreamscape</span><span class="qd">The landscape that appears the instant you hear the sound.</span></div>
-        <div class="qc"><span class="qn">V</span><span class="qt">Presence, dissolved</span><span class="qd">The makers felt, not shown — a figure melting into light.</span></div>
-        <div class="qc"><span class="qn">VI</span><span class="qt">Warm × Machine</span><span class="qd">A cold, precise system holding a warm dream. The signature tension.</span></div>
+        <div class="qc"><span class="qn">I</span><span class="qt" data-i18n="p4.t1">Cinematic LA Vintage</span><span class="qd" data-i18n="p4.d1">Golden-hour Los Angeles as a film set — anamorphic, hazy, going down.</span></div>
+        <div class="qc"><span class="qn">II</span><span class="qt" data-i18n="p4.t2">Tape, as a feeling</span><span class="qd" data-i18n="p4.d2">Not the cassette — the warmth left on it. Hiss, grain, the bloom on worn film.</span></div>
+        <div class="qc"><span class="qn">III</span><span class="qt" data-i18n="p4.t3">Vintage · Organic · Dry</span><span class="qd" data-i18n="p4.d3">Analog over digital. Dust, grain, sun-bleached color. No gloss.</span></div>
+        <div class="qc"><span class="qn">IV</span><span class="qt" data-i18n="p4.t4">Dreamscape</span><span class="qd" data-i18n="p4.d4">The landscape that appears the instant you hear the sound.</span></div>
+        <div class="qc"><span class="qn">V</span><span class="qt" data-i18n="p4.t5">Presence, dissolved</span><span class="qd" data-i18n="p4.d5">The makers felt, not shown — a figure melting into light.</span></div>
+        <div class="qc"><span class="qn">VI</span><span class="qt" data-i18n="p4.t6">Warm × Machine</span><span class="qd" data-i18n="p4.d6">A cold, precise system holding a warm dream. The signature tension.</span></div>
       </div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -297,9 +342,9 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">05/13</div>
   <div class="pad">
-    <div class="title">MOODBOARD I — CINEMATIC LA</div>
+    <div class="title" data-i18n="p5.title">MOODBOARD I — CINEMATIC LA</div>
     <div class="rule"></div>
-    <div class="sys"><span>WARM · URBAN · GOLDEN HOUR</span><span class="brk">[ THE CITY AT DUSK ]</span><span>35MM · 5600K · NEON</span></div>
+    <div class="sys"><span data-i18n="p5.l">WARM · URBAN · GOLDEN HOUR</span><span class="brk" data-i18n="p5.brk">[ THE CITY AT DUSK ]</span><span>35MM · 5600K · NEON</span></div>
     <div class="body mb">
       <div class="board-la">
         <div class="ph"><img src="assets/la_diner_dusk.jpg" alt="Diner at dusk"><span class="code">LA.01 · DINER</span></div>
@@ -311,7 +356,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
       </div>
       <div class="kw">DUSK</div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -320,9 +365,9 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">06/13</div>
   <div class="pad">
-    <div class="title">MOODBOARD II — PRESENCE</div>
+    <div class="title" data-i18n="p6.title">MOODBOARD II — PRESENCE</div>
     <div class="rule"></div>
-    <div class="sys"><span>SHADOW · BACKLIT · FACELESS</span><span class="brk">[ FELT, NOT SHOWN ]</span><span>SUBJECT · UNIDENTIFIED</span></div>
+    <div class="sys"><span data-i18n="p6.l">SHADOW · BACKLIT · FACELESS</span><span class="brk" data-i18n="p6.brk">[ FELT, NOT SHOWN ]</span><span>SUBJECT · UNIDENTIFIED</span></div>
     <div class="body mb">
       <div class="board-pres">
         <div class="ph p1"><img src="assets/06_lone_dissolve.jpg" alt="Figure dissolving"><span class="code">PR.01</span></div>
@@ -331,11 +376,11 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
         <div class="ph p4"><img src="assets/12_curtain_light.jpg" alt="Curtain light"><span class="code">PR.04</span></div>
         <div class="ph p5"><img src="assets/pres_shadow_wall.jpg" alt="Shadow on wall"><span class="code">PR.05</span></div>
         <div class="ph p6"><img src="assets/11_dust_light.jpg" alt="Dust in light"><span class="code">PR.06</span></div>
-        <div class="note">the magician never steps out from behind the trick</div>
+        <div class="note" data-i18n="p6.note">the magician never steps out from behind the trick</div>
       </div>
       <div class="kw">SHADOW</div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -344,12 +389,12 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">07/13</div>
   <div class="pad">
-    <div class="title">MOODBOARD III — DREAMSCAPE</div>
+    <div class="title" data-i18n="p7.title">MOODBOARD III — DREAMSCAPE</div>
     <div class="rule"></div>
-    <div class="sys"><span>VAST · PASTEL · UNPEOPLED</span><span class="brk">[ LANDSCAPE FROM SOUND ]</span><span>THE HORIZON</span></div>
+    <div class="sys"><span data-i18n="p7.l">VAST · PASTEL · UNPEOPLED</span><span class="brk" data-i18n="p7.brk">[ LANDSCAPE FROM SOUND ]</span><span data-i18n="p7.r">THE HORIZON</span></div>
     <div class="body mb">
       <div class="board-dream">
-        <div class="hero ph"><img src="assets/dream_salt_flats.jpg" alt="Salt flats at dawn"><span class="code">DR.01 · SALT FLATS — the moment you hear it, a landscape appears</span></div>
+        <div class="hero ph"><img src="assets/dream_salt_flats.jpg" alt="Salt flats at dawn"><span class="code" data-i18n="p7.hero">DR.01 · SALT FLATS — the moment you hear it, a landscape appears</span></div>
         <div class="strip">
           <div class="ph"><img src="assets/05_desert_horizon_dream.jpg" alt="Desert"><span class="code">DR.02</span></div>
           <div class="ph"><img src="assets/dream_mountains_haze.jpg" alt="Mountains"><span class="code">DR.03</span></div>
@@ -360,7 +405,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
       </div>
       <div class="kw">DREAM</div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -369,9 +414,9 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">08/13</div>
   <div class="pad">
-    <div class="title">MOODBOARD IV — ANALOG &amp; TEXTURE</div>
+    <div class="title" data-i18n="p8.title">MOODBOARD IV — ANALOG &amp; TEXTURE</div>
     <div class="rule"></div>
-    <div class="sys"><span>TACTILE · GRITTY · DRY</span><span class="brk">[ RECORDED, NOT RENDERED ]</span><span>MATERIAL SAMPLES</span></div>
+    <div class="sys"><span data-i18n="p8.l">TACTILE · GRITTY · DRY</span><span class="brk" data-i18n="p8.brk">[ RECORDED, NOT RENDERED ]</span><span data-i18n="p8.r">MATERIAL SAMPLES</span></div>
     <div class="body mb">
       <div class="board-tex">
         <div class="ph"><img src="assets/tex_grain_macro.jpg" alt="Film grain"><span class="code">TX.01 GRAIN</span></div>
@@ -385,7 +430,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
       </div>
       <div class="kw">ANALOG</div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -394,9 +439,9 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">09/13</div>
   <div class="pad">
-    <div class="title">MOTION — VIDEO STYLE</div>
+    <div class="title" data-i18n="p9.title">MOTION — VIDEO STYLE</div>
     <div class="rule"></div>
-    <div class="sys"><span>HANDHELD · SUPER-8 · 24FPS</span><span class="brk">[ THE VISUALIZER IS A SHORT FILM ]</span><span>IN THE MOMENT</span></div>
+    <div class="sys"><span>HANDHELD · SUPER-8 · 24FPS</span><span class="brk" data-i18n="p9.brk">[ THE VISUALIZER IS A SHORT FILM ]</span><span data-i18n="p9.r">IN THE MOMENT</span></div>
     <div class="body mb">
       <div class="board-mo">
         <div class="filmstrip">
@@ -408,7 +453,7 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
       </div>
       <div class="kw">MOTION</div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -417,23 +462,23 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">10/13</div>
   <div class="pad">
-    <div class="title">TYPOGRAPHY — TWO VOICES</div>
+    <div class="title" data-i18n="p10.title">TYPOGRAPHY — TWO VOICES</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ BEBAS + HELVETICA ]</span><span>TYPE · 02 FAMILIES</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ BEBAS + HELVETICA ]</span><span data-i18n="p10.r">TYPE · 02 FAMILIES</span></div>
     <div class="body">
       <div class="tvoices">
         <div class="tv">
-          <div class="lab"><span class="idx">01</span><span class="role">The <span class="accent">display</span></span>Bebas Neue · single weight<br>Headings · giant keywords</div>
+          <div class="lab"><span class="idx">01</span><span class="role" data-i18n="p10.role1">The <span class="accent">display</span></span><span data-i18n="p10.lab1">Bebas Neue · single weight<br>Headings · giant keywords</span></div>
           <div class="tvspec"><div class="big g-bebas">DUSK · DREAM · ANALOG</div><div class="glyph gl-bebas">A B C D E F G H · 0 1 2 3 4 5 6 7 8 9</div></div>
         </div>
         <div class="tv">
-          <div class="lab"><span class="idx">02</span><span class="role">The workhorse</span>Helvetica Neue<br>Bold · Medium · Regular<br>Wordmark · body · labels</div>
+          <div class="lab"><span class="idx">02</span><span class="role" data-i18n="p10.role2">The workhorse</span><span data-i18n="p10.lab2">Helvetica Neue<br>Bold · Medium · Regular<br>Wordmark · body · labels</span></div>
           <div class="tvspec"><div class="big g-disp">dreamtape<span class="dot">.</span></div><div class="wts"><span style="font-weight:700">Bold</span> · <span style="font-weight:500">Medium</span> · <span style="font-weight:400">Regular</span></div><div class="glyph gl-text">Aa Bb Cc Dd · 0 1 2 3 4 5 6 7 8 9 · ( ) &amp; ? — “ ”</div></div>
         </div>
       </div>
     </div>
-    <div class="disclaim">Bebas shouts, Helvetica speaks — <b>two voices, nothing more</b>.</div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="disclaim" data-i18n="p10.disclaim">Bebas shouts, Helvetica speaks — <b>two voices, nothing more</b>.</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -442,9 +487,9 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">11/13</div>
   <div class="pad">
-    <div class="title">TYPE IN USE</div>
+    <div class="title" data-i18n="p11.title">TYPE IN USE</div>
     <div class="rule"></div>
-    <div class="sys"><span>HIERARCHY · PAIRING · APPLIED</span><span class="brk">[ TWO VOICES, STACKED ]</span><span>FIG.B · END CARD</span></div>
+    <div class="sys"><span data-i18n="p11.l">HIERARCHY · PAIRING · APPLIED</span><span class="brk" data-i18n="p11.brk">[ TWO VOICES, STACKED ]</span><span>FIG.B · END CARD</span></div>
     <div class="body">
       <div class="tuse">
         <div class="endcard">
@@ -458,18 +503,18 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
         </div>
         <div class="tuse-r">
           <div class="ladder">
-            <div class="lr"><span class="lk">Keyword<br>Bebas</span><span class="lv v-bebas">DREAM</span></div>
-            <div class="lr"><span class="lk">Heading<br>Bebas</span><span class="lv v-bebas-h">Moodboard I — Cinematic LA</span></div>
-            <div class="lr"><span class="lk">Wordmark<br>Helv 700</span><span class="lv v-disp">dreamtape<span class="dot">.</span></span></div>
-            <div class="lr"><span class="lk">Subhead<br>Helv 500 it.</span><span class="lv v-sh">a landscape appears the instant you hear it</span></div>
-            <div class="lr"><span class="lk">Body<br>Helv 400</span><span class="lv v-body">Frame the subject naturally, giving the image a sense of scale and place.</span></div>
-            <div class="lr"><span class="lk">Caption<br>Helv 500</span><span class="lv v-cap">LA.01 · DINER · 5600K · TAKE 03</span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k1">Keyword<br>Bebas</span><span class="lv v-bebas">DREAM</span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k2">Heading<br>Bebas</span><span class="lv v-bebas-h">Moodboard I — Cinematic LA</span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k3">Wordmark<br>Helv 700</span><span class="lv v-disp">dreamtape<span class="dot">.</span></span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k4">Subhead<br>Helv 500 it.</span><span class="lv v-sh">a landscape appears the instant you hear it</span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k5">Body<br>Helv 400</span><span class="lv v-body">Frame the subject naturally, giving the image a sense of scale and place.</span></div>
+            <div class="lr"><span class="lk" data-i18n="p11.k6">Caption<br>Helv 500</span><span class="lv v-cap">LA.01 · DINER · 5600K · TAKE 03</span></div>
           </div>
-          <div class="rule-note"><b>Bebas is the display</b> — every heading and keyword. <b>Helvetica carries the words</b> — wordmark, body, labels, every spec. One accent — <span class="accent">terracotta</span> — and never more.</div>
+          <div class="rule-note" data-i18n="p11.note"><b>Bebas is the display</b> — every heading and keyword. <b>Helvetica carries the words</b> — wordmark, body, labels, every spec. One accent — <span class="accent">terracotta</span> — and never more.</div>
         </div>
       </div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -478,24 +523,24 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">12/13</div>
   <div class="pad">
-    <div class="title">COLOR</div>
+    <div class="title" data-i18n="p12.title">COLOR</div>
     <div class="rule"></div>
-    <div class="sys"><span>WARM DREAM × COLD MACHINE</span><span class="brk">[ ONE ACCENT, NEVER MORE ]</span><span>07 COLORS</span></div>
+    <div class="sys"><span data-i18n="p12.l">WARM DREAM × COLD MACHINE</span><span class="brk" data-i18n="p12.brk">[ ONE ACCENT, NEVER MORE ]</span><span data-i18n="p12.r">07 COLORS</span></div>
     <div class="body">
       <div class="colors">
         <div class="cgrid">
-          <div class="col"><div class="chip2" style="background:#191712"></div><div class="hex">#191712</div><div class="crole">Ink</div><div class="cuse">text · base</div></div>
-          <div class="col"><div class="chip2" style="background:#5b6b78"></div><div class="hex">#5B6B78</div><div class="crole">Steel</div><div class="cuse">the machine · metadata</div></div>
-          <div class="col"><div class="chip2" style="background:#c4683d"><span class="acc">Accent</span></div><div class="hex">#C4683D</div><div class="crole">Terracotta</div><div class="cuse">the one accent</div></div>
-          <div class="col"><div class="chip2" style="background:#d9a566"></div><div class="hex">#D9A566</div><div class="crole">Amber</div><div class="cuse">golden hour</div></div>
-          <div class="col"><div class="chip2" style="background:#cabfa6"></div><div class="hex">#CABFA6</div><div class="crole">Sand</div><div class="cuse">analog tone</div></div>
-          <div class="col"><div class="chip2" style="background:#7fa39a"></div><div class="hex">#7FA39A</div><div class="crole">Sage</div><div class="cuse">faded horizon</div></div>
-          <div class="col"><div class="chip2" style="background:#f7f4ee"></div><div class="hex">#F7F4EE</div><div class="crole">Paper</div><div class="cuse">ground</div></div>
+          <div class="col"><div class="chip2" style="background:#191712"></div><div class="hex">#191712</div><div class="crole" data-i18n="c.ink">Ink</div><div class="cuse" data-i18n="c.inku">text · base</div></div>
+          <div class="col"><div class="chip2" style="background:#5b6b78"></div><div class="hex">#5B6B78</div><div class="crole" data-i18n="c.steel">Steel</div><div class="cuse" data-i18n="c.steelu">the machine · metadata</div></div>
+          <div class="col"><div class="chip2" style="background:#c4683d"><span class="acc" data-i18n="c.acc">Accent</span></div><div class="hex">#C4683D</div><div class="crole" data-i18n="c.terra">Terracotta</div><div class="cuse" data-i18n="c.terrau">the one accent</div></div>
+          <div class="col"><div class="chip2" style="background:#d9a566"></div><div class="hex">#D9A566</div><div class="crole" data-i18n="c.amber">Amber</div><div class="cuse" data-i18n="c.amberu">golden hour</div></div>
+          <div class="col"><div class="chip2" style="background:#cabfa6"></div><div class="hex">#CABFA6</div><div class="crole" data-i18n="c.sand">Sand</div><div class="cuse" data-i18n="c.sandu">analog tone</div></div>
+          <div class="col"><div class="chip2" style="background:#7fa39a"></div><div class="hex">#7FA39A</div><div class="crole" data-i18n="c.sage">Sage</div><div class="cuse" data-i18n="c.sageu">faded horizon</div></div>
+          <div class="col"><div class="chip2" style="background:#f7f4ee"></div><div class="hex">#F7F4EE</div><div class="crole" data-i18n="c.paper">Paper</div><div class="cuse" data-i18n="c.paperu">ground</div></div>
         </div>
-        <div class="cnote">One warm accent against a cold machine. <b>Terracotta</b> is the only saturated voice — everything else is dust, steel, and faded sun.</div>
+        <div class="cnote" data-i18n="p12.note">One warm accent against a cold machine. <b>Terracotta</b> is the only saturated voice — everything else is dust, steel, and faded sun.</div>
       </div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
   </div>
 </section>
 
@@ -504,9 +549,9 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno">13/13</div>
   <div class="pad">
-    <div class="title">RELEASE SLEEVE</div>
+    <div class="title" data-i18n="p13.title">RELEASE SLEEVE</div>
     <div class="rule"></div>
-    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk">[ EVERYTHING IN ONE FRAME ]</span><span>TAPE 001</span></div>
+    <div class="sys"><span>DREAMTAPE™ · VISUAL SYSTEM 1.0</span><span class="brk" data-i18n="p13.brk">[ EVERYTHING IN ONE FRAME ]</span><span>TAPE 001</span></div>
     <div class="body">
       <div class="app">
         <div class="sleeve">
@@ -517,13 +562,38 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
           </div>
         </div>
         <div class="app-tx">
-          <h3>The proof it all holds.</h3>
-          <p>A dreamscape dragged through analog grain — one Bebas keyword, the Helvetica Bold wordmark, Helvetica credits, and a single terracotta accent. Warm dream, cold machine, one world.</p>
-          <div class="chips"><span class="chip">dreamscape</span><span class="chip">analog grain</span><span class="chip">bebas keyword</span><span class="chip">helvetica bold</span><span class="chip">steel × terracotta</span></div>
+          <h3 data-i18n="p13.h3">The proof it all holds.</h3>
+          <p data-i18n="p13.p">A dreamscape dragged through analog grain — one Bebas keyword, the Helvetica Bold wordmark, Helvetica credits, and a single terracotta accent. Warm dream, cold machine, one world.</p>
+          <div class="chips"><span class="chip" data-i18n="p13.c1">dreamscape</span><span class="chip" data-i18n="p13.c2">analog grain</span><span class="chip">bebas keyword</span><span class="chip">helvetica bold</span><span class="chip" data-i18n="p13.c5">steel × terracotta</span></div>
         </div>
       </div>
     </div>
-    <div class="adg">Art Direction Guide</div>
+    <div class="adg" data-i18n="adg">Art Direction Guide</div>
+  </div>
+</section>
+
+<!-- APX · APPENDIX — THE ANOMALY (ideas, not the system) -->
+<section class="slide reveal">
+  <div class="logo">dreamtape<sup>™</sup></div>
+  <div class="pageno apx">APX</div>
+  <div class="pad">
+    <div class="title" data-i18n="apx.title">APPENDIX — THE ANOMALY</div>
+    <div class="rule"></div>
+    <div class="sys"><span data-i18n="apx.l">GAP STUDIES · IN EXPLORATION</span><span class="brk" data-i18n="apx.brk">[ NOT PART OF THE SYSTEM ]</span><span data-i18n="apx.r">FOR THE DIRECTORS</span></div>
+    <div class="body mb">
+      <div class="anom-note" data-i18n="apx.note">A single beautiful intruder inside the dream — an object from another reality. Sketches to react to, not decisions.</div>
+      <div class="board-anom">
+        <div class="hero ph"><img src="assets/anomaly_monolith.jpg" alt="Monolith in the dreamscape"><span class="code" data-i18n="apx.hero">AX.01 · MONOLITH — a precise, sourceless object at rest in the warm dream</span></div>
+        <div class="strip">
+          <div class="ph"><img src="assets/anomaly_craft.jpg" alt="Craft half-sunk in the dunes"><span class="code">AX.02 · CRAFT</span></div>
+          <div class="ph"><img src="assets/anomaly_monument.jpg" alt="Colossal hand by the water"><span class="code">AX.03 · MONUMENT</span></div>
+          <div class="ph"><img src="assets/anomaly_transit.jpg" alt="Escalator stranded in the dunes"><span class="code">AX.04 · TRANSIT</span></div>
+        </div>
+      </div>
+      <div class="kw kw-faint">ELSEWHERE</div>
+    </div>
+    <div class="disclaim" data-i18n="apx.disclaim">Exploration only — <b>not direction</b>. Nothing here is locked; to be shaped together.</div>
+    <div class="adg" data-i18n="apx.adg">Ideas · not the guide</div>
   </div>
 </section>
 
@@ -531,6 +601,156 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>
+const I18N = {
+  'tg':'音を​聴いた​瞬間に、​景色が​見える',
+  'cover.bl':'アートディレクション・ガイド ／ ムードボード',
+  'adg':'アートディレクション・ガイド',
+  'p2.title':'目次',
+  'p2.brk':'［ 目次 ］',
+  'p2.disclaim':'この​ガイドは​ dreamtape の​すべての​制作物の​ビジュアルの​方向を​定める。',
+  'toc.03':'ブランドの​人格と​アーキタイプ',
+  'toc.03h':'チャート',
+  'toc.04':'ビジュアルの​柱',
+  'toc.04h':'指針',
+  'toc.05':'ムードボード I ― シネマティックLA',
+  'toc.05h':'暖',
+  'toc.06':'ムードボード II ― 気配',
+  'toc.06h':'影',
+  'toc.07':'ムードボード III ― 夢景',
+  'toc.07h':'広',
+  'toc.08':'ムードボード IV ― アナログと​質感',
+  'toc.08h':'質感',
+  'toc.09':'モーション ― 映像の​スタイル',
+  'toc.09h':'フィルム',
+  'toc.10':'タイポグラフィ ― ​二つの​声',
+  'toc.10h':'書体',
+  'toc.11':'書体の​運用',
+  'toc.11h':'運用',
+  'toc.12':'カラー',
+  'toc.12h':'パレット',
+  'toc.13':'リリース・スリーブ',
+  'toc.13h':'スリーブ',
+  'toc.apx':'アノマリー ― 検討中の​アイデア',
+  'toc.apxh':'未確定',
+  'p3.title':'ブランドの​人格と​アーキタイプ',
+  'p3.brk':'［ ブランドの​正体 ］',
+  'p3.kmag':'■ マジシャン 80%',
+  'p3.keve':'■ エヴリマン 20%',
+  'p3.h3':'マジシャン、​けれど市井の​手を​持つ。',
+  'p3.p1':'<b>マジシャン​（80%）。</b>dreamtape は​世界を​つくり、​その​中へ​歩いて​入らせる。​種明かしは​しない。​作品が​映画で、​音楽は​その​サウンドトラック。​風景を​見せて、​留まるか​どうかは​聴き手に​委ねる。',
+  'p3.p2':'<b>エヴリマン​（20%）。</b>二人の​作り手は、​聴き手の​上ではなく​隣に​立つ。​演じない、​素のままの​声。​ラグジュアリーの​誇示も、​煽りも​ない。',
+  'p3.p3':'約束は​静かで、​揺るが​ない。<em>夢を​見られなくなった​人に、​もう​一度​夢を​届ける。</em>',
+  'p3.disclaim':'制作は​この​指針から<b>逸脱しない</b>こと。',
+  'p4.title':'ビジュアルの​柱',
+  'p4.brk':'［ ビジュアルの​テーマ ］',
+  'p4.r':'06 の​要素',
+  'p4.t1':'シネマティックLA・ヴィンテージ',
+  'p4.d1':'映画の​セットと​しての​ゴールデンアワーの​ロサンゼルス。​アナモルフィック、​霞んで、​沈んでいく。',
+  'p4.t2':'感覚と​しての​テープ',
+  'p4.d2':'カセット​その​ものではなく、​そこに​残る​温度。​ヒス、​粒子、​褪せた​フィルムの​滲み。',
+  'p4.t3':'ヴィンテージ・​有機的・ドライ',
+  'p4.d3':'デジタルより​アナログ。​埃、​粒子、​陽に​焼けた色。​光沢はなし。',
+  'p4.t4':'夢景​（ドリームスケープ）',
+  'p4.d4':'その音を​聴いた​瞬間に​立ち上がる​風景。',
+  'p4.t5':'溶けた​気配',
+  'p4.d5':'作り手は​見せず、​感じさせる。​光に​溶けていく​人影。',
+  'p4.t6':'ウォーム × マシン',
+  'p4.d6':'冷たく​精密な​機構が、​温かい夢を​抱える。​dreamtape の​核と​なる​緊張。',
+  'p5.title':'ムードボード I ― シネマティックLA',
+  'p5.l':'暖 ・ 都市 ・ ゴールデンアワー',
+  'p5.brk':'［ 黄昏の​街 ］',
+  'p6.title':'ムードボード II ― 気配',
+  'p6.l':'影 ・ 逆光 ・ 顔の​ない',
+  'p6.brk':'［ 見せず、​感じさせる​ ］',
+  'p6.note':'マジシャンは、​種明かしの​前に​姿を​現さない',
+  'p7.title':'ムードボード III ― 夢景',
+  'p7.l':'広大 ・ パステル ・ 無人',
+  'p7.brk':'［ 音から​生まれる​風景 ］',
+  'p7.r':'地平線',
+  'p7.hero':'DR.01 · SALT FLATS ― 聴いた​瞬間、​風景が​立ち上がる',
+  'p8.title':'ムードボード IV ― アナログと​質感',
+  'p8.l':'触感 ・​ ざらつき ・ ドライ',
+  'p8.brk':'［ レンダーではなく、​録られた​もの​ ］',
+  'p8.r':'素材サンプル',
+  'p9.title':'モーション ― 映像の​スタイル',
+  'p9.brk':'［ ビジュアライザーは​短編映画 ］',
+  'p9.r':'その​瞬間に',
+  'p10.title':'タイポグラフィ ― ​二つの​声',
+  'p10.r':'書体 ・ 02 ファミリー',
+  'p10.role1':'<span class="accent">ディスプレイ</span>',
+  'p10.lab1':'Bebas Neue ・ 単一ウェイト<br>見出し ・ 巨大な​キーワード',
+  'p10.role2':'実用の​声',
+  'p10.lab2':'Helvetica Neue<br>Bold ・ Medium ・ Regular<br>ワードマーク ・ 本文 ・ ラベル',
+  'p10.disclaim':'Bebas は​叫び、​Helvetica は​語る​ ― <b>声は​二つ、​それ以上は​持たない</b>。',
+  'p11.title':'書体の​運用',
+  'p11.l':'階層 ・ 組み合わせ ・ 運用',
+  'p11.brk':'［ ​二つの​声を​重ねる​ ］',
+  'p11.k1':'キーワード<br>Bebas',
+  'p11.k2':'見出し<br>Bebas',
+  'p11.k3':'ワードマーク<br>Helv 700',
+  'p11.k4':'サブヘッド<br>Helv 500 斜体',
+  'p11.k5':'本文<br>Helv 400',
+  'p11.k6':'キャプション<br>Helv 500',
+  'p11.note':'<b>Bebas は​ディスプレイ</b> ― すべての​見出しと​キーワード。<b>Helvetica は​言葉を​運ぶ</b> ― ワードマーク、​本文、​ラベル、​あらゆる​スペック。​アクセントは​一色 ― <span class="accent">テラコッタ</span> ― それ以上は​使わない。',
+  'p12.title':'カラー',
+  'p12.l':'暖かい​夢 × ​冷たい​機構',
+  'p12.brk':'［ アクセントは​一色、​それ以上は​持たない​ ］',
+  'p12.r':'07 色',
+  'c.ink':'インク',
+  'c.inku':'文字・基調',
+  'c.steel':'スチール',
+  'c.steelu':'機構・​メタデータ',
+  'c.acc':'アクセント',
+  'c.terra':'テラコッタ',
+  'c.terrau':'唯一の​アクセント',
+  'c.amber':'アンバー',
+  'c.amberu':'ゴールデンアワー',
+  'c.sand':'サンド',
+  'c.sandu':'アナログの​色',
+  'c.sage':'セージ',
+  'c.sageu':'褪せた​地平',
+  'c.paper':'ペーパー',
+  'c.paperu':'地',
+  'p12.note':'冷たい​機構に、​温かい​アクセントを​一つ。​彩度を​持つのは<b>テラコッタ</b>だけ ― 残りは​埃と、​スチールと、​褪せた​陽の​色。',
+  'p13.title':'リリース・スリーブ',
+  'p13.brk':'［ ひとつの​フレームに、​すべて​ ］',
+  'p13.h3':'すべてが​成立する、​その​証明。',
+  'p13.p':'アナログの​粒子を​くぐらせた​夢景 ― Bebas の​キーワードを​一語、​Helvetica Bold の​ワードマーク、​Helvetica の​クレジット、​そして​テラコッタの​アクセントを​一つ。​温かい夢と​冷たい​機構、​ひとつの​世界。',
+  'p13.c1':'夢景',
+  'p13.c2':'アナログ粒子',
+  'p13.c5':'スチール × テラコッタ',
+  'apx.title':'付録 ― アノマリー',
+  'apx.l':'ギャップの​検討 ・ 探索中',
+  'apx.brk':'［ システムには​含まない​ ］',
+  'apx.r':'二人の​監督へ',
+  'apx.note':'夢の​中に、​美しい​侵入者を​ひとつ ― 別の​現実から​来た物体。​決定ではなく、​反応する​ための​スケッチ。',
+  'apx.hero':'AX.01 · MONOLITH ― 温かい夢の​中に​佇む、​光源を​持たない​精密な物体',
+  'apx.disclaim':'探索のみ​ ― <b>指針ではない</b>。​ここに​確定は​ない。​二人で​形に​していく。',
+  'apx.adg':'アイデア ・ ガイドではない'
+};
+const I18N_NODES = Array.from(document.querySelectorAll('[data-i18n]'));
+const I18N_EN = new Map(I18N_NODES.map(n => [n, n.innerHTML]));
+function setLang(lang){
+  if(lang!=='ja') lang='en';
+  document.documentElement.lang = lang;
+  I18N_NODES.forEach(n=>{
+    const k = n.getAttribute('data-i18n');
+    n.innerHTML = (lang==='ja' && I18N[k]!=null) ? I18N[k] : I18N_EN.get(n);
+  });
+  document.querySelectorAll('.lt-btn').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.lang===lang)));
+  try{ localStorage.setItem('dt_lang', lang); }catch(e){}
+}
+document.querySelectorAll('.lt-btn').forEach(b=> b.addEventListener('click', ()=> setLang(b.dataset.lang)));
+(function(){
+  let lang='en';
+  try{
+    const u=new URLSearchParams(location.search).get('lang');
+    if(u==='ja'||u==='en') lang=u; else lang=localStorage.getItem('dt_lang')||'en';
+  }catch(e){}
+  setLang(lang);
+})();
 </script>
 </body>
 </html>
