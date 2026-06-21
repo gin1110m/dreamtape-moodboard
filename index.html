@@ -123,9 +123,13 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
 .filmstrip .frame img{width:100%;height:100%;object-fit:cover}
 .filmstrip .frame .code{position:absolute;left:.4cqw;bottom:.4cqw;z-index:1;font-family:var(--text);font-weight:500;font-size:.7cqw;color:#fff;opacity:.8}
 
-/* slow horizontal marquee (motion + appendix ideas) */
+/* slow horizontal marquee (motion + appendix ideas) — CSS auto-loop is the
+   fallback; JS upgrades it to wheel/two-finger scrub with inertia */
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.filmstrip .track,.anom-loop .track{animation:none}}
+.track.js-driven{animation:none!important;will-change:transform}
+.filmstrip,.anom-loop{cursor:grab}
+.filmstrip:active,.anom-loop:active{cursor:grabbing}
 .body.mb>.anom-loop{flex:1 1 0;min-height:0;height:auto}
 .anom-loop{overflow:hidden;width:100%}
 .anom-loop .track{display:flex;height:100%;align-items:center;width:max-content;animation:marq 96s linear infinite}
@@ -456,25 +460,31 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
     <div class="body mb">
       <div class="board-mo">
         <div class="filmstrip">
-          <div class="track">
-            <div class="frame"><img src="assets/mo_drive_blur.jpg" alt="Drive blur"><span class="code">01</span></div>
-            <div class="frame"><img src="assets/mo_window_reflect.jpg" alt="Window reflection"><span class="code">02</span></div>
-            <div class="frame"><img src="assets/mo_handheld_room.jpg" alt="Handheld room"><span class="code">03</span></div>
-            <div class="frame"><img src="assets/mo_road_night.jpg" alt="Road at night"><span class="code">04</span></div>
-            <div class="frame"><img src="assets/mo_palms_pan.jpg" alt="Palms blurred from a moving car"><span class="code">05</span></div>
-            <div class="frame"><img src="assets/mo_figure_walk.jpg" alt="Backlit figure walking"><span class="code">06</span></div>
-            <div class="frame"><img src="assets/mo_taillights.jpg" alt="Taillight trails on a wet road"><span class="code">07</span></div>
-            <div class="frame"><img src="assets/mo_curtain_flare.jpg" alt="Curtains in sunset light"><span class="code">08</span></div>
-            <div class="frame"><img src="assets/mo_neon_smear.jpg" alt="Neon smeared by a camera pan"><span class="code">09</span></div>
+          <div class="track" data-marquee="34">
+            <div class="frame"><img src="assets/mo_drive_blur.jpg" alt="Drive blur at night"><span class="code">01</span></div>
+            <div class="frame"><img src="assets/mo_day_drive.jpg" alt="Sunlit drive, daytime"><span class="code">02</span></div>
+            <div class="frame"><img src="assets/mo_window_reflect.jpg" alt="Window reflection"><span class="code">03</span></div>
+            <div class="frame"><img src="assets/mo_taillights.jpg" alt="Taillight trails on a wet road"><span class="code">04</span></div>
+            <div class="frame"><img src="assets/mo_day_coast.jpg" alt="Bright coastal road, daytime"><span class="code">05</span></div>
+            <div class="frame"><img src="assets/mo_handheld_room.jpg" alt="Handheld room"><span class="code">06</span></div>
+            <div class="frame"><img src="assets/mo_road_night.jpg" alt="Road at night"><span class="code">07</span></div>
+            <div class="frame"><img src="assets/mo_day_window.jpg" alt="Bright midday window"><span class="code">08</span></div>
+            <div class="frame"><img src="assets/mo_palms_pan.jpg" alt="Palms blurred from a moving car"><span class="code">09</span></div>
+            <div class="frame"><img src="assets/mo_figure_walk.jpg" alt="Backlit figure walking"><span class="code">10</span></div>
+            <div class="frame"><img src="assets/mo_curtain_flare.jpg" alt="Curtains in sunset light"><span class="code">11</span></div>
+            <div class="frame"><img src="assets/mo_neon_smear.jpg" alt="Neon smeared by a camera pan"><span class="code">12</span></div>
             <div class="frame" aria-hidden="true"><img src="assets/mo_drive_blur.jpg" alt=""><span class="code">01</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_window_reflect.jpg" alt=""><span class="code">02</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_handheld_room.jpg" alt=""><span class="code">03</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_road_night.jpg" alt=""><span class="code">04</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_palms_pan.jpg" alt=""><span class="code">05</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_figure_walk.jpg" alt=""><span class="code">06</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_taillights.jpg" alt=""><span class="code">07</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_curtain_flare.jpg" alt=""><span class="code">08</span></div>
-            <div class="frame" aria-hidden="true"><img src="assets/mo_neon_smear.jpg" alt=""><span class="code">09</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_day_drive.jpg" alt=""><span class="code">02</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_window_reflect.jpg" alt=""><span class="code">03</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_taillights.jpg" alt=""><span class="code">04</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_day_coast.jpg" alt=""><span class="code">05</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_handheld_room.jpg" alt=""><span class="code">06</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_road_night.jpg" alt=""><span class="code">07</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_day_window.jpg" alt=""><span class="code">08</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_palms_pan.jpg" alt=""><span class="code">09</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_figure_walk.jpg" alt=""><span class="code">10</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_curtain_flare.jpg" alt=""><span class="code">11</span></div>
+            <div class="frame" aria-hidden="true"><img src="assets/mo_neon_smear.jpg" alt=""><span class="code">12</span></div>
           </div>
         </div>
       </div>
@@ -610,17 +620,25 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
     <div class="body mb">
       <div class="anom-note" data-i18n="apx.note">A single beautiful intruder inside the dream — an object from another reality. Sketches to react to, not decisions.</div>
       <div class="anom-loop">
-        <div class="track">
+        <div class="track" data-marquee="26">
           <div class="acard"><img src="assets/anomaly_monolith.jpg" alt="Monolith in the dreamscape"><span class="code">AX.01 · MONOLITH</span></div>
           <div class="acard"><img src="assets/anomaly_craft.jpg" alt="Craft half-sunk in the dunes"><span class="code">AX.02 · CRAFT</span></div>
           <div class="acard"><img src="assets/anomaly_monument.jpg" alt="Colossal hand by the water"><span class="code">AX.03 · MONUMENT</span></div>
           <div class="acard"><img src="assets/anomaly_transit.jpg" alt="Escalator stranded in the dunes"><span class="code">AX.04 · TRANSIT</span></div>
           <div class="acard"><img src="assets/anomaly_shrine.jpg" alt="Weathered gate through the haze"><span class="code">AX.05 · GATE</span></div>
+          <div class="acard"><img src="assets/anomaly_structure.jpg" alt="Mechanical structure far on the horizon"><span class="code">AX.06 · STRUCTURE</span></div>
+          <div class="acard"><img src="assets/anomaly_rig.jpg" alt="Mechanical structure cut off at the edge"><span class="code">AX.07 · RIG</span></div>
+          <div class="acard"><img src="assets/anomaly_twin_suns.jpg" alt="Two soft suns low in the haze"><span class="code">AX.08 · TWIN SUNS</span></div>
+          <div class="acard"><img src="assets/anomaly_mirror.jpg" alt="A structure reflected in the flats"><span class="code">AX.09 · MIRROR</span></div>
           <div class="acard" aria-hidden="true"><img src="assets/anomaly_monolith.jpg" alt=""><span class="code">AX.01 · MONOLITH</span></div>
           <div class="acard" aria-hidden="true"><img src="assets/anomaly_craft.jpg" alt=""><span class="code">AX.02 · CRAFT</span></div>
           <div class="acard" aria-hidden="true"><img src="assets/anomaly_monument.jpg" alt=""><span class="code">AX.03 · MONUMENT</span></div>
           <div class="acard" aria-hidden="true"><img src="assets/anomaly_transit.jpg" alt=""><span class="code">AX.04 · TRANSIT</span></div>
           <div class="acard" aria-hidden="true"><img src="assets/anomaly_shrine.jpg" alt=""><span class="code">AX.05 · GATE</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_structure.jpg" alt=""><span class="code">AX.06 · STRUCTURE</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_rig.jpg" alt=""><span class="code">AX.07 · RIG</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_twin_suns.jpg" alt=""><span class="code">AX.08 · TWIN SUNS</span></div>
+          <div class="acard" aria-hidden="true"><img src="assets/anomaly_mirror.jpg" alt=""><span class="code">AX.09 · MIRROR</span></div>
         </div>
       </div>
       <div class="kw kw-faint">ELSEWHERE</div>
@@ -783,6 +801,41 @@ document.querySelectorAll('.lt-btn').forEach(b=> b.addEventListener('click', ()=
     if(u==='ja'||u==='en') lang=u; else lang=localStorage.getItem('dt_lang')||'en';
   }catch(e){}
   setLang(lang);
+})();
+
+// ---- horizontal marquee: slow auto-drift + two-finger / wheel scrub with inertia ----
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.track[data-marquee]').forEach(track=>{
+    const base = reduce ? 0 : (parseFloat(track.getAttribute('data-marquee'))||30); // px/s
+    const view = track.parentElement;            // .filmstrip / .anom-loop
+    track.classList.add('js-driven');
+    let pos=0, vel=0, half=0, last=null;
+    const measure=()=>{ half = track.scrollWidth/2; };
+    measure();
+    function frame(t){
+      if(last==null) last=t;
+      let dt=(t-last)/1000; last=t; if(dt>0.05) dt=0.05;
+      if(!half) measure();
+      pos += (base+vel)*dt;
+      vel *= Math.pow(0.02, dt);                  // inertia: settles in ~1s
+      if(Math.abs(vel)<0.5) vel=0;
+      if(half>0){ pos%=half; if(pos<0) pos+=half; }
+      track.style.transform='translateX('+(-pos)+'px)';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+    view.addEventListener('wheel', (e)=>{
+      if(Math.abs(e.deltaX) >= Math.abs(e.deltaY)){  // horizontal intent only
+        e.preventDefault();
+        pos += e.deltaX;                             // follow the fingers
+        vel += e.deltaX * 9;                         // add momentum
+        vel = Math.max(-4500, Math.min(4500, vel));  // cap
+      }
+    }, {passive:false});
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', ()=>setTimeout(measure,120));
+  });
 })();
 </script>
 </body>
