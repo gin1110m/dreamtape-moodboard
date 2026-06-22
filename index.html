@@ -124,6 +124,26 @@ body{background:var(--gallery);color:var(--ink);font-family:var(--text);-webkit-
 .cult-badge .mk .dot{color:var(--accent)}
 .sys .cult-note{max-width:25cqw;text-align:right;text-transform:none;letter-spacing:.01em;font-weight:500;line-height:1.35;color:var(--ink-faint)}
 
+/* REF · real-world reference WALL — Cult OVERALL-moodboard: mixed-size collage + text column */
+.wall{display:grid;grid-template-columns:1.75fr 1fr;grid-template-rows:minmax(0,1fr);gap:2.6cqw;height:100%}
+.wall-imgs,.wall-txt{min-height:0;min-width:0}
+.wall-imgs{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr);gap:.6cqw;height:100%}
+.wall-imgs .ph:nth-child(1){grid-column:1/4;grid-row:1/3}
+.wall-imgs .ph:nth-child(2){grid-column:4/7;grid-row:1/2}
+.wall-imgs .ph:nth-child(3){grid-column:4/6;grid-row:2/3}
+.wall-imgs .ph:nth-child(4){grid-column:6/7;grid-row:2/4}
+.wall-imgs .ph:nth-child(5){grid-column:1/3;grid-row:3/4}
+.wall-imgs .ph:nth-child(6){grid-column:3/4;grid-row:3/4}
+.wall-imgs .ph:nth-child(7){grid-column:4/6;grid-row:3/4}
+.wall-imgs .ph:nth-child(8){grid-column:1/4;grid-row:4/5}
+.wall-imgs .ph:nth-child(9){grid-column:4/7;grid-row:4/5}
+.wall-txt{display:flex;flex-direction:column;justify-content:center;gap:1cqw}
+.wall-txt h3{font-family:var(--bebas);font-size:2.5cqw;letter-spacing:.03em;line-height:1.02;color:var(--ink)}
+.wall-txt p{font-family:var(--text);font-size:1.18cqw;line-height:1.6;color:var(--ink-soft)}
+.wall-txt p b{color:var(--ink);font-weight:700}
+html[lang="ja"] .wall-txt h3[data-i18n]{font-family:var(--mincho);font-size:2cqw;line-height:1.3}
+html[lang="ja"] .wall-txt p[data-i18n]{font-family:var(--mincho);line-height:1.85}
+
 /* V · Motion — 35mm filmstrip, slow horizontal loop */
 .board-mo{height:100%;display:flex;align-items:center;justify-content:center}
 .filmstrip{position:relative;background:#17140f;padding:2.4cqw 0;height:84%;width:100%;overflow:hidden}
@@ -623,82 +643,43 @@ html[lang="ja"] .cover-c .tg{font-style:normal;font-size:1.9cqw;letter-spacing:.
   </div>
 </section>
 
-<!-- REF I · REAL — DREAMSCAPE &amp; LIGHT (Cult photography-style method) -->
+<!-- REF I · REAL-WORLD REFERENCE (Cult OVERALL-moodboard method: mixed collage + text) -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno ref">REF I</div>
   <div class="pad">
-    <div class="title" data-i18n="ref1.title">REAL — DREAMSCAPE &amp; LIGHT</div>
+    <div class="title" data-i18n="refw.title">REAL-WORLD REFERENCE</div>
     <div class="rule"></div>
-    <div class="sys"><span data-i18n="ref1.l">FOUND PHOTOGRAPHY · TONE &amp; LIGHT</span><span class="brk" data-i18n="ref.brk">[ REFERENCE ONLY ]</span><span class="cult-note" data-i18n="ref.note">Tone &amp; texture to use across the brand — not final images.</span></div>
-    <div class="body mb">
-      <div class="board-cult">
-        <div class="ph"><img src="assets/ref_dreamscape_00.jpg" alt="the sun shines brightly in the distance as it reflects on the surface of water"><span class="code">RL.01 · LAND</span></div>
-        <div class="ph"><img src="assets/ref_dreamscape_08.jpg" alt="Witness the surreal beauty of the Bonneville Salt Flats at sunset. The fiery sky reflects "><span class="code">RL.02 · LAND</span></div>
-        <div class="ph"><img src="assets/ref_dreamscape_09.jpg" alt="Fiery sunset over Lake Tsimanampetsotsa! Salt flats, crystalline formations, and abstract "><span class="code">RL.03 · LAND</span></div>
-        <div class="ph"><img src="assets/ref_film35_01.jpg" alt="a woman sitting in the middle of a field at sunset"><span class="code">RL.04 · 35MM</span></div>
-        <div class="ph"><img src="assets/ref_film35_13.jpg" alt="a woman sitting at a table in front of a window looking out on the street"><span class="code">RL.05 · 35MM</span></div>
-        <div class="ph"><img src="assets/ref_film35_17.jpg" alt="the kitchen counter is clean and ready to be used for breakfast or coffee break, while the"><span class="code">RL.06 · 35MM</span></div>
+    <div class="sys"><span data-i18n="refw.l">FOUND PHOTOGRAPHY · ALL THEMES</span><span class="brk" data-i18n="ref.brk">[ REFERENCE ONLY ]</span><span class="cult-note" data-i18n="ref.note">Tone &amp; texture to use across the brand — not final images.</span></div>
+    <div class="body">
+      <div class="wall">
+        <div class="wall-imgs">
+          <div class="ph"><img src="assets/ref_dreamscape_08.jpg" alt="Witness the surreal beauty of the Bonneville Salt Flats at sunset. The fiery sky reflects "><span class="code">DREAMSCAPE</span></div>
+          <div class="ph"><img src="assets/ref_dreamscape_00.jpg" alt="the sun shines brightly in the distance as it reflects on the surface of water"><span class="code">DREAMSCAPE</span></div>
+          <div class="ph"><img src="assets/ref_film35_01.jpg" alt="a woman sitting in the middle of a field at sunset"><span class="code">35MM</span></div>
+          <div class="ph"><img src="assets/ref_presence_02.jpg" alt="a woman is standing in front of the sun"><span class="code">PRESENCE</span></div>
+          <div class="ph"><img src="assets/ref_analog_04.jpg" alt="an old stereo with two reels attached to the front and side of each one"><span class="code">ANALOG</span></div>
+          <div class="ph"><img src="assets/ref_analog_14.jpg" alt="an orange and white cassette tape with the words i think of you in every being to you"><span class="code">TAPE</span></div>
+          <div class="ph"><img src="assets/ref_texture_06.jpg" alt="Free overlay Burned Film // 35 mm // Personal Archive"><span class="code">GRAIN</span></div>
+          <div class="ph"><img src="assets/ref_americana_05.jpg" alt="a sandwich shop is lit up at night in the rain with cars parked outside it"><span class="code">COLOR</span></div>
+          <div class="ph"><img src="assets/ref_americana_09.jpg" alt="a man standing on the side of a road next to a parked car at sunset"><span class="code">COLOR</span></div>
+        </div>
+        <div class="wall-txt">
+          <h3 data-i18n="refw.h">NOT OURS —<br>THE FEELING TO MATCH</h3>
+          <p data-i18n="refw.p1"><b>These are not our images.</b> Found photography, gathered as the real-world tone dreamtape is tuned to.</p>
+          <p data-i18n="refw.p2">Shot on film, not rendered. Warm at the edges, a little worn, never posed; the light does the work and the subject stays half-hidden. Match this feeling — the grain, the dusk, the quiet — before a single dreamtape frame is made.</p>
+        </div>
       </div>
-      <div class="kw">LIGHT</div>
     </div>
     <div class="cult-badge"><span class="mk">dt<span class="dot">.</span></span></div>
     <div class="adg" data-i18n="ref.adg">Tone reference · between us</div>
   </div>
 </section>
 
-<!-- REF II · REAL — ANALOG &amp; GRAIN (Cult photography-style method) -->
+<!-- REF II · QUIET CRAFT (Cult photography-style row) -->
 <section class="slide reveal">
   <div class="logo">dreamtape<sup>™</sup></div>
   <div class="pageno ref">REF II</div>
-  <div class="pad">
-    <div class="title" data-i18n="ref2.title">REAL — ANALOG &amp; GRAIN</div>
-    <div class="rule"></div>
-    <div class="sys"><span data-i18n="ref2.l">FOUND PHOTOGRAPHY · TAPE &amp; GRAIN</span><span class="brk" data-i18n="ref.brk">[ REFERENCE ONLY ]</span><span class="cult-note" data-i18n="ref.note">Tone &amp; texture to use across the brand — not final images.</span></div>
-    <div class="body mb">
-      <div class="board-cult">
-        <div class="ph"><img src="assets/ref_analog_04.jpg" alt="an old stereo with two reels attached to the front and side of each one"><span class="code">RA.01 · TAPE</span></div>
-        <div class="ph"><img src="assets/ref_analog_14.jpg" alt="an orange and white cassette tape with the words i think of you in every being to you"><span class="code">RA.02 · TAPE</span></div>
-        <div class="ph"><img src="assets/ref_analog_05.jpg" alt="an old fashioned reel recorder with two tape recorders on it's front and back sides"><span class="code">RA.03 · TAPE</span></div>
-        <div class="ph"><img src="assets/ref_texture_00.jpg" alt="a black and white photo of birds flying in the sky with no one on it"><span class="code">RA.04 · GRAIN</span></div>
-        <div class="ph"><img src="assets/ref_texture_06.jpg" alt="Free overlay Burned Film // 35 mm // Personal Archive"><span class="code">RA.05 · GRAIN</span></div>
-        <div class="ph"><img src="assets/ref_texture_19.jpg" alt="an orange and yellow blurry background with lines"><span class="code">RA.06 · GRAIN</span></div>
-      </div>
-      <div class="kw">GRAIN</div>
-    </div>
-    <div class="cult-badge"><span class="mk">dt<span class="dot">.</span></span></div>
-    <div class="adg" data-i18n="ref.adg">Tone reference · between us</div>
-  </div>
-</section>
-
-<!-- REF III · REAL — PRESENCE &amp; COLOR (Cult photography-style method) -->
-<section class="slide reveal">
-  <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno ref">REF III</div>
-  <div class="pad">
-    <div class="title" data-i18n="ref3.title">REAL — PRESENCE &amp; COLOR</div>
-    <div class="rule"></div>
-    <div class="sys"><span data-i18n="ref3.l">FOUND PHOTOGRAPHY · FIGURE &amp; COLOR</span><span class="brk" data-i18n="ref.brk">[ REFERENCE ONLY ]</span><span class="cult-note" data-i18n="ref.note">Tone &amp; texture to use across the brand — not final images.</span></div>
-    <div class="body mb">
-      <div class="board-cult">
-        <div class="ph"><img src="assets/ref_presence_02.jpg" alt="a woman is standing in front of the sun"><span class="code">RP.01 · FIGURE</span></div>
-        <div class="ph"><img src="assets/ref_presence_06.jpg" alt="a woman standing in front of a light with her head turned to the side and hands behind her"><span class="code">RP.02 · FIGURE</span></div>
-        <div class="ph"><img src="assets/ref_presence_00.jpg" alt="a woman standing in the dark with her back turned to the camera and light shining on her"><span class="code">RP.03 · FIGURE</span></div>
-        <div class="ph"><img src="assets/ref_americana_05.jpg" alt="a sandwich shop is lit up at night in the rain with cars parked outside it"><span class="code">RP.04 · COLOR</span></div>
-        <div class="ph"><img src="assets/ref_americana_09.jpg" alt="a man standing on the side of a road next to a parked car at sunset"><span class="code">RP.05 · COLOR</span></div>
-        <div class="ph"><img src="assets/ref_americana_11.jpg" alt="people crossing the street in the rain at night"><span class="code">RP.06 · COLOR</span></div>
-      </div>
-      <div class="kw">PRESENCE</div>
-    </div>
-    <div class="cult-badge"><span class="mk">dt<span class="dot">.</span></span></div>
-    <div class="adg" data-i18n="ref.adg">Tone reference · between us</div>
-  </div>
-</section>
-
-<!-- REF IV · REAL — QUIET CRAFT (Cult photography-style method) -->
-<section class="slide reveal">
-  <div class="logo">dreamtape<sup>™</sup></div>
-  <div class="pageno ref">REF IV</div>
   <div class="pad">
     <div class="title" data-i18n="ref4.title">REAL — QUIET CRAFT</div>
     <div class="rule"></div>
@@ -796,10 +777,15 @@ const I18N = {
   'toc.apx':'アノマリー ― 検討中の​アイデア',
   'toc.apxh':'未確定',
   'toc.ref':'実写トーンの​参照 ― 実在の​写真',
-  'toc.refh':'×4',
+  'toc.refh':'×2',
   'ref.brk':'［ 参照のみ​ ］',
   'ref.r':'私たちの​画像ではない',
   'ref.note':'ブランド全体で​使う​トーンと​質感​ ― 最終画像ではない。',
+  'refw.title':'実写リファレンス',
+  'refw.l':'実在の​写真 ・ 全テーマ',
+  'refw.h':'私たちのではない​ ―<br>合わせに​いく​感じ',
+  'refw.p1':'<b>これは​私たちの​画像ではない。</b>集めてきた​参照用の​写真で、​dreamtape が​合わせに​いく​実在の​トーン。',
+  'refw.p2':'CGではなく​フィルム。​ふちが​温かく、​少し​褪せていて、​作り込まない。​光が​仕事を​して、​人は​半分隠れたまま。​まず​この​感じ ― 粒子、​夕暮れ、​静けさ ― を​合わせる。​dreamtape の​一枚を​作る​前に。',
   'ref.disclaim':'実在の​写真の​参照 ― めざす<b>トーンと​質感</b>。​最終画像ではない。',
   'ref.adg':'実写トーン参照 ・ 二人の​間で',
   'ref1.title':'実写 ― 夢の​風景と​光',
